@@ -7,7 +7,7 @@ const config: UserConfig = {
   },
   proxy: {
     '/api': {
-      target: 'https://example.com',
+      target: 'http://localhost:4010',
       changeOrigin: true
     }
   }
