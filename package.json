@@ -7,11 +7,14 @@
     "lint": "eslint --ext .js,.vue src",
     "type-check": "tsc",
     "fetch-openapi": "node scripts/fetchOpenapi.js",
+    "gen-api": "node scripts/generateApi.js",
     "start-mock": "prism mock -d scripts/traPortfolio.v1.yaml",
-    "postinstall": "npm run fetch-openapi"
+    "clean": "rimraf scripts/traPorfolio.v1.yaml src/lib/apis/generated",
+    "postinstall": "npm run fetch-openapi && npm run gen-api"
   },
   "dependencies": {
     "@iconify/iconify": "^1.0.7",
+    "axios": "^0.21.0",
     "direct-vuex": "^0.12.0",
     "ress": "^3.0.0",
     "vue": "^3.0.3",
@@ -20,6 +23,7 @@
   },
   "devDependencies": {
     "@iconify/json": "^1.1.266",
+    "@openapitools/openapi-generator-cli": "^2.1.7",
     "@stoplight/prism-cli": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
@@ -32,7 +36,9 @@
     "eslint-plugin-vue": "^7.1.0",
     "node-fetch": "^2.6.1",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.29.0",
+    "ts-morph": "^9.1.0",
     "typescript": "^4.1.2",
     "vite": "^1.0.0-rc.13",
     "vite-plugin-purge-icons": "^0.4.5"

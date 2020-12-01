@@ -21,6 +21,13 @@ module.exports = {
   ],
   rules: {
     'no-console': 'warn',
-    'no-debugger': 'warn'
+    'no-debugger': 'warn',
+    'no-restricted-imports': [
+      'error',
+      {
+        name: '/@/lib/apis/generated',
+        message: 'Please use /@/lib/apis instead.'
+      }
+    ]
   }
 }
