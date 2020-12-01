@@ -1,5 +1,5 @@
 {
-  "name": "vite-boilerplate-plus",
+  "name": "traportfolio",
   "version": "0.0.0",
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run start-mock\"",
