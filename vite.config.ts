@@ -14,6 +14,11 @@ const config: UserConfig = {
       changeOrigin: true
     }
   },
+  cssPreprocessOptions: {
+    scss: {
+      additionalData: `@import "${srcPath}/styles/common.scss";`
+    }
+  },
   plugins: [PurgeIcons()]
 }
 
