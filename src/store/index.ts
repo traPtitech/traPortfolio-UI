@@ -1,22 +1,18 @@
 import { createDirectStore } from 'direct-vuex'
+import { state } from './state'
+import { getters } from './getters'
+import { mutations } from './mutations'
+import { actions } from './actions'
 
-const { store } = createDirectStore({
-  state: {
-    count: 0
-  },
-  getters: {
-    countString(state) {
-      if (state.count === 0) return 'zero'
-      if (state.count === 1) return 'once'
-      return `${state.count} times`
-    }
-  },
-  mutations: {
-    increment(state) {
-      state.count++
-    }
-  }
+const directStore = createDirectStore({
+  state,
+  getters,
+  mutations,
+  actions
 })
+export const { rootGetterContext, rootActionContext } = directStore
+
+const { store } = directStore
 
 export default store.original
 
