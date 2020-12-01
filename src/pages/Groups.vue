@@ -1,11 +1,11 @@
 <template>
-  <div>Index</div>
+  <div>Groups</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Index'
+  name: 'Groups'
 })
 </script>
