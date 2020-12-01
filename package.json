@@ -13,6 +13,7 @@
   "dependencies": {
     "@iconify/iconify": "^1.0.7",
     "direct-vuex": "^0.12.0",
+    "ress": "^3.0.0",
     "vue": "^3.0.3",
     "vue-router": "^4.0.0-rc.6",
     "vuex": "^4.0.0-rc.2"
