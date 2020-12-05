@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Header',
@@ -19,5 +19,10 @@ export default defineComponent({
 <style lang="scss" module>
 .container {
   display: flex;
+  height: 5rem;
+  padding: 0 3rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 0.1rem $color-secondary;
 }
 </style>
