@@ -22,7 +22,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props) {
+  setup() {
     const iconSrc = computed(
       () =>
         `https://q.trap.jp/api/v3/public/icon/${
