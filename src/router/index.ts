@@ -1,20 +1,25 @@
 import { defineAsyncComponent } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import Loading from '/@/pages/Loading.vue'
 
-const Index = defineAsyncComponent(() => import('/@/pages/Index.vue'))
-const Search = defineAsyncComponent(() => import('/@/pages/Search.vue'))
-const User = defineAsyncComponent(() => import('/@/pages/User.vue'))
-const Groups = defineAsyncComponent(() => import('/@/pages/Groups.vue'))
-const Group = defineAsyncComponent(() => import('/@/pages/Group.vue'))
-const Projects = defineAsyncComponent(() => import('/@/pages/Projects.vue'))
-const Project = defineAsyncComponent(() => import('/@/pages/Project.vue'))
-const Events = defineAsyncComponent(() => import('/@/pages/Events.vue'))
-const Event = defineAsyncComponent(() => import('/@/pages/Event.vue'))
-const Contests = defineAsyncComponent(() => import('/@/pages/Contests.vue'))
-const Contest = defineAsyncComponent(() => import('/@/pages/Contest.vue'))
-const ContestTeam = defineAsyncComponent(
-  () => import('/@/pages/ContestTeam.vue')
-)
+const defineAsyncComponentWithLoading = (path: string) =>
+  defineAsyncComponent({
+    loader: () => import(path),
+    loadingComponent: Loading
+  })
+
+const Index = defineAsyncComponentWithLoading('/@/pages/Index.vue')
+const Search = defineAsyncComponentWithLoading('/@/pages/Search.vue')
+const User = defineAsyncComponentWithLoading('/@/pages/User.vue')
+const Groups = defineAsyncComponentWithLoading('/@/pages/Groups.vue')
+const Group = defineAsyncComponentWithLoading('/@/pages/Group.vue')
+const Projects = defineAsyncComponentWithLoading('/@/pages/Projects.vue')
+const Project = defineAsyncComponentWithLoading('/@/pages/Project.vue')
+const Events = defineAsyncComponentWithLoading('/@/pages/Events.vue')
+const Event = defineAsyncComponentWithLoading('/@/pages/Event.vue')
+const Contests = defineAsyncComponentWithLoading('/@/pages/Contests.vue')
+const Contest = defineAsyncComponentWithLoading('/@/pages/Contest.vue')
+const ContestTeam = defineAsyncComponentWithLoading('/@/pages/ContestTeam.vue')
 
 const routes = [
   {
