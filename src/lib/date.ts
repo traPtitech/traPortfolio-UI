@@ -13,8 +13,3 @@ export const getFullDayString = (date: Date): string =>
 
 export const getFullDayWithTimeString = (date: Date): string =>
   getFullDayString(date) + ' ' + getTimeString(date)
-
-export const getSinceDate = (since: string): string => {
-  const sinceDate = new Date(since)
-  return getFullDayString(sinceDate)
-}
