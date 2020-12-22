@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, reactive } from 'vue'
+import { computed, defineComponent, PropType } from 'vue'
 import { Event } from '/@/lib/apis'
 import { getFullDayString } from '/@/lib/date'
 
@@ -21,7 +21,9 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const date = computed(() => getFullDayString(new Date(props.event.duration.since)))
+    const date = computed(() =>
+      getFullDayString(new Date(props.event.duration.since))
+    )
     return { date }
   }
 })
