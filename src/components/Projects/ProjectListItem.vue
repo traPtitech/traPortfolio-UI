@@ -2,6 +2,11 @@
   <div>
     <router-link :class="$style.link" :to="`/projects/${project.id}`">
       <span :class="$style.name">{{ project.name }}</span>
+      <br />
+      <span v-for="(term, index) in project.duration" :key="index">
+        {{ term }}
+        <br />
+      </span>
     </router-link>
   </div>
 </template>

@@ -1,6 +1,10 @@
 <template>
   <section :class="$style.container">
-    <project-list-item v-for="project in projects" :key="project.id" :project="project" />
+    <project-list-item
+      v-for="project in projects"
+      :key="project.id"
+      :project="project"
+    />
   </section>
 </template>
 
