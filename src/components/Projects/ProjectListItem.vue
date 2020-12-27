@@ -2,18 +2,15 @@
   <div>
     <router-link :class="$style.link" :to="`/projects/${project.id}`">
       <span :class="$style.name">{{ project.name }}</span>
-      <br />
-      <span v-for="(term, index) in project.duration" :key="index">
-        {{ term }}
-        <br />
-      </span>
+      <span :class="$style.date">({{ date }}~)</span>
     </router-link>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { computed, defineComponent, PropType } from 'vue'
 import { Project } from '/@/lib/apis'
+import { getFullDayString } from '/@/lib/date'
 
 export default defineComponent({
   name: 'ProjectListItem',
@@ -22,6 +19,14 @@ export default defineComponent({
       type: Object as PropType<Project>,
       required: true
     }
+  },
+  setup(props) {
+    const date = computed(() =>
+      props.project.duration[0] !== undefined
+        ? getFullDayString(new Date(props.project.duration[0].since))
+        : ''
+    )
+    return { date }
   }
 })
 </script>
@@ -33,5 +38,10 @@ export default defineComponent({
 .name {
   color: $color-text;
   font-size: 3rem;
+}
+.date {
+  color: $color-text;
+  font-size: 1.5rem;
+  margin: 0 0.5em;
 }
 </style>
