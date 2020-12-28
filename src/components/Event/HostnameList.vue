@@ -33,6 +33,7 @@ export default defineComponent({
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 2rem;
+  margin-bottom: 4rem;
 }
 .sectionTitle {
   color: $color-text;
