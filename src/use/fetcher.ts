@@ -11,7 +11,7 @@ const useFetcher = <T>(
   value: Readonly<Ref<T | null>>,
   fetchFunc: () => Promise<T>
 ): { fetcherState: Ref<FetcherState> } => {
-  const isLoadedBeforeInit = value.value !== null && value.value !== undefined
+  const isLoadedBeforeInit = value.value !== null
   const state = ref<FetcherState>('loaded')
 
   if (isLoadedBeforeInit) {
