@@ -5,8 +5,8 @@
       <external-link :href="link" :class="$style.link">
         説明ページ
       </external-link>
-      <hostname-list :hostnames="hostnames" />
     </div>
+    <hostname-list :hostnames="hostnames" />
   </page-container>
 </template>
 
