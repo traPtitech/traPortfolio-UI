@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :class="$style.link" :to="`/users/${hostname.id}`">
+    <router-link :class="$style.link" :to="`/users/${hostname.name}`">
       <img :src="iconSrc" :class="$style.icon" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ hostname.name }}</div>
@@ -26,7 +26,7 @@ export default defineComponent({
     const iconSrc = computed(
       () =>
         `https://q.trap.jp/api/v3/public/icon/${
-          /*props.member.name*/ 'sappi_red'
+          /*props.hostname.name*/ 'sappi_red'
         }`
     )
     return { iconSrc }
