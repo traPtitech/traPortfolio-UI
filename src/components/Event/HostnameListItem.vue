@@ -39,6 +39,9 @@ export default defineComponent({
   display: flex;
   text-decoration: none;
 }
+.desc {
+  word-break: break-all;
+}
 .icon {
   height: 8rem;
   width: 8rem;
