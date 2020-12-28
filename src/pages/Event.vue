@@ -2,9 +2,11 @@
   <page-container>
     <div :class="$style.titleContainer">
       <page-title>{{ name }}</page-title>
-      <external-link :href="link" :class="$style.link">
-        説明ページ
-      </external-link>
+    </div>
+    <div :class="$style.infoContainer">
+      <p :class="$style.detail">{{ date }}</p>
+      <p :class="$style.detail">{{ place }}</p>
+      <p :class="$style.descirption">{{ descirption }}</p>
     </div>
     <hostname-list :hostnames="hostnames" />
   </page-container>
@@ -14,10 +16,10 @@
 import { defineComponent, computed, ref } from 'vue'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
-import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import useParam from '/@/use/param'
 import HostnameList from '../components/Event/HostnameList.vue'
 import apis, { EventDetail } from '/@/lib/apis'
+import { getDisplayDuration } from '/@/lib/date'
 
 const getEvent = async (eventId: string): Promise<EventDetail> =>
   (await apis.getEvent(eventId)).data
@@ -27,7 +29,6 @@ export default defineComponent({
   components: {
     PageContainer,
     PageTitle,
-    ExternalLink,
     HostnameList
   },
   setup() {
@@ -38,10 +39,12 @@ export default defineComponent({
     const name = computed(
       () => eventDetail.value?.name ?? 'Loading... イベント'
     )
-    const link = 'https://trap.jp' // TODO
     const hostnames = computed(() => eventDetail.value?.hostname)
+    const date = computed(() => getDisplayDuration(eventDetail.value?.duration))
+    const place = computed(() => eventDetail.value?.place)
+    const descirption = computed(() => eventDetail.value?.descirption)
 
-    return { name, link, hostnames }
+    return { name, hostnames, eventDetail, date, place, descirption }
   }
 })
 </script>
@@ -50,8 +53,17 @@ export default defineComponent({
 .titleContainer {
   margin: 4rem 0;
 }
-.link {
-  color: $color-secondary-text;
+.infoContainer {
+  color: $color-text;
+  margin-bottom: 4rem;
+}
+.detail {
+  color: $color-text;
   font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.descirption {
+  color: $color-text;
+  font-size: 1rem;
 }
 </style>
