@@ -10,12 +10,6 @@ export const mutations = defineMutations<S>()({
     state.events = events
   },
   setProjects(state: S, projects: Project[]) {
-    const ProjectsSortedByDurationSince = projects.map(project => {
-      project.duration = project.duration.sort(
-        (a, b) => new Date(a.since).getTime() - new Date(b.since).getTime()
-      )
-      return project
-    })
-    state.projects = ProjectsSortedByDurationSince
+    state.projects = projects
   }
 })

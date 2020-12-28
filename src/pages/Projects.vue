@@ -15,7 +15,7 @@ import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ProjectList from '/@/components/Projects/ProjectList.vue'
 
 export default defineComponent({
-  name: 'Projecs',
+  name: 'Projects',
   components: {
     PageContainer,
     PageTitle,
@@ -24,7 +24,21 @@ export default defineComponent({
   setup() {
     const store = useStore()
 
-    const projects = computed(() => store.state.projects)
+    const projects = computed(() => {
+      let projects = store.state.projects
+
+      if (projects !== null) {
+        let projectsSortedByDurationSince = projects.map(project => {
+          project.duration = project.duration.sort(
+            (a, b) => Date.parse(a.since) - Date.parse(b.since)
+          )
+          return project
+        })
+        projects = projectsSortedByDurationSince
+      }
+
+      return projects
+    })
     const { fetcherState } = useFetcher(projects, () =>
       store.dispatch.fetchProjects()
     )
