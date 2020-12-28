@@ -9,8 +9,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
-import { Project } from '/@/lib/apis'
-import { getFullDayString } from '/@/lib/date'
+import { Project, Semester } from '/@/lib/apis'
 
 export default defineComponent({
   name: 'ProjectListItem',
@@ -21,9 +20,16 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const date = computed(() =>
-      getFullDayString(new Date(props.project.duration.since.year))
-    )
+    const date = computed(() => {
+      let semester =
+        props.project.duration.since.semester == Semester.first
+          ? '前期'
+          : '後期'
+      return (
+        new Date(props.project.duration.since.year).getFullYear().toString() +
+        semester
+      )
+    })
     return { date }
   }
 })
