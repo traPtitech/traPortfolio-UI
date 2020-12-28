@@ -52,5 +52,6 @@ export default defineComponent({
 }
 .link {
   color: $color-secondary-text;
+  font-size: 1.5rem;
 }
 </style>
