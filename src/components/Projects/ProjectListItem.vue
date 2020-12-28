@@ -21,14 +21,11 @@ export default defineComponent({
   },
   setup(props) {
     const date = computed(() => {
-      let semester =
+      const semester =
         props.project.duration.since.semester == Semester.first
           ? '前期'
           : '後期'
-      return (
-        new Date(props.project.duration.since.year).getFullYear().toString() +
-        semester
-      )
+      return `${props.project.duration.since.year}${semester}`
     })
     return { date }
   }
