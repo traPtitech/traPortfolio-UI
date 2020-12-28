@@ -5,6 +5,8 @@
       <external-link :href="link" :class="$style.link">
         説明ページ
       </external-link>
+      <hostname-list v-if="fetcherState === 'loaded'" :hostnames="hostnames" />
+      <p v-else>{{ fetcherState }}</p>
     </div>
   </page-container>
 </template>
