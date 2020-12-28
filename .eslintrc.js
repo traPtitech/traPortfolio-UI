@@ -28,6 +28,7 @@ module.exports = {
         name: '/@/lib/apis/generated',
         message: 'Please use /@/lib/apis instead.'
       }
-    ]
+    ],
+    'vue/custom-event-name-casing': ['error', 'camelCase']
   }
 }
