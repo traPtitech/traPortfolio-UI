@@ -22,9 +22,7 @@ export default defineComponent({
   },
   setup(props) {
     const date = computed(() =>
-      props.project.duration[0] !== undefined
-        ? getFullDayString(new Date(props.project.duration[0].since))
-        : ''
+      getFullDayString(new Date(props.project.duration.since.year))
     )
     return { date }
   }

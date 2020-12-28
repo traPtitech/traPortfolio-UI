@@ -23,7 +23,6 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-
     const events = computed(() => store.state.events)
     const { fetcherState } = useFetcher(events, () =>
       store.dispatch.fetchEvents()
