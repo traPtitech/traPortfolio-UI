@@ -10,7 +10,7 @@
         紹介ページ
       </external-link>
     </div>
-    <member-list v-if="members !== undefined" :members="members" />
+    <member-list :members="members" />
   </page-container>
 </template>
 
@@ -22,9 +22,6 @@ import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import useParam from '/@/use/param'
 import apis, { ProjectDetail } from '/@/lib/apis'
 import MemberList from '/@/components/Project/MemberList.vue'
-
-const getProject = async (projectId: string): Promise<ProjectDetail> =>
-  (await apis.getProject(projectId)).data
 
 export default defineComponent({
   name: 'Project',
@@ -38,9 +35,9 @@ export default defineComponent({
     const projectId = useParam('projectId')
     const projectDetail = ref<ProjectDetail>()
     watchEffect(() => {
-      getProject(projectId.value).then(
-        response => (projectDetail.value = response)
-      )
+      ;(async () => {
+        projectDetail.value = (await apis.getProject(projectId.value)).data
+      })()
     })
 
     const name = computed(
@@ -48,6 +45,7 @@ export default defineComponent({
     )
     const link = computed(() => projectDetail.value?.link)
     const members = computed(() => projectDetail.value?.members)
+
     return { name, link, members }
   }
 })
