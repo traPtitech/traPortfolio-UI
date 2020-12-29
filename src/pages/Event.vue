@@ -1,8 +1,6 @@
 <template>
   <page-container>
-    <div :class="$style.titleContainer">
-      <page-title>{{ name }}</page-title>
-    </div>
+    <page-title :class="$style.titleContainer">{{ name }}</page-title>
     <div :class="$style.infoContainer">
       <p :class="$style.detail">{{ date }}</p>
       <p :class="$style.detail">{{ place }}</p>
