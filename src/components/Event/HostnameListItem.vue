@@ -4,7 +4,9 @@
       <img :src="iconSrc" :class="$style.icon" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ hostname.name }}</div>
-        <div :class="$style.realName">ほんみょう</div>
+        <div v-if="hostname.realName" :class="$style.realName">
+          {{ hostname.realName }}
+        </div>
       </div>
     </router-link>
   </div>
