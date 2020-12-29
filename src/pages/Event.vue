@@ -51,7 +51,7 @@ export default defineComponent({
 
 <style lang="scss" module>
 .title {
-  margin: 4rem 0;
+  margin-top: 4rem;
 }
 .infoContainer {
   color: $color-text;
