@@ -22,7 +22,7 @@ export const getDisplayDuration = (duration: Duration): string => {
   }
   const sinceDate = new Date(duration.since)
   const sinceDateString = getFullDayWithTimeString(sinceDate)
-  if (duration.until === null) {
+  if (duration.until === undefined) {
     // まだ存続している場合
     return sinceDateString + ' ～'
   }
