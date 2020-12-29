@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from 'vue'
+import { defineComponent, computed, ref, watchEffect } from 'vue'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import useParam from '/@/use/param'
@@ -32,7 +32,9 @@ export default defineComponent({
   setup() {
     const eventId = useParam('eventId')
     const eventDetail = ref<EventDetail>()
-    getEvent(eventId.value).then(response => (eventDetail.value = response))
+    watchEffect(() => {
+      getEvent(eventId.value).then(response => (eventDetail.value = response))
+    })
 
     const name = computed(
       () => eventDetail.value?.name ?? 'Loading... イベント'
