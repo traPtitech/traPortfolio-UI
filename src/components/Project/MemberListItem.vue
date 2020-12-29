@@ -4,7 +4,7 @@
       <img :src="iconSrc" :class="$style.icon" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ member.name }}</div>
-        <div :class="$style.realName">ほんみょう</div>
+        <div :class="$style.realName">{{ member.realName }}</div>
       </div>
     </router-link>
   </div>
@@ -46,6 +46,7 @@ export default defineComponent({
   border-radius: 50%;
 }
 .name {
+  word-break: break-all;
   color: $color-text;
   font-size: 3rem;
 }

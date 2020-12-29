@@ -2,7 +2,11 @@
   <page-container>
     <div :class="$style.titleContainer">
       <page-title>{{ name }}</page-title>
-      <external-link :href="link" :class="$style.link">
+      <external-link
+        v-if="link !== undefined"
+        :href="link"
+        :class="$style.link"
+      >
         紹介ページ
       </external-link>
     </div>
@@ -42,7 +46,7 @@ export default defineComponent({
     const name = computed(
       () => projectDetail.value?.name ?? 'Loading... プロジェクト'
     )
-    const link = 'https://trap.jp'
+    const link = computed(() => projectDetail.value?.link)
     const members = computed(() => projectDetail.value?.members)
     return { name, link, members }
   }
