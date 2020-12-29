@@ -1,6 +1,6 @@
 <template>
   <page-container>
-    <page-title :class="$style.titleContainer">{{ name }}</page-title>
+    <page-title :class="$style.title">{{ name }}</page-title>
     <div :class="$style.infoContainer">
       <p :class="$style.detail">{{ date }}</p>
       <p :class="$style.detail">{{ place }}</p>
@@ -50,7 +50,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
-.titleContainer {
+.title {
   margin: 4rem 0;
 }
 .infoContainer {
