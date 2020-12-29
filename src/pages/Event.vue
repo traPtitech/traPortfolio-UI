@@ -40,7 +40,9 @@ export default defineComponent({
       () => eventDetail.value?.name ?? 'Loading... イベント'
     )
     const hostnames = computed(() => eventDetail.value?.hostname)
-    const date = computed(() => getDisplayDuration(eventDetail.value?.duration))
+    const date = computed(() =>
+      eventDetail.value ? getDisplayDuration(eventDetail.value?.duration) : ''
+    )
     const place = computed(() => eventDetail.value?.place)
     const descirption = computed(() => eventDetail.value?.descirption)
 

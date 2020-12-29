@@ -1,4 +1,5 @@
 import { Duration } from '/@/lib/apis'
+
 export const getTimeString = (date: Date): string =>
   date.getHours().toString().padStart(2, '0') +
   ':' +
@@ -17,9 +18,6 @@ export const getFullDayWithTimeString = (date: Date): string =>
 
 // 2つの日時を比べ、同じ部分については省略したものを出力する
 export const getDisplayDuration = (duration: Duration): string => {
-  if (duration === undefined) {
-    return ''
-  }
   const sinceDate = new Date(duration.since)
   const sinceDateString = getFullDayWithTimeString(sinceDate)
   if (duration.until === undefined) {
