@@ -29,10 +29,9 @@ export default defineComponent({
   setup() {
     const eventId = useParam('eventId')
     const eventDetail = ref<EventDetail>()
-    watchEffect(() => {
-      ;(async () => (await apis.getEvent(eventId.value)).data)().then(
-        response => (eventDetail.value = response)
-      )
+    watchEffect(async () => {
+      const res = await apis.getEvent(eventId.value)
+      eventDetail.value = res.data
     })
 
     const name = computed(
