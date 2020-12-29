@@ -19,9 +19,6 @@ import HostnameList from '../components/Event/HostnameList.vue'
 import apis, { EventDetail } from '/@/lib/apis'
 import { getDisplayDuration } from '/@/lib/date'
 
-const getEvent = async (eventId: string): Promise<EventDetail> =>
-  (await apis.getEvent(eventId)).data
-
 export default defineComponent({
   name: 'Event',
   components: {
@@ -33,7 +30,9 @@ export default defineComponent({
     const eventId = useParam('eventId')
     const eventDetail = ref<EventDetail>()
     watchEffect(() => {
-      getEvent(eventId.value).then(response => (eventDetail.value = response))
+      ;(async () => (await apis.getEvent(eventId.value)).data)().then(
+        response => (eventDetail.value = response)
+      )
     })
 
     const name = computed(
