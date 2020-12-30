@@ -34,10 +34,8 @@ export default defineComponent({
   setup() {
     const projectId = useParam('projectId')
     const projectDetail = ref<ProjectDetail>()
-    watchEffect(() => {
-      ;(async () => {
-        projectDetail.value = (await apis.getProject(projectId.value)).data
-      })()
+    watchEffect(async () => {
+      projectDetail.value = (await apis.getProject(projectId.value)).data
     })
 
     const name = computed(
