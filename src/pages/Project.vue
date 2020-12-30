@@ -9,6 +9,7 @@
       >
         紹介ページ
       </external-link>
+      <p :class="$style.descirption">{{ description }}</p>
     </div>
     <member-list :members="members" />
   </page-container>
@@ -43,8 +44,9 @@ export default defineComponent({
     )
     const link = computed(() => projectDetail.value?.link)
     const members = computed(() => projectDetail.value?.members)
+    const description = computed(() => projectDetail.value?.description)
 
-    return { name, link, members }
+    return { name, link, members, description }
   }
 })
 </script>
@@ -55,5 +57,9 @@ export default defineComponent({
 }
 .link {
   color: $color-secondary-text;
+}
+.descirption {
+  color: $color-text;
+  font-size: 1rem;
 }
 </style>
