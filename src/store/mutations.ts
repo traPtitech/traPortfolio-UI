@@ -1,6 +1,6 @@
 import { defineMutations } from 'direct-vuex'
 import { S } from './state'
-import { Group, Event, Project } from '/@/lib/apis'
+import { Group, Event, Project, Contest } from '/@/lib/apis'
 
 export const mutations = defineMutations<S>()({
   setGroups(state: S, groups: Group[]) {
@@ -11,5 +11,8 @@ export const mutations = defineMutations<S>()({
   },
   setProjects(state: S, projects: Project[]) {
     state.projects = projects
+  },
+  setContests(state: S, contests: Contest[]) {
+    state.contests = contests
   }
 })

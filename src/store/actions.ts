@@ -1,6 +1,6 @@
 import { defineActions } from 'direct-vuex'
 import { rootActionContext } from '.'
-import apis, { Group, Event, Project } from '/@/lib/apis'
+import apis, { Group, Event, Project, Contest } from '/@/lib/apis'
 
 export const actions = defineActions({
   async fetchGroups(context): Promise<Group[]> {
@@ -34,6 +34,17 @@ export const actions = defineActions({
 
     const res = await apis.getProjects()
     commit.setProjects(res.data)
+    return res.data
+  },
+  async fetchContests(context): Promise<Contest[]> {
+    const { state, commit } = rootActionContext(context)
+
+    if (state.contests !== null) {
+      return state.contests
+    }
+
+    const res = await apis.getContests()
+    commit.setContests(res.data)
     return res.data
   }
 })
