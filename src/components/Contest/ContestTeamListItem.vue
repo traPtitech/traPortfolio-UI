@@ -5,7 +5,9 @@
       :to="`/contests/${contestId}/${contestTeam.id}`"
     >
       <span :class="$style.name">{{ contestTeam.name }}</span>
-      <span :class="$style.result">{{ contestTeam.result }}</span>
+      <span v-if="contestTeam.result" :class="$style.result"
+        >({{ contestTeam.result }})</span
+      >
     </router-link>
   </div>
 </template>
