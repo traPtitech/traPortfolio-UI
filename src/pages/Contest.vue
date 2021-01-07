@@ -33,10 +33,10 @@ export default defineComponent({
     ContestTeamList
   },
   setup() {
-    const contestId = useParam('contestId').value
+    const contestId = useParam('contestId')
     const contestDetail = ref<ContestDetail>()
     watchEffect(async () => {
-      contestDetail.value = (await apis.getContest(contestId)).data
+      contestDetail.value = (await apis.getContest(contestId.value)).data
     })
 
     const name = computed(
