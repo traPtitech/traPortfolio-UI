@@ -1,25 +1,17 @@
-import { defineAsyncComponent } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import Loading from '/@/pages/Loading.vue'
 
-const defineAsyncComponentWithLoading = (path: string) =>
-  defineAsyncComponent({
-    loader: () => import(path),
-    loadingComponent: Loading
-  })
-
-const Index = defineAsyncComponentWithLoading('/@/pages/Index.vue')
-const Search = defineAsyncComponentWithLoading('/@/pages/Search.vue')
-const User = defineAsyncComponentWithLoading('/@/pages/User.vue')
-const Groups = defineAsyncComponentWithLoading('/@/pages/Groups.vue')
-const Group = defineAsyncComponentWithLoading('/@/pages/Group.vue')
-const Projects = defineAsyncComponentWithLoading('/@/pages/Projects.vue')
-const Project = defineAsyncComponentWithLoading('/@/pages/Project.vue')
-const Events = defineAsyncComponentWithLoading('/@/pages/Events.vue')
-const Event = defineAsyncComponentWithLoading('/@/pages/Event.vue')
-const Contests = defineAsyncComponentWithLoading('/@/pages/Contests.vue')
-const Contest = defineAsyncComponentWithLoading('/@/pages/Contest.vue')
-const ContestTeam = defineAsyncComponentWithLoading('/@/pages/ContestTeam.vue')
+const Index = () => import('/@/pages/Index.vue')
+const Search = () => import('/@/pages/Search.vue')
+const User = () => import('/@/pages/User.vue')
+const Groups = () => import('/@/pages/Groups.vue')
+const Group = () => import('/@/pages/Group.vue')
+const Projects = () => import('/@/pages/Projects.vue')
+const Project = () => import('/@/pages/Project.vue')
+const Events = () => import('/@/pages/Events.vue')
+const Event = () => import('/@/pages/Event.vue')
+const Contests = () => import('/@/pages/Contests.vue')
+const Contest = () => import('/@/pages/Contest.vue')
+const ContestTeam = () => import('/@/pages/ContestTeam.vue')
 
 const routes = [
   {
