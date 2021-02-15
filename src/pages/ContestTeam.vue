@@ -11,6 +11,7 @@
       </external-link>
       <p :class="$style.result">{{ result }}</p>
     </div>
+    <member-list :members="members" />
   </page-container>
 </template>
 
@@ -21,13 +22,15 @@ import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import useParam from '/@/use/param'
 import apis, { ContestTeamDetail } from '/@/lib/apis'
+import MemberList from '../components/ContestTeam/MemberList.vue'
 
 export default defineComponent({
   name: 'ContestTeam',
   components: {
     PageContainer,
     PageTitle,
-    ExternalLink
+    ExternalLink,
+    MemberList
   },
   setup() {
     const contestId = useParam('contestId')
@@ -44,8 +47,9 @@ export default defineComponent({
     )
     const link = computed(() => contestTeamDetail.value?.link)
     const result = computed(() => contestTeamDetail.value?.result)
+    const members = computed(() => contestTeamDetail.value?.members)
 
-    return { name, link, result }
+    return { name, link, result, members }
   }
 })
 </script>
