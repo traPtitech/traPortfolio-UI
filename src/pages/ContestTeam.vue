@@ -9,7 +9,8 @@
       >
         説明ページ
       </external-link>
-      <p :class="$style.result">{{ result }}</p>
+      <p v-if="result" :class="$style.result">{{ result }}</p>
+      <p v-if="description" :class="$style.description">{{ description }}</p>
     </div>
     <member-list :members="members" />
   </page-container>
@@ -48,8 +49,9 @@ export default defineComponent({
     const link = computed(() => contestTeamDetail.value?.link)
     const result = computed(() => contestTeamDetail.value?.result)
     const members = computed(() => contestTeamDetail.value?.members)
+    const description = computed(() => contestTeamDetail.value?.description)
 
-    return { name, link, result, members }
+    return { name, link, result, members, description }
   }
 })
 </script>
@@ -62,6 +64,10 @@ export default defineComponent({
   color: $color-secondary-text;
 }
 .result {
+  color: $color-text;
+  font-size: 1rem;
+}
+.description {
   color: $color-text;
   font-size: 1rem;
 }
