@@ -1,7 +1,7 @@
 <template>
   <page-container>
     <div :class="$style.titleContainer">
-      <page-title>チーム {{ name }}</page-title>
+      <page-title>チーム「{{ name }}」</page-title>
       <external-link
         v-if="link !== undefined"
         :href="link"
@@ -23,7 +23,7 @@ import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import useParam from '/@/use/param'
 import apis, { ContestTeamDetail } from '/@/lib/apis'
-import MemberList from '../components/ContestTeam/MemberList.vue'
+import MemberList from '/@/components/ContestTeam/MemberList.vue'
 
 export default defineComponent({
   name: 'ContestTeam',
