@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :class="$style.link" :to="`/users/${hostname.name}`">
+    <router-link :class="$style.link" :to="`/users/${hostname.id}`">
       <img :src="iconSrc" :class="$style.icon" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ hostname.name }}</div>
