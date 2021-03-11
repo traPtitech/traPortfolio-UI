@@ -1,29 +1,56 @@
 <template>
-  <div>
+  <page-container>
     <router-link :class="$style.link" :to="`/users/${userId}`">
       <img :class="$style.icon" :src="iconSrc" />
       <div>
-        <div :class="$style.name">{{name}}<span :class="$style.realName">{{realName}}</span></div>
+        <div :class="$style.name">
+          {{ name }}<span :class="$style.realName">{{ realName }}</span>
+        </div>
         <div>accounts</div>
       </div>
     </router-link>
-  </div>
+    <bio-container :bio="bio" />
+    <works-container :works="'何か'"/>
+    <groups-container />
+    <contests-container />
+    <events-container />
+  </page-container>
 </template>
 
 <script lang="ts">
 import { computed, ref, defineComponent, watchEffect } from 'vue'
-import apis, { UserDetail } from '../lib/apis'
-import useParam from '../use/param'
+import apis, { ContestTeamWithContestName, UserDetail, UserGroup, UserProject } from '../lib/apis'
+import useParam from '/@/use/param'
+import PageContainer from '/@/components/Layout/PageContainer.vue'
+import BioContainer from '/@/components/User/BioContainer.vue'
+import WorksContainer from '/@/components/User/WorksContainer.vue'
+import GroupsContainer from '/@/components/User/GroupsContainer.vue'
+import ContestsContainer from '/@/components/User/ContestsContainer.vue'
+import EventsContainer from '/@/components/User/EventsContainer.vue'
 
 export default defineComponent({
   name: 'User',
-  props: {},
+  components: {
+    PageContainer,
+    BioContainer,
+    WorksContainer,
+    GroupsContainer,
+    ContestsContainer,
+    EventsContainer,
+  },
   setup() {
     const userId = useParam('userId')
     const userDetail = ref<UserDetail>()
+    const userProjects = ref<Array<UserProject>>()
+    const userContests = ref<Array<ContestTeamWithContestName>>()
+    const userGroups = ref<Array<UserGroup>>()
+    const userEvents = ref<Array<Event>>()
     watchEffect(async () => {
       userDetail.value = (await apis.getUser(userId.value)).data
-      console.log(userDetail.value)
+      userProjects.value = (await apis.getUserProjects(userId.value)).data
+      userContests.value = (await apis.getUserContests(userId.value)).data
+      userGroups.value = (await apis.getUserGroups(userId.value)).data
+      userEvents.value = (await apis.getUserEvents(userId.value)).data
     })
     const iconSrc = computed(
       () =>
@@ -37,7 +64,7 @@ export default defineComponent({
     const bio = computed(() => userDetail.value?.bio)
     const accounts = computed(() => userDetail.value?.accounts)
 
-    return { iconSrc, name, realName, bio, accounts, userId }
+    return { iconSrc, name, realName, bio, accounts, userId, userProjects }
   }
 })
 </script>
@@ -57,7 +84,7 @@ export default defineComponent({
 
 .name {
   word-break: break-all;
-  color: $color-text;
+  color: $color-primary;
   font-size: 3rem;
 }
 
@@ -65,6 +92,4 @@ export default defineComponent({
   color: $color-text;
   font-size: 1.5rem;
 }
-
-
 </style>
