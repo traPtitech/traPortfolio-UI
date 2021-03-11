@@ -10,16 +10,22 @@
       </div>
     </router-link>
     <bio-container :bio="bio" />
-    <works-container :works="'何か'"/>
-    <groups-container />
-    <contests-container />
-    <events-container />
+    <works-container :works="'何か'" />
+    <groups-container :groups="userGroups" :projects="userProjects" />
+    <contests-container :contests="userContests" />
+    <events-container :events="userEvents" />
   </page-container>
 </template>
 
 <script lang="ts">
 import { computed, ref, defineComponent, watchEffect } from 'vue'
-import apis, { ContestTeamWithContestName, UserDetail, UserGroup, UserProject } from '../lib/apis'
+import apis, {
+  ContestTeamWithContestName,
+  UserDetail,
+  UserGroup,
+  UserProject,
+  Event
+} from '../lib/apis'
 import useParam from '/@/use/param'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import BioContainer from '/@/components/User/BioContainer.vue'
@@ -36,7 +42,7 @@ export default defineComponent({
     WorksContainer,
     GroupsContainer,
     ContestsContainer,
-    EventsContainer,
+    EventsContainer
   },
   setup() {
     const userId = useParam('userId')
@@ -45,6 +51,7 @@ export default defineComponent({
     const userContests = ref<Array<ContestTeamWithContestName>>()
     const userGroups = ref<Array<UserGroup>>()
     const userEvents = ref<Array<Event>>()
+
     watchEffect(async () => {
       userDetail.value = (await apis.getUser(userId.value)).data
       userProjects.value = (await apis.getUserProjects(userId.value)).data
@@ -64,7 +71,18 @@ export default defineComponent({
     const bio = computed(() => userDetail.value?.bio)
     const accounts = computed(() => userDetail.value?.accounts)
 
-    return { iconSrc, name, realName, bio, accounts, userId, userProjects }
+    return {
+      iconSrc,
+      name,
+      realName,
+      bio,
+      accounts,
+      userId,
+      userProjects,
+      userContests,
+      userGroups,
+      userEvents
+    }
   }
 })
 </script>

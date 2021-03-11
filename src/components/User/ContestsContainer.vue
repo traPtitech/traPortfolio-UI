@@ -9,11 +9,10 @@ import { defineComponent, PropType, computed } from 'vue'
 export default defineComponent({
   name: 'ContestsContainer',
   props: {
-    // contests: {
-    //   type: String,
-    //   required: true,
-    //   default: ''
-    // }
+    contests: {
+      type: Object as PropType<Array<ContestTeamWithContestName>>,
+      default: []
+    }
   },
   setup() {}
 })
