@@ -14,5 +14,6 @@ export default defineComponent({
 .sectionTitle {
   color: $color-text;
   font-size: 2.3rem;
+  font-weight: normal;
 }
 </style>

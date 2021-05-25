@@ -1,11 +1,34 @@
 <template>
-  <div>Index</div>
+  <page-container>
+    <group-name-list :groups="groups" />
+  </page-container>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { useStore } from '/@/store'
+import useFetcher from '/@/use/fetcher'
+import PageContainer from '../components/Layout/PageContainer.vue'
+import GroupNameList from '../components/index/GroupNameList.vue'
 
 export default defineComponent({
-  name: 'Index'
+  name: 'Index',
+  components: {
+    PageContainer,
+    GroupNameList
+  },
+  setup() {
+    const store = useStore()
+
+    const groups = computed(() => store.state.groups)
+    const { fetcherState: fetcherStateGroups } = useFetcher(groups, () =>
+      store.dispatch.fetchGroups()
+    )
+
+    return {
+      groups,
+      fetcherStateGroups
+    }
+  }
 })
 </script>
