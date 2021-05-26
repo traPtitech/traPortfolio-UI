@@ -1,6 +1,6 @@
 <template>
   <page-container>
-    <group-name-list :groups="groups" />
+    <group-name-list v-if="fetcherStateGroups" :groups="groups" />
   </page-container>
 </template>
 
