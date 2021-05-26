@@ -50,7 +50,7 @@ export default defineComponent({
 <style lang="scss" module>
 .link {
   display: block;
-  margin: 4px 1rem;
+  margin: 0.5rem 1rem;
   text-decoration: none;
 }
 .name {
@@ -65,7 +65,7 @@ export default defineComponent({
 }
 .more-read {
   display: block;
-  margin: 0.5rem 1rem;
+  margin: 1rem 1rem;
   text-decoration: none;
   text-align: right;
 }

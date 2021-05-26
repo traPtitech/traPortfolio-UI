@@ -1,6 +1,10 @@
 <template>
   <page-container>
-    <group-name-list v-if="fetcherStateGroups" :groups="groups" />
+    <group-name-list
+      v-if="fetcherStateGroups"
+      :groups="groups"
+      :class="$style.groupName"
+    />
     <p v-else>{{ fetcherStateGroups }}</p>
     <div :class="$style.container">
       <recent-list
@@ -10,6 +14,20 @@
         path="contests"
       />
       <p v-else>{{ fetcherStateContests }}</p>
+      <recent-list
+        v-if="fetcherStateProjects"
+        :items="contests"
+        title="プロジェクト"
+        path="projects"
+      />
+      <p v-else>{{ fetcherStateProjects }}</p>
+      <recent-list
+        v-if="fetcherStateProjects"
+        :items="events"
+        title="イベント"
+        path="events"
+      />
+      <p v-else>{{ fetcherStateEvents }}</p>
     </div>
   </page-container>
 </template>
@@ -41,21 +59,37 @@ export default defineComponent({
     const { fetcherState: fetcherStateContests } = useFetcher(contests, () =>
       store.dispatch.fetchContests()
     )
+    const projects = computed(() => store.state.projects)
+    const { fetcherState: fetcherStateProjects } = useFetcher(projects, () =>
+      store.dispatch.fetchProjects()
+    )
+    const events = computed(() => store.state.events)
+    const { fetcherState: fetcherStateEvents } = useFetcher(events, () =>
+      store.dispatch.fetchEvents()
+    )
 
     return {
       groups,
       fetcherStateGroups,
       contests,
-      fetcherStateContests
+      fetcherStateContests,
+      projects,
+      fetcherStateProjects,
+      events,
+      fetcherStateEvents
     }
   }
 })
 </script>
 
 <style lang="scss" module>
+.group-name {
+  margin: 4rem 0;
+}
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 1rem;
+  margin: 4rem 0;
 }
 </style>
