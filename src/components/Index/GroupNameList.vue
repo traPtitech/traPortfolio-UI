@@ -1,6 +1,6 @@
 <template>
   <section>
-    <section-title :class="$style.primary">班一覧</section-title>
+    <section-title :class="$style.title">班一覧</section-title>
     <div :class="$style.container">
       <router-link
         v-for="group in groups"
@@ -8,7 +8,7 @@
         :to="`/groups/${group.id}`"
         :class="$style.link"
       >
-        <span>{{ group.name }}</span>
+        <span :class="$style.name">{{ group.name }}</span>
       </router-link>
     </div>
   </section>
@@ -41,10 +41,12 @@ export default defineComponent({
   display: inline-block;
   margin: 0 1rem;
   text-decoration: none;
+}
+.name {
   font-size: 1.5rem;
   color: $color-text;
 }
-.primary {
+.title {
   color: $color-primary;
 }
 </style>
