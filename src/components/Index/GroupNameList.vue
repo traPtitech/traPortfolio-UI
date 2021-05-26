@@ -39,7 +39,7 @@ export default defineComponent({
 }
 .link {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 4px 1rem;
   text-decoration: none;
 }
 .name {
