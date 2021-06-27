@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :class="$style.container">
     <section-title :class="$style.title">
       <span :class="$style.prefixTitle">最近の</span>
       <span>{{ title }}</span>
@@ -83,5 +83,11 @@ export default defineComponent({
   margin: 1rem 1rem;
   text-decoration: none;
   text-align: right;
+  margin-top: auto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 </style>
