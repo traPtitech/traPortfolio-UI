@@ -6,7 +6,7 @@
     </section-title>
     <div>
       <router-link
-        v-for="item in items.slice(0, 5)"
+        v-for="item in listItem"
         :key="item.id"
         :to="`/${path}/${item.id}`"
         :class="$style.link"
@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { computed, defineComponent, PropType } from 'vue'
 import { Contest, Project, Event } from '/@/lib/apis'
 import SectionTitle from '../Layout/SectionTitle.vue'
 
@@ -43,6 +43,21 @@ export default defineComponent({
       type: String,
       default: ''
     }
+  },
+  setup(props) {
+    const listItem = computed(() => {
+      if (!props.items) return []
+      let li = props.items
+      li.sort((a, b) => {
+        if (a.duration.since > b.duration.since) {
+          return -1
+        } else {
+          return 1
+        }
+      })
+      return li.slice(0, 5)
+    })
+    return { listItem }
   }
 })
 </script>
