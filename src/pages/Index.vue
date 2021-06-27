@@ -1,5 +1,6 @@
 <template>
   <page-container>
+    <search-input-large :class="$style.search" />
     <group-name-list
       v-if="fetcherStateGroups"
       :groups="groups"
@@ -16,7 +17,7 @@
       <p v-else>{{ fetcherStateContests }}</p>
       <recent-list
         v-if="fetcherStateProjects"
-        :items="contests"
+        :items="projects"
         title="プロジェクト"
         path="projects"
       />
@@ -37,12 +38,14 @@ import { computed, defineComponent } from 'vue'
 import { useStore } from '/@/store'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '../components/Layout/PageContainer.vue'
-import GroupNameList from '../components/Index/GroupNameList.vue'
-import RecentList from '../components/Index/RecentList.vue'
+import SearchInputLarge from '/@/components/UI/SearchInputLarge.vue'
+import GroupNameList from '/@/components/Index/GroupNameList.vue'
+import RecentList from '/@/components/Index/RecentList.vue'
 
 export default defineComponent({
   name: 'Index',
   components: {
+    SearchInputLarge,
     PageContainer,
     GroupNameList,
     RecentList
@@ -83,6 +86,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
+.search {
+  margin: 4rem auto;
+  width: 55%;
+}
 .group-name {
   margin: 4rem 0;
 }
