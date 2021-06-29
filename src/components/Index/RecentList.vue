@@ -47,7 +47,7 @@ export default defineComponent({
   setup(props) {
     const listItem = computed(() => {
       if (!props.items) return []
-      let li = props.items
+      const li = props.items
       li.sort((a, b) => {
         if (a.duration.since > b.duration.since) {
           return -1
