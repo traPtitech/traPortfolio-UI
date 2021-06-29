@@ -22,7 +22,8 @@ export default defineComponent({
   setup() {
     const input = ref<string>('')
     const submit = () => {
-      // 検索ページに飛ぶ？
+      // TODO: 検索結果ページに飛ぶ #9 ID検索
+      // https://github.com/traPtitech/traPortfolio-UI/issues/9
     }
     return { input, submit }
   }
