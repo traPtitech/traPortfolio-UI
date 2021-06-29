@@ -20,7 +20,7 @@ export default defineComponent({
     Icon
   },
   setup() {
-    const input = ref<string>('')
+    const input = ref('')
     const submit = () => {
       // TODO: 検索結果ページに飛ぶ #9 ID検索
       // https://github.com/traPtitech/traPortfolio-UI/issues/9
