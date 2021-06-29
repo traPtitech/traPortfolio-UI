@@ -2,21 +2,21 @@
   <page-container>
     <search-input-large :class="$style.search" />
     <group-name-list
-      v-if="fetcherStateGroups"
+      v-if="fetcherStateGroups === 'loaded'"
       :groups="groups"
       :class="$style.groupName"
     />
     <p v-else>{{ fetcherStateGroups }}</p>
     <div :class="$style.container">
       <recent-list
-        v-if="fetcherStateContests"
+        v-if="fetcherStateContests === 'loaded'"
         :items="contests"
         title="実績"
         path="contests"
       />
       <p v-else>{{ fetcherStateContests }}</p>
       <recent-list
-        v-if="fetcherStateProjects"
+        v-if="fetcherStateProjects === 'loaded'"
         :items="projects"
         title="プロジェクト"
         path="projects"
