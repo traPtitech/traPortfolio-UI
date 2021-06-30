@@ -22,8 +22,14 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
-import { Contest, Project, Event } from '/@/lib/apis'
+import { Duration } from '/@/lib/apis'
 import SectionTitle from '../Layout/SectionTitle.vue'
+
+interface Item {
+  id: string
+  name: string
+  duration: Duration
+}
 
 export default defineComponent({
   name: 'RecentList',
@@ -32,7 +38,7 @@ export default defineComponent({
   },
   props: {
     items: {
-      type: Array as PropType<Contest[] | Project[] | Event[]>,
+      type: Array as PropType<Item[]>,
       default: []
     },
     title: {
