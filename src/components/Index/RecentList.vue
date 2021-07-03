@@ -43,11 +43,11 @@ export default defineComponent({
     },
     title: {
       type: String,
-      default: ''
+      required: true
     },
     path: {
       type: String,
-      default: ''
+      required: true
     }
   },
   setup(props) {
