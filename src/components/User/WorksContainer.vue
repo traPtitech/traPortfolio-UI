@@ -10,8 +10,7 @@ import { UserProject } from '/@/lib/apis'
 export default defineComponent({
   name: 'WorksContainer',
   props: {
-    works: {
-    }
+    works: {}
   },
   setup() {}
 })

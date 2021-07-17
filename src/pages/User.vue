@@ -3,14 +3,14 @@
     <router-link :class="$style.link" :to="`/users/${userId}`">
       <img :class="$style.icon" :src="iconSrc" />
       <div>
-        <div :class="$style.name">
-          {{ name }}<span :class="$style.realName">{{ realName }}</span>
+        <div :class="$style.nameContainer">
+          <div :class="$style.name">{{ name }}</div>
+          <div :class="$style.realName">{{ realName }}</div>
         </div>
         <div>accounts</div>
       </div>
     </router-link>
     <bio-container :bio="bio" />
-    <works-container :works="'何か'" />
     <groups-container :groups="userGroups" :projects="userProjects" />
     <contests-container :contests="userContests" />
     <events-container :events="userEvents" />
@@ -29,7 +29,6 @@ import apis, {
 import useParam from '/@/use/param'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import BioContainer from '/@/components/User/BioContainer.vue'
-import WorksContainer from '/@/components/User/WorksContainer.vue'
 import GroupsContainer from '/@/components/User/GroupsContainer.vue'
 import ContestsContainer from '/@/components/User/ContestsContainer.vue'
 import EventsContainer from '/@/components/User/EventsContainer.vue'
@@ -39,7 +38,6 @@ export default defineComponent({
   components: {
     PageContainer,
     BioContainer,
-    WorksContainer,
     GroupsContainer,
     ContestsContainer,
     EventsContainer
@@ -104,10 +102,17 @@ export default defineComponent({
   word-break: break-all;
   color: $color-primary;
   font-size: 3rem;
+  margin-right: 2rem;
 }
 
 .realName {
   color: $color-text;
   font-size: 1.5rem;
+  margin-right: 2rem;
+}
+
+.nameContainer {
+  display: flex;
+  align-items: center;
 }
 </style>

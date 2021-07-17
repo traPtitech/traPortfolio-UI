@@ -5,6 +5,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from 'vue'
+import { ContestTeamWithContestName } from '/@/lib/apis'
 
 export default defineComponent({
   name: 'ContestsContainer',

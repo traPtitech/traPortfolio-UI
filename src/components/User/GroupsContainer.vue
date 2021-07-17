@@ -1,13 +1,17 @@
 <template>
   <div :class="$style.title">traPでの所属</div>
+  <belongs-list :groups="groups" :projects="projects" />
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import { UserGroup, UserProject } from '/@/lib/apis'
-
+import BelongsList from './BelongsList.vue'
 export default defineComponent({
   name: 'GroupsContainer',
+  components: {
+    BelongsList
+  },
   props: {
     groups: {
       type: Object as PropType<Array<UserGroup>>,
@@ -17,8 +21,7 @@ export default defineComponent({
       type: Object as PropType<Array<UserProject>>,
       default: []
     }
-  },
-  setup() {}
+  }
 })
 </script>
 
