@@ -13,17 +13,20 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import Icon from '/@/components/UI/Icon.vue'
+
 export default defineComponent({
   name: 'SearchInputLarge',
   components: {
     Icon
   },
   setup() {
+    const router = useRouter()
     const input = ref('')
     const submit = () => {
-      // TODO: 検索結果ページに飛ぶ #9 ID検索
-      // https://github.com/traPtitech/traPortfolio-UI/issues/9
+      // 検索結果ページへ遷移
+      router.push({ name: 'UserSearch', query: { q: input.value } })
     }
     return { input, submit }
   }
