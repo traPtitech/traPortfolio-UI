@@ -24,7 +24,7 @@ export default defineComponent({
   props: {
     size: {
       type: Number,
-      default: 24
+      default: 20
     },
     placeholder: {
       type: String,

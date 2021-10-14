@@ -1,6 +1,6 @@
 <template>
   <page-container>
-    <search-input-large :class="$style.search" />
+    <search-input size="36" placeholder="ユーザー検索" :class="$style.search" />
     <group-name-list
       v-if="fetcherStateGroups === 'loaded'"
       :groups="groups"
@@ -38,14 +38,14 @@ import { computed, defineComponent } from 'vue'
 import { useStore } from '/@/store'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '../components/Layout/PageContainer.vue'
-import SearchInputLarge from '/@/components/UI/SearchInputLarge.vue'
+import SearchInput from '/@/components/UI/SearchInput.vue'
 import GroupNameList from '/@/components/Index/GroupNameList.vue'
 import RecentList from '/@/components/Index/RecentList.vue'
 
 export default defineComponent({
   name: 'Index',
   components: {
-    SearchInputLarge,
+    SearchInput,
     PageContainer,
     GroupNameList,
     RecentList
