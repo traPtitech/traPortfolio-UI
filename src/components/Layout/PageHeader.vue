@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import SearchInput from '../UI/SearchInput.vue'
+import SearchInput from '/@/components/UI/SearchInput.vue'
 
 export default defineComponent({
   name: 'Header',
