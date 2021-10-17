@@ -8,7 +8,7 @@ const toStringIfArray = (
 /**
  * @param queryName - 取得するquery、存在しない場合 undefined を返す
  */
-const useQuery = (queryName: string): ComputedRef<string | undefined> => {
+const useQuery = (queryName: string): ComputedRef<string> => {
   const route = useRoute()
   return computed(() => toStringIfArray(route.query[queryName]))
 }
