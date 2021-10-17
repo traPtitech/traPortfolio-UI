@@ -1,6 +1,10 @@
 <template>
   <page-container>
-    <search-input size="36" placeholder="ユーザー検索" :class="$style.search" />
+    <search-input
+      size="large"
+      placeholder="ユーザー検索"
+      :class="$style.search"
+    />
     <group-name-list
       v-if="fetcherStateGroups === 'loaded'"
       :groups="groups"

@@ -1,6 +1,6 @@
 <template>
-  <div :class="$style.inputWrapper" :style="styles">
-    <icon name="mdi:magnify" :size="size" :class="$style.icon" />
+  <div :class="$style.inputWrapper" :style="{ fontSize: fontSize + 'px' }">
+    <icon name="mdi:magnify" :size="iconSize" :class="$style.icon" />
     <input
       v-model="input"
       type="text"
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from 'vue'
+import { defineComponent, computed, ref, PropType } from 'vue'
 import { useRouter } from 'vue-router'
 import Icon from '/@/components/UI/Icon.vue'
 
@@ -23,8 +23,8 @@ export default defineComponent({
   },
   props: {
     size: {
-      type: Number,
-      default: 20
+      type: String as PropType<'large' | 'normal'>,
+      default: 'normal'
     },
     placeholder: {
       type: String,
@@ -38,10 +38,15 @@ export default defineComponent({
       // 検索結果ページへ遷移
       router.push({ name: 'UserSearch', query: { q: input.value } })
     }
-    const styles = computed(() => ({
-      fontSize: `${props.size / 1.5}px`
-    }))
-    return { input, submit, styles }
+    const iconSize = computed(() => {
+      if (props.size === 'normal') return 20
+      else if (props.size === 'large') return 36
+    })
+    const fontSize = computed(() => {
+      if (props.size === 'normal') return 14
+      else if (props.size === 'large') return 24
+    })
+    return { input, submit, iconSize, fontSize }
   }
 })
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.container">
     <div>Logo</div>
-    <search-input size="20" />
+    <search-input />
   </div>
 </template>
 
