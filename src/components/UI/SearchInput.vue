@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.inputWrapper" :style="{ fontSize: fontSize + 'px' }">
+  <div :class="[$style.inputWrapper, size === 'large' ? $style.large : '']">
     <icon name="mdi:magnify" :size="iconSize" :class="$style.icon" />
     <input
       v-model="input"
@@ -39,14 +39,12 @@ export default defineComponent({
       router.push({ name: 'UserSearch', query: { q: input.value } })
     }
     const iconSize = computed(() => {
-      if (props.size === 'normal') return 20
-      else if (props.size === 'large') return 36
+      if (props.size === 'large') return 36
+
+      // props.size === 'normal'
+      return 20
     })
-    const fontSize = computed(() => {
-      if (props.size === 'normal') return 14
-      else if (props.size === 'large') return 24
-    })
-    return { input, submit, iconSize, fontSize }
+    return { input, submit, iconSize }
   }
 })
 </script>
@@ -57,6 +55,7 @@ export default defineComponent({
   padding: 0.2rem;
   border: 2px solid $color-secondary;
   border-radius: 4px;
+  font-size: 14px;
   line-height: 1em;
   align-items: center;
 }
@@ -69,5 +68,9 @@ export default defineComponent({
 .icon {
   margin: 0 0.2rem;
   color: $color-secondary-text;
+}
+
+.large {
+  font-size: 24px;
 }
 </style>
