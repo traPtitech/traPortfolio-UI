@@ -40,9 +40,11 @@ export default defineComponent({
     }
     const iconSize = computed(() => {
       if (props.size === 'large') return 36
-
-      // props.size === 'normal'
-      return 20
+      else if (props.size === 'normal') return 20
+      else {
+        const _exhaustiveCheck: never = props.size
+        return _exhaustiveCheck
+      }
     })
     return { input, submit, iconSize }
   }
