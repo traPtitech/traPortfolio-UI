@@ -1,15 +1,17 @@
 <template>
   <div :class="$style.container">
     <div>Logo</div>
-    <div>search</div>
+    <search-input />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import SearchInput from '/@/components/UI/SearchInput.vue'
 
 export default defineComponent({
   name: 'Header',
+  components: { SearchInput },
   setup() {
     return {}
   }
