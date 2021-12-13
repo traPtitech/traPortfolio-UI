@@ -1,6 +1,6 @@
 <template>
   <page-container>
-    <router-link :class="$style.link" :to="`/users/${userId}`">
+    <router-link :class="$style.titleContainer" :to="`/users/${userId}`">
       <img :class="$style.icon" :src="iconSrc" />
       <div>
         <div :class="$style.nameContainer">
@@ -10,10 +10,25 @@
         <div>accounts</div>
       </div>
     </router-link>
-    <bio-container :bio="bio" />
-    <groups-container :groups="userGroups" :projects="userProjects" />
-    <contests-container :contests="userContests" />
-    <events-container :events="userEvents" />
+    <div :class="$style.bioContainer">
+      <bio-container :class="$style.bioContainer" :bio="bio" />
+    </div>
+    <div :class="$style.groupsContainer">
+      <groups-container
+        :class="$style.groupsContainer"
+        :groups="userGroups"
+        :projects="userProjects"
+      />
+    </div>
+    <div :class="$style.contestsContainer">
+      <contests-container
+        :class="$style.contestsContainer"
+        :contests="userContests"
+      />
+    </div>
+    <div :class="$style.eventsContainer">
+      <events-container :class="$style.eventsContainer" :events="userEvents" />
+    </div>
   </page-container>
 </template>
 
@@ -86,9 +101,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
-.link {
+.titleContainer {
   display: flex;
   text-decoration: none;
+  margin: 4rem 0 2rem;
 }
 
 .icon {
@@ -114,5 +130,21 @@ export default defineComponent({
 .nameContainer {
   display: flex;
   align-items: center;
+}
+
+.bioContainer {
+  margin-bottom: 2rem;
+}
+
+.groupsContainer {
+  margin-bottom: 4rem;
+}
+
+.contestsContainer {
+  margin-bottom: 4rem;
+}
+
+.eventsContainer {
+  margin-bottom: 4rem;
 }
 </style>

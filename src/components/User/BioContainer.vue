@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'BioContainer',
@@ -15,7 +15,9 @@ export default defineComponent({
       default: ''
     }
   },
-  setup() {}
+  setup() {
+    return
+  }
 })
 </script>
 
