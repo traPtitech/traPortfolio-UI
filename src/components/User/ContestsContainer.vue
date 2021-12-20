@@ -1,10 +1,10 @@
 <template>
   <div :class="$style.title">実績</div>
-  <p></p>
+  <!-- <p v-for="contest in contests" :key="contest.id">{{ contest }}</p> -->
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import { ContestTeamWithContestName } from '/@/lib/apis'
 
 export default defineComponent({
@@ -15,7 +15,9 @@ export default defineComponent({
       default: []
     }
   },
-  setup() {}
+  setup() {
+    return
+  }
 })
 </script>
 

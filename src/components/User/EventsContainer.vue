@@ -1,6 +1,8 @@
 <template>
-  <div :class="$style.title">イベント一覧</div>
-  <p></p>
+  <div>
+    <div :class="$style.title">イベント一覧</div>
+    <p></p>
+  </div>
 </template>
 
 <script lang="ts">

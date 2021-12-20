@@ -1,6 +1,8 @@
 <template>
-  <div :class="$style.title">traPでの所属</div>
-  <belongs-list :groups="groups" :projects="projects" />
+  <div>
+    <div :class="$style.title">traPでの所属</div>
+    <belongs-list :groups="groups" :projects="projects" />
+  </div>
 </template>
 
 <script lang="ts">

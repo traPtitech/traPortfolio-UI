@@ -1,6 +1,8 @@
 <template>
-  <div :class="$style.title">自己紹介文</div>
-  <p>{{ bio }}</p>
+  <div>
+    <div :class="$style.title">自己紹介文</div>
+    <p>{{ bio }}</p>
+  </div>
 </template>
 
 <script lang="ts">

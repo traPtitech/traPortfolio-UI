@@ -9,10 +9,12 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
+import DurationListItem from './DurationListItem.vue'
 import { Semester, UserProject } from '/@/lib/apis'
 
 export default defineComponent({
   name: 'ProjectListItem',
+  components: { DurationListItem },
   props: {
     project: {
       type: Object as PropType<UserProject>,
@@ -35,7 +37,6 @@ export default defineComponent({
           ret.push(`${since} ${until}`)
         }
       }
-
       return ret
     })
     return { duration }
@@ -43,4 +44,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" module></style>
+<style lang="scss" module>
+.durationContainer {
+  display: flex;
+}
+</style>
