@@ -1,12 +1,13 @@
 <template>
   <div>
     <div :class="$style.title">イベント一覧</div>
-    <p></p>
+    <p v-for="event in events" :key="event.id">{{ event.name }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
+import { defineComponent, PropType } from 'vue'
+import { Event } from '/@/lib/apis'
 
 export default defineComponent({
   name: 'EventsContainer',
@@ -16,7 +17,9 @@ export default defineComponent({
       default: []
     }
   },
-  setup() {}
+  setup() {
+    return
+  }
 })
 </script>
 

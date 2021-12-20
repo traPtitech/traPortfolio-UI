@@ -20,7 +20,7 @@
         :projects="userProjects"
       />
     </div>
-    <!-- <div :class="$style.contestsContainer">
+    <div :class="$style.contestsContainer">
       <contests-container
         :class="$style.contestsContainer"
         :contests="userContests"
@@ -28,7 +28,7 @@
     </div>
     <div :class="$style.eventsContainer">
       <events-container :class="$style.eventsContainer" :events="userEvents" />
-    </div> -->
+    </div>
   </page-container>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.title">実績</div>
-  <!-- <p v-for="contest in contests" :key="contest.id">{{ contest }}</p> -->
+  <p v-for="contest in contests" :key="contest.id">{{ contest.name }}</p>
 </template>
 
 <script lang="ts">
