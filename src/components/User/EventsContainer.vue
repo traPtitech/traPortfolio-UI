@@ -16,9 +16,6 @@ export default defineComponent({
       type: Object as PropType<Array<Event>>,
       default: []
     }
-  },
-  setup() {
-    return
   }
 })
 </script>
