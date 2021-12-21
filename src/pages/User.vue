@@ -7,7 +7,9 @@
           <div :class="$style.name">{{ name }}</div>
           <div :class="$style.realName">{{ realName }}</div>
         </div>
-        <div>accounts</div>
+        <div :class="$style.accounts">
+          <account-list :accounts="accounts" />
+        </div>
       </div>
     </router-link>
     <div :class="$style.bioContainer">
@@ -47,6 +49,7 @@ import BioContainer from '/@/components/User/BioContainer.vue'
 import GroupsContainer from '/@/components/User/GroupsContainer.vue'
 import ContestsContainer from '/@/components/User/ContestsContainer.vue'
 import EventsContainer from '/@/components/User/EventsContainer.vue'
+import AccountList from '../components/User/AccountList.vue'
 
 export default defineComponent({
   name: 'User',
@@ -55,7 +58,8 @@ export default defineComponent({
     BioContainer,
     GroupsContainer,
     ContestsContainer,
-    EventsContainer
+    EventsContainer,
+    AccountList
   },
   setup() {
     const userId = useParam('userId')
@@ -104,6 +108,7 @@ export default defineComponent({
 .titleContainer {
   display: flex;
   text-decoration: none;
+  align-items: center;
   margin: 4rem 0 2rem;
 }
 
@@ -125,6 +130,10 @@ export default defineComponent({
   color: $color-text;
   font-size: 1.5rem;
   margin-right: 2rem;
+}
+
+.accounts {
+  margin-top: 1rem;
 }
 
 .nameContainer {
