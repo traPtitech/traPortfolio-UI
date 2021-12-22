@@ -4,6 +4,7 @@
       v-for="account in accounts"
       :key="account.id"
       :account="account"
+      :href="account.url"
     />
   </div>
 </template>

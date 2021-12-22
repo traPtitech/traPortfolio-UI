@@ -1,17 +1,17 @@
 <template>
   <page-container>
-    <router-link :class="$style.titleContainer" :to="`/users/${userId}`">
+    <div :class="$style.titleContainer">
       <img :class="$style.icon" :src="iconSrc" />
       <div>
-        <div :class="$style.nameContainer">
+        <router-link :to="`/users/${userId}`" :class="$style.nameContainer">
           <div :class="$style.name">{{ name }}</div>
           <div :class="$style.realName">{{ realName }}</div>
-        </div>
+        </router-link>
         <div :class="$style.accounts">
           <account-list :accounts="accounts" />
         </div>
       </div>
-    </router-link>
+    </div>
     <div :class="$style.bioContainer">
       <bio-container :class="$style.bioContainer" :bio="bio" />
     </div>
@@ -107,7 +107,6 @@ export default defineComponent({
 <style lang="scss" module>
 .titleContainer {
   display: flex;
-  text-decoration: none;
   align-items: center;
   margin: 4rem 0 2rem;
 }
@@ -139,6 +138,7 @@ export default defineComponent({
 .nameContainer {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .bioContainer {

@@ -1,5 +1,10 @@
 <template>
-  <icon :name="iconName" :size="24" :class="$style.icon" />
+  <a :class="$style.link">
+    <icon v-if="isIcon" :name="iconName" :size="24" />
+    <div v-else :class="$style.name">
+      <p :class="$style.iconName">{{ iconName }}</p>
+    </div>
+  </a>
 </template>
 
 <script lang="ts">
@@ -17,15 +22,8 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const isIconify = computed(() => {
-      return [
-        AccountType.homepage,
-        AccountType.blog,
-        AccountType.twitter,
-        AccountType.facebook,
-        AccountType.github,
-        AccountType.soundcloud
-      ].includes(props.account.type)
+    const isIcon = computed(() => {
+      return ![AccountType.atcoder].includes(props.account.type)
     })
     const iconName = computed(() => {
       switch (props.account.type) {
@@ -38,24 +36,40 @@ export default defineComponent({
         case AccountType.facebook:
           return 'mdi:facebook'
         case AccountType.pixiv:
-          return 'mdi:twitter'
+          return 'simple-icons:pixiv'
         case AccountType.github:
           return 'mdi:github'
         case AccountType.qiita:
-          return 'mdi:twitter'
+          return 'simple-icons:qiita'
         case AccountType.atcoder:
-          return 'mdi:twitter'
+          return 'AtCoder'
         case AccountType.soundcloud:
           return 'mdi:soundcloud'
       }
     })
-    return { isIconify, iconName }
+    return { isIcon, iconName }
   }
 })
 </script>
 <style lang="scss" module>
-.icon {
-  margin: 0 0.25rem;
-  color: $color-secondary-text;
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  margin: 0 0.3rem;
+  font-size: 5px;
+}
+
+.name {
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+
+.iconName {
+  display: table-cell;
+  vertical-align: middle;
 }
 </style>
