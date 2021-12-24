@@ -52,10 +52,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" module>
-a,
-a:visited,
-a:hover,
-a:active {
+.link {
   text-decoration: none;
   color: inherit;
   margin: 0 0.3rem;

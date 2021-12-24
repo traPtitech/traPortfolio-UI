@@ -23,7 +23,7 @@ export default defineComponent({
   },
   setup(props) {
     const duration = computed(() => {
-      let ret: Array<string> = []
+      let ret: string[] = []
       for (let val of props.group.duration) {
         let since = `${val.since.year}${
           val.since.semester == Semester.first ? '前期' : '後期'

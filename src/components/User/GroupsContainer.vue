@@ -16,11 +16,11 @@ export default defineComponent({
   },
   props: {
     groups: {
-      type: Object as PropType<Array<UserGroup>>,
+      type: Array as PropType<UserGroup[]>,
       default: []
     },
     projects: {
-      type: Object as PropType<Array<UserProject>>,
+      type: Array as PropType<UserProject[]>,
       default: []
     }
   }

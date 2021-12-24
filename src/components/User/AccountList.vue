@@ -19,7 +19,7 @@ export default defineComponent({
   components: { AccountListItem },
   props: {
     accounts: {
-      type: Array as PropType<Array<Account>>,
+      type: Array as PropType<Account[]>,
       default: []
     }
   },

@@ -13,7 +13,7 @@ export default defineComponent({
   name: 'EventsContainer',
   props: {
     events: {
-      type: Object as PropType<Array<Event>>,
+      type: Array as PropType<Event[]>,
       default: []
     }
   }

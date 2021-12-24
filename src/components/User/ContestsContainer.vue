@@ -13,7 +13,7 @@ export default defineComponent({
   name: 'ContestsContainer',
   props: {
     contests: {
-      type: Object as PropType<Array<ContestTeamWithContestName>>,
+      type: Array as PropType<ContestTeamWithContestName[]>,
       default: []
     }
   },

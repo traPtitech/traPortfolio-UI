@@ -20,11 +20,11 @@ export default defineComponent({
   components: { GroupListItem, ProjectListItem },
   props: {
     groups: {
-      type: Array as PropType<Array<UserGroup>>,
+      type: Array as PropType<UserGroup[]>,
       default: []
     },
     projects: {
-      type: Array as PropType<Array<UserProject>>,
+      type: Array as PropType<UserProject[]>,
       default: []
     }
   }

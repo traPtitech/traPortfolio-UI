@@ -64,10 +64,10 @@ export default defineComponent({
   setup() {
     const userId = useParam('userId')
     const userDetail = ref<UserDetail>()
-    const userProjects = ref<Array<UserProject>>()
-    const userContests = ref<Array<ContestTeamWithContestName>>()
-    const userGroups = ref<Array<UserGroup>>()
-    const userEvents = ref<Array<Event>>()
+    const userProjects = ref<UserProject[]>()
+    const userContests = ref<ContestTeamWithContestName[]>()
+    const userGroups = ref<UserGroup[]>()
+    const userEvents = ref<Event[]>()
 
     watchEffect(async () => {
       userDetail.value = (await apis.getUser(userId.value)).data
