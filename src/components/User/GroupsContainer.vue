@@ -9,6 +9,7 @@
 import { defineComponent, PropType } from 'vue'
 import { UserGroup, UserProject } from '/@/lib/apis'
 import BelongsList from './BelongsList.vue'
+
 export default defineComponent({
   name: 'GroupsContainer',
   components: {
