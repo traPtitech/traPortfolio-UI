@@ -1,9 +1,7 @@
 <template>
   <a :class="$style.link">
     <icon v-if="isIcon" :name="iconName" :size="24" />
-    <div v-else :class="$style.name">
-      <p :class="$style.iconName">{{ iconName }}</p>
-    </div>
+    <img v-else :src="iconName" :class="$style.icon" />
   </a>
 </template>
 
@@ -42,7 +40,7 @@ export default defineComponent({
         case AccountType.qiita:
           return 'simple-icons:qiita'
         case AccountType.atcoder:
-          return 'AtCoder'
+          return '/@/assets/AtCoder.svg'
         case AccountType.soundcloud:
           return 'mdi:soundcloud'
       }
@@ -59,14 +57,8 @@ export default defineComponent({
   font-size: 5px;
 }
 
-.name {
-  height: 100%;
-  width: 100%;
-  display: table;
-}
-
-.iconName {
-  display: table-cell;
-  vertical-align: middle;
+.icon {
+  width: 24px;
+  height: 24px;
 }
 </style>

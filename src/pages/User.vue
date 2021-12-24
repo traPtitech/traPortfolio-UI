@@ -83,9 +83,9 @@ export default defineComponent({
         }`
     )
 
-    const name = computed(() => userDetail.value?.name)
-    const realName = computed(() => userDetail.value?.realName)
-    const bio = computed(() => userDetail.value?.bio)
+    const name = computed(() => userDetail.value?.name ?? 'Loading ...')
+    const realName = computed(() => userDetail.value?.realName ?? 'Loading ...')
+    const bio = computed(() => userDetail.value?.bio ?? 'Loading ...')
     const accounts = computed(() => userDetail.value?.accounts)
 
     return {
