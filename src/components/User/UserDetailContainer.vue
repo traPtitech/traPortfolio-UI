@@ -11,7 +11,7 @@
           {{ userDetail?.realName ?? 'Loading ...' }}
         </div>
       </router-link>
-      <account-list :accounts="accounts" :class="$style.accounts" />
+      <account-list :accounts="userDetail?.accounts" :class="$style.accounts" />
     </div>
   </div>
 </template>
@@ -19,19 +19,15 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
 import AccountList from './AccountList.vue'
-import { Account, UserDetail } from '/@/lib/apis'
+import { UserDetail } from '/@/lib/apis'
 
 export default defineComponent({
-  name: 'UserInfoContainer',
+  name: 'UserDetailContainer',
   components: { AccountList },
   props: {
     userDetail: {
       type: Object as PropType<UserDetail>,
       default: undefined
-    },
-    accounts: {
-      type: Array as PropType<Account[]>,
-      default: []
     }
   },
   setup() {

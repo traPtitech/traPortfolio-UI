@@ -13,7 +13,7 @@ export default defineComponent({
   props: {
     bio: {
       type: String,
-      required: true
+      default: 'Loading'
     }
   },
   setup() {

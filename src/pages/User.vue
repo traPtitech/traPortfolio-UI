@@ -1,11 +1,10 @@
 <template>
   <page-container>
-    <user-info-container
+    <user-detail-container
       :class="$style.userInfoContainer"
       :user-detail="userDetail"
-      :accounts="accounts"
     />
-    <bio-container :class="$style.bioContainer" :bio="bio" />
+    <bio-container :class="$style.bioContainer" :bio="userDetail?.bio" />
     <groups-container
       :class="$style.groupsContainer"
       :groups="userGroups"
@@ -20,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { computed, ref, defineComponent, watchEffect } from 'vue'
+import { ref, defineComponent, watchEffect } from 'vue'
 import apis, {
   ContestTeamWithContestName,
   UserDetail,
@@ -34,7 +33,7 @@ import BioContainer from '/@/components/User/BioContainer.vue'
 import GroupsContainer from '/@/components/User/GroupsContainer.vue'
 import ContestsContainer from '/@/components/User/ContestsContainer.vue'
 import EventsContainer from '/@/components/User/EventsContainer.vue'
-import UserInfoContainer from '../components/User/UserInfoContainer.vue'
+import UserDetailContainer from '../components/User/UserDetailContainer.vue'
 
 export default defineComponent({
   name: 'User',
@@ -44,7 +43,7 @@ export default defineComponent({
     GroupsContainer,
     ContestsContainer,
     EventsContainer,
-    UserInfoContainer
+    UserDetailContainer
   },
   setup() {
     const userId = useParam('userId')
@@ -62,12 +61,7 @@ export default defineComponent({
       userEvents.value = (await apis.getUserEvents(userId.value)).data
     })
 
-    const bio = computed(() => userDetail.value?.bio ?? 'Loading ...')
-    const accounts = computed(() => userDetail.value?.accounts)
-
     return {
-      bio,
-      accounts,
       userId,
       userDetail,
       userProjects,
