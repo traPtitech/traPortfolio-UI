@@ -1,5 +1,5 @@
 <template>
-  <a :class="$style.link">
+  <a :class="$style.link" :href="account.url">
     <icon v-if="isIcon" :name="iconName" :size="24" />
     <img v-else :src="iconName" :class="$style.icon" />
   </a>
@@ -51,8 +51,7 @@ export default defineComponent({
 </script>
 <style lang="scss" module>
 .link {
-  text-decoration: none;
-  color: inherit;
+  color: $color-secondary-text;
   margin: 0 0.3rem;
   font-size: 5px;
 }

@@ -10,7 +10,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
 import DurationListItem from './DurationListItem.vue'
-import { Semester, UserGroup } from '/@/lib/apis'
+import { UserGroup } from '/@/lib/apis'
 import { getProjectDurations } from '/@/lib/date'
 
 export default defineComponent({
