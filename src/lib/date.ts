@@ -52,14 +52,15 @@ export const getDisplayDuration = (duration: Duration): string => {
 
 export const getProjectDurations = (durations: ProjectDuration[]): string[] =>
   durations.map(val => {
-    const since = `${val.since.year}${val.since.semester == Semester.first ? '前期' : '後期'
-      } ~ `
+    const since = `${val.since.year}${
+      val.since.semester == Semester.first ? '前期' : '後期'
+    } ~ `
     if (val.until === undefined) {
       return since
     } else {
-      const until = `${val.until.year}${val.until.semester == Semester.first ? '前期' : '後期'
-        }`
+      const until = `${val.until.year}${
+        val.until.semester == Semester.first ? '前期' : '後期'
+      }`
       return `${since} ${until}`
     }
   })
-
