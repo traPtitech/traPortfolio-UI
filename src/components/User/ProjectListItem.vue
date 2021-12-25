@@ -11,6 +11,7 @@
 import { computed, defineComponent, PropType } from 'vue'
 import DurationListItem from './DurationListItem.vue'
 import { Semester, UserProject } from '/@/lib/apis'
+import { getProjectDurations } from '/@/lib/date'
 
 export default defineComponent({
   name: 'ProjectListItem',
@@ -22,23 +23,9 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const duration = computed(() => {
-      let ret: string[] = []
-      for (let val of props.project.userDuration) {
-        let since = `${val.since.year}${
-          val.since.semester == Semester.first ? '前期' : '後期'
-        } ~ `
-        if (val.until === undefined) {
-          ret.push(since)
-        } else {
-          let until = `${val.until.year}${
-            val.until.semester == Semester.first ? '前期' : '後期'
-          }`
-          ret.push(`${since} ${until}`)
-        }
-      }
-      return ret
-    })
+    const duration = computed(() =>
+      getProjectDurations(props.project.userDuration)
+    )
     return { duration }
   }
 })
