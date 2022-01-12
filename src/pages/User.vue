@@ -35,14 +35,8 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
-import apis, {
-  ContestTeamWithContestName,
-  UserDetail,
-  UserGroup,
-  UserProject,
-  Event
-} from '../lib/apis'
+import { defineComponent } from 'vue'
+import apis from '../lib/apis'
 import useParam from '/@/use/param'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import BioContainer from '/@/components/User/BioContainer.vue'
@@ -50,7 +44,7 @@ import GroupsContainer from '/@/components/User/GroupsContainer.vue'
 import ContestsContainer from '/@/components/User/ContestsContainer.vue'
 import EventsContainer from '/@/components/User/EventsContainer.vue'
 import UserDetailContainer from '../components/User/UserDetailContainer.vue'
-import useFetcher from '../use/fetcher'
+import useDataFetcher from '../use/dataFetcher'
 
 export default defineComponent({
   name: 'User',
@@ -64,38 +58,37 @@ export default defineComponent({
   },
   setup() {
     const userId = useParam('userId')
-    const userDetail = ref<UserDetail>()
-    const { fetcherState: fetcherStateUserDetail } = useFetcher(
-      userDetail,
-      async () => (userDetail.value = (await apis.getUser(userId.value)).data)
+    const {
+      data: userDetail,
+      fetcherState: fetcherStateUserDetail
+    } = useDataFetcher(async () => (await apis.getUser(userId.value)).data)
+
+    const {
+      data: userProjects,
+      fetcherState: fetcherStateUserProjects
+    } = useDataFetcher(
+      async () => (await apis.getUserProjects(userId.value)).data
     )
 
-    const userProjects = ref<UserProject[]>()
-    const { fetcherState: fetcherStateUserProjects } = useFetcher(
-      userProjects,
-      async () =>
-        (userProjects.value = (await apis.getUserProjects(userId.value)).data)
+    const {
+      data: userContests,
+      fetcherState: fetcherStateUserContests
+    } = useDataFetcher(
+      async () => (await apis.getUserContests(userId.value)).data
     )
 
-    const userContests = ref<ContestTeamWithContestName[]>()
-    const { fetcherState: fetcherStateUserContests } = useFetcher(
-      userContests,
-      async () =>
-        (userContests.value = (await apis.getUserContests(userId.value)).data)
+    const {
+      data: userGroups,
+      fetcherState: fetcherStateUserGroups
+    } = useDataFetcher(
+      async () => (await apis.getUserGroups(userId.value)).data
     )
 
-    const userGroups = ref<UserGroup[]>()
-    const { fetcherState: fetcherStateUserGroups } = useFetcher(
-      userGroups,
-      async () =>
-        (userGroups.value = (await apis.getUserGroups(userId.value)).data)
-    )
-
-    const userEvents = ref<Event[]>()
-    const { fetcherState: fetcherStateUserEvents } = useFetcher(
-      userEvents,
-      async () =>
-        (userEvents.value = (await apis.getUserEvents(userId.value)).data)
+    const {
+      data: userEvents,
+      fetcherState: fetcherStateUserEvents
+    } = useDataFetcher(
+      async () => (await apis.getUserEvents(userId.value)).data
     )
 
     return {

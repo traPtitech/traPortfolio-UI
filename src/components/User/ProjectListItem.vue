@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.durationContainer">
     <span>{{ project.name }}</span>
-    <span>
-      <duration-list-item v-for="d of duration" :key="d" :duration="d"
-    /></span>
+    <div>
+      <duration-list-item v-for="d of duration" :key="d" :duration="d" />
+    </div>
   </div>
 </template>
 

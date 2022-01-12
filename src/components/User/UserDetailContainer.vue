@@ -2,15 +2,12 @@
   <div>
     <img :class="$style.icon" :src="iconSrc" />
     <div>
-      <router-link
-        :to="`/users/${userDetail?.id}`"
-        :class="$style.nameContainer"
-      >
+      <div :class="$style.nameContainer">
         <div :class="$style.name">{{ userDetail?.name ?? 'Loading ...' }}</div>
         <div :class="$style.realName">
           {{ userDetail?.realName ?? 'Loading ...' }}
         </div>
-      </router-link>
+      </div>
       <account-list :accounts="userDetail?.accounts" :class="$style.accounts" />
     </div>
   </div>

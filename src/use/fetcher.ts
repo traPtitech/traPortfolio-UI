@@ -1,4 +1,4 @@
-import { ref, Ref } from 'vue'
+import { readonly, ref, Ref } from 'vue'
 
 export type FetcherState = 'loading' | 'loaded' | 'error'
 
@@ -11,7 +11,7 @@ const useFetcher = <T>(
   value: Readonly<Ref<T | null>>,
   fetchFunc: () => Promise<T>
 ): { fetcherState: Ref<FetcherState> } => {
-  const isLoadedBeforeInit = value.value != null
+  const isLoadedBeforeInit = value.value !== null
   const state = ref<FetcherState>('loaded')
   if (isLoadedBeforeInit) {
     // 取得済み
@@ -33,6 +33,27 @@ const useFetcher = <T>(
   })()
 
   return { fetcherState: state }
+}
+
+const useDataFetcher = <T>(
+  fetchFunc: () => Promise<T>
+): { data: Ref<T | undefined>; fetcherState: Ref<FetcherState> } => {
+  const state = ref<FetcherState>('loaded')
+  const data = ref<T>()
+  ;(async () => {
+    state.value = 'loading'
+    try {
+      data.value = await fetchFunc()
+      state.value = 'loaded'
+    } catch (e) {
+      state.value = 'error'
+
+      // eslint-disable-next-line no-console
+      console.error(e)
+    }
+  })()
+
+  return { data: data, fetcherState: state }
 }
 
 export default useFetcher
