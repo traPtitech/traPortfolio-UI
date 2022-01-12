@@ -1,4 +1,4 @@
-import { Duration, ProjectDuration, Semester } from '/@/lib/apis'
+import { Duration, YearWithSemesterDuration, Semester } from '/@/lib/apis'
 
 export const getTimeString = (date: Date): string =>
   date.getHours().toString().padStart(2, '0') +
@@ -54,7 +54,9 @@ const SemesterToString = (semester: Semester): string => {
   return semester === Semester.first ? '前期' : '後期'
 }
 
-export const getProjectDurations = (durations: ProjectDuration[]): string[] =>
+export const getGroupOrProjectDurations = (
+  durations: YearWithSemesterDuration[]
+): string[] =>
   durations.map(val => {
     const since = `${val.since.year}${SemesterToString(val.since.semester)} ~`
     if (val.until === undefined) {

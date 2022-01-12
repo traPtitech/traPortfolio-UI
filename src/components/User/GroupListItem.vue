@@ -11,7 +11,7 @@
 import { computed, defineComponent, PropType } from 'vue'
 import DurationListItem from './DurationListItem.vue'
 import { UserGroup } from '/@/lib/apis'
-import { getProjectDurations } from '/@/lib/date'
+import { getGroupOrProjectDurations } from '/@/lib/date'
 
 export default defineComponent({
   name: 'GroupListItem',
@@ -23,7 +23,9 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const duration = computed(() => getProjectDurations(props.group.duration))
+    const duration = computed(() =>
+      getGroupOrProjectDurations(props.group.duration)
+    )
     return { duration }
   }
 })
