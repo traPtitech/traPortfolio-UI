@@ -67,6 +67,5 @@ export default defineComponent({
 .nameContainer {
   display: flex;
   align-items: center;
-  text-decoration: none;
 }
 </style>

@@ -13,6 +13,7 @@ const useFetcher = <T>(
 ): { fetcherState: Ref<FetcherState> } => {
   const isLoadedBeforeInit = value.value !== null
   const state = ref<FetcherState>('loaded')
+
   if (isLoadedBeforeInit) {
     // 取得済み
     return { fetcherState: state }

@@ -50,7 +50,7 @@ export const getDisplayDuration = (duration: Duration): string => {
   return sinceDateString
 }
 
-const SemesterToString = (semester: Semester): string => {
+const semesterToString = (semester: Semester): string => {
   return semester === Semester.first ? '前期' : '後期'
 }
 
@@ -58,11 +58,10 @@ export const getGroupOrProjectDurations = (
   durations: YearWithSemesterDuration[]
 ): string[] =>
   durations.map(val => {
-    const since = `${val.since.year}${SemesterToString(val.since.semester)} ~`
+    const since = `${val.since.year}${semesterToString(val.since.semester)} ~`
     if (val.until === undefined) {
       return since
-    } else {
-      const until = `${val.until.year}${SemesterToString(val.until.semester)}`
-      return `${since} ${until}`
     }
+    const until = `${val.until.year}${semesterToString(val.until.semester)}`
+    return `${since} ${until}`
   })
