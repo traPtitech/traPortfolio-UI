@@ -54,14 +54,17 @@ const semesterToString = (semester: Semester): string => {
   return semester === Semester.first ? '前期' : '後期'
 }
 
-export const getGroupOrProjectDurations = (
-  durations: YearWithSemesterDuration[]
-): string[] =>
-  durations.map(val => {
-    const since = `${val.since.year}${semesterToString(val.since.semester)} ~`
-    if (val.until === undefined) {
-      return since
-    }
-    const until = `${val.until.year}${semesterToString(val.until.semester)}`
-    return `${since} ${until}`
-  })
+export const getGroupOrProjectDuration = (
+  duration: YearWithSemesterDuration
+): string => {
+  const since = `${duration.since.year}${semesterToString(
+    duration.since.semester
+  )} ~`
+  if (duration.until === undefined) {
+    return since
+  }
+  const until = `${duration.until.year}${semesterToString(
+    duration.until.semester
+  )}`
+  return `${since} ${until}`
+}
