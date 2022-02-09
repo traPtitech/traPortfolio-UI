@@ -61,27 +61,27 @@ export default defineComponent({
     const {
       data: userDetail,
       fetcherState: fetcherStateUserDetail
-    } = useUserDataFetcher(userId, apis.getUser)
+    } = useUserDataFetcher(userId, userId => apis.getUser(userId))
 
     const {
       data: userProjects,
       fetcherState: fetcherStateUserProjects
-    } = useUserDataFetcher(userId, apis.getUserProjects)
+    } = useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
 
     const {
       data: userContests,
       fetcherState: fetcherStateUserContests
-    } = useUserDataFetcher(userId, apis.getUserContests)
+    } = useUserDataFetcher(userId, userId => apis.getUserContests(userId))
 
     const {
       data: userGroups,
       fetcherState: fetcherStateUserGroups
-    } = useUserDataFetcher(userId, apis.getUserGroups)
+    } = useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
 
     const {
       data: userEvents,
       fetcherState: fetcherStateUserEvents
-    } = useUserDataFetcher(userId, apis.getUserEvents)
+    } = useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
 
     return {
       userDetail,

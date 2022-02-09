@@ -11,7 +11,7 @@ const useUserDataFetcher = <T>(
   const state = ref<FetcherState>('loading')
   watchEffect(async () => {
     try {
-      userData.value = (await fetch.apply(apis, [userId.value])).data
+      userData.value = (await fetch(userId.value)).data
       state.value = 'loaded'
     } catch (e) {
       state.value = 'error'
