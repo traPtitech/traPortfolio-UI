@@ -1,4 +1,4 @@
-import { Duration } from '/@/lib/apis'
+import { Duration, YearWithSemesterDuration, Semester } from '/@/lib/apis'
 
 export const getTimeString = (date: Date): string =>
   date.getHours().toString().padStart(2, '0') +
@@ -48,4 +48,23 @@ export const getDisplayDuration = (duration: Duration): string => {
     return sinceDateString + ' ～ ' + getTimeString(untilDate)
   }
   return sinceDateString
+}
+
+const semesterToString = (semester: Semester): string => {
+  return semester === Semester.first ? '前期' : '後期'
+}
+
+export const getGroupOrProjectDuration = (
+  duration: YearWithSemesterDuration
+): string => {
+  const since = `${duration.since.year}${semesterToString(
+    duration.since.semester
+  )} ~`
+  if (duration.until === undefined) {
+    return since
+  }
+  const until = `${duration.until.year}${semesterToString(
+    duration.until.semester
+  )}`
+  return `${since} ${until}`
 }
