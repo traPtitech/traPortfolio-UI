@@ -58,30 +58,20 @@ export default defineComponent({
   },
   setup() {
     const userId = useParam('userId')
-    const {
-      data: userDetail,
-      fetcherState: fetcherStateUserDetail
-    } = useUserDataFetcher(userId, userId => apis.getUser(userId))
+    const { data: userDetail, fetcherState: fetcherStateUserDetail } =
+      useUserDataFetcher(userId, userId => apis.getUser(userId))
 
-    const {
-      data: userProjects,
-      fetcherState: fetcherStateUserProjects
-    } = useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
+    const { data: userProjects, fetcherState: fetcherStateUserProjects } =
+      useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
 
-    const {
-      data: userContests,
-      fetcherState: fetcherStateUserContests
-    } = useUserDataFetcher(userId, userId => apis.getUserContests(userId))
+    const { data: userContests, fetcherState: fetcherStateUserContests } =
+      useUserDataFetcher(userId, userId => apis.getUserContests(userId))
 
-    const {
-      data: userGroups,
-      fetcherState: fetcherStateUserGroups
-    } = useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
+    const { data: userGroups, fetcherState: fetcherStateUserGroups } =
+      useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
 
-    const {
-      data: userEvents,
-      fetcherState: fetcherStateUserEvents
-    } = useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
+    const { data: userEvents, fetcherState: fetcherStateUserEvents } =
+      useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
 
     return {
       userDetail,
