@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.2",
-    "@openapitools/openapi-generator-cli": "^2.1.15",
-    "@stoplight/prism-cli": "^4.1.2",
+    "@openapitools/openapi-generator-cli": "^2.5.2",
+    "@stoplight/prism-cli": "^4.10.5",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "@vitejs/plugin-vue": "^4.0.0",
