@@ -12,15 +12,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, ref, watchEffect } from 'vue'
 import { storeToRefs } from 'pinia'
-
+import useParam from '/@/use/param'
+import apis, { GroupDetail } from '/@/lib/apis'
 import { useGroupStore } from '/@/store/group'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
-import useParam from '/@/use/param'
 import MemberList from '/@/components/Group/MemberList.vue'
 
 export default defineComponent({
@@ -37,14 +37,18 @@ export default defineComponent({
 
     const { groups } = storeToRefs(groupStore)
     const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
-
     const group = computed(() =>
       groups.value?.find(g => g.id === groupId.value)
     )
 
+    const groupDetail = ref<GroupDetail>()
+    watchEffect(async () => {
+      groupDetail.value = (await apis.getGroup(groupId.value)).data
+    })
+
     const name = computed(() => group.value?.name ?? 'Loading... 班')
     const link = 'https://trap.jp' // TODO
-    const members = computed(() => group.value?.members)
+    const members = computed(() => groupDetail.value?.members)
 
     return { fetcherState, name, link, members }
   }
