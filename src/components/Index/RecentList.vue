@@ -23,7 +23,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
 import { Duration } from '/@/lib/apis'
-import SectionTitle from '../Layout/SectionTitle.vue'
+import SectionTitle from '/@/components/Layout/SectionTitle.vue'
 
 interface Item {
   id: string
@@ -81,10 +81,10 @@ export default defineComponent({
 .title {
   color: $color-primary;
 }
-.prefix-title {
+.prefixTitle {
   font-size: 1.15rem;
 }
-.more-read {
+.moreRead {
   display: block;
   margin: 1rem 1rem;
   text-decoration: none;
