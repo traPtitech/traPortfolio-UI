@@ -13,7 +13,9 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
-import { useStore } from '/@/store'
+import { storeToRefs } from 'pinia'
+
+import { useGroupStore } from '/@/store/group'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
@@ -30,13 +32,12 @@ export default defineComponent({
     MemberList
   },
   setup() {
-    const store = useStore()
     const groupId = useParam('groupId')
+    const groupStore = useGroupStore()
 
-    const groups = computed(() => store.state.groups)
-    const { fetcherState } = useFetcher(groups, () =>
-      store.dispatch.fetchGroups()
-    )
+    const { groups } = storeToRefs(groupStore)
+    const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
+
     const group = computed(() =>
       groups.value?.find(g => g.id === groupId.value)
     )
