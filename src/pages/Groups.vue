@@ -7,8 +7,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import { useStore } from '/@/store'
+import { defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useGroupStore } from '/@/store/group'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
@@ -22,12 +23,9 @@ export default defineComponent({
     GroupList
   },
   setup() {
-    const store = useStore()
-
-    const groups = computed(() => store.state.groups)
-    const { fetcherState } = useFetcher(groups, () =>
-      store.dispatch.fetchGroups()
-    )
+    const groupStore = useGroupStore()
+    const { groups } = storeToRefs(groupStore)
+    const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
 
     return { groups, fetcherState }
   }

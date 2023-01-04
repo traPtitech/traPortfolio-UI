@@ -7,8 +7,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import { useStore } from '/@/store'
+import { defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+
+import { useEventStore } from '/@/store/event'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
@@ -22,12 +24,10 @@ export default defineComponent({
     EventList
   },
   setup() {
-    const store = useStore()
+    const eventStore = useEventStore()
 
-    const events = computed(() => store.state.events)
-    const { fetcherState } = useFetcher(events, () =>
-      store.dispatch.fetchEvents()
-    )
+    const { events } = storeToRefs(eventStore)
+    const { fetcherState } = useFetcher(events, () => eventStore.fetchEvents())
 
     return { events, fetcherState }
   }
