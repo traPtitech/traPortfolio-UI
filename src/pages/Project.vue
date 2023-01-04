@@ -9,7 +9,7 @@
       >
         紹介ページ
       </external-link>
-      <p :class="$style.descirption">{{ description }}</p>
+      <p :class="$style.description">{{ description }}</p>
     </div>
     <member-list :members="members" />
   </page-container>
@@ -58,7 +58,7 @@ export default defineComponent({
 .link {
   color: $color-secondary-text;
 }
-.descirption {
+.description {
   color: $color-text;
   font-size: 1rem;
 }

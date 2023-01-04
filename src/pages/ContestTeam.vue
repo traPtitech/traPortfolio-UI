@@ -12,7 +12,7 @@
       <p v-if="result" :class="$style.result">{{ result }}</p>
       <p v-if="description" :class="$style.description">{{ description }}</p>
     </div>
-    <member-list :members="members" />
+    <member-list v-if="members !== undefined" :members="members" />
   </page-container>
 </template>
 

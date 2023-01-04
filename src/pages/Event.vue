@@ -4,9 +4,9 @@
     <div :class="$style.infoContainer">
       <p :class="$style.detail">{{ date }}</p>
       <p :class="$style.detail">{{ place }}</p>
-      <p :class="$style.descirption">{{ descirption }}</p>
+      <p :class="$style.description">{{ description }}</p>
     </div>
-    <hostname-list :hostnames="hostnames" />
+    <hostname-list v-if="hostnames !== undefined" :hostnames="hostnames" />
   </page-container>
 </template>
 
@@ -42,9 +42,9 @@ export default defineComponent({
       eventDetail.value ? getDisplayDuration(eventDetail.value?.duration) : ''
     )
     const place = computed(() => eventDetail.value?.place)
-    const descirption = computed(() => eventDetail.value?.descirption)
+    const description = computed(() => eventDetail.value?.description)
 
-    return { name, hostnames, eventDetail, date, place, descirption }
+    return { name, hostnames, eventDetail, date, place, description }
   }
 })
 </script>
@@ -62,7 +62,7 @@ export default defineComponent({
   font-size: 1.5rem;
   margin: 1rem 0;
 }
-.descirption {
+.description {
   color: $color-text;
   font-size: 1rem;
 }
