@@ -1,7 +1,10 @@
 <template>
   <page-container>
     <page-title :class="$style.title">Project一覧</page-title>
-    <project-list v-if="fetcherState === 'loaded'" :projects="projects" />
+    <project-list
+      v-if="fetcherState === 'loaded' && projects !== null"
+      :projects="projects"
+    />
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>

@@ -6,7 +6,10 @@
         紹介ページ
       </external-link>
     </div>
-    <member-list v-if="fetcherState === 'loaded'" :members="members" />
+    <member-list
+      v-if="fetcherState === 'loaded' && members !== undefined"
+      :members="members"
+    />
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>

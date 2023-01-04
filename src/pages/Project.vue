@@ -11,7 +11,7 @@
       </external-link>
       <p :class="$style.description">{{ description }}</p>
     </div>
-    <member-list :members="members" />
+    <member-list v-if="members !== undefined" :members="members" />
   </page-container>
 </template>
 

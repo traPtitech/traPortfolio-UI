@@ -1,7 +1,10 @@
 <template>
   <page-container>
     <page-title :class="$style.title">コンテスト一覧</page-title>
-    <contest-list v-if="fetcherState === 'loaded'" :contests="contests" />
+    <contest-list
+      v-if="fetcherState === 'loaded' && contests !== null"
+      :contests="contests"
+    />
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>

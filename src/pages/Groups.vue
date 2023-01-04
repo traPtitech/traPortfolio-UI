@@ -1,7 +1,10 @@
 <template>
   <page-container>
     <page-title :class="$style.title">班一覧</page-title>
-    <group-list v-if="fetcherState === 'loaded'" :groups="groups" />
+    <group-list
+      v-if="fetcherState === 'loaded' && groups !== null"
+      :groups="groups"
+    />
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>
