@@ -8,23 +8,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { Contest } from '/@/lib/apis'
+<script lang="ts" setup>
 import ContestListItem from './ContestListItem.vue'
+import { Contest } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'ContestList',
-  components: {
-    ContestListItem
-  },
-  props: {
-    contests: {
-      type: Array as PropType<Contest[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  contests: Contest[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

@@ -8,23 +8,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { Project } from '/@/lib/apis'
+<script lang="ts" setup>
 import ProjectListItem from './ProjectListItem.vue'
+import { Project } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'ProjectList',
-  components: {
-    ProjectListItem
-  },
-  props: {
-    projects: {
-      type: Array as PropType<Project[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  projects: Project[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

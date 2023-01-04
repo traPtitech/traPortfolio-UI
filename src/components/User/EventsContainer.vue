@@ -5,19 +5,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
+<script lang="ts" setup>
 import { Event } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'EventsContainer',
-  props: {
-    events: {
-      type: Array as PropType<Event[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  events: Event[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

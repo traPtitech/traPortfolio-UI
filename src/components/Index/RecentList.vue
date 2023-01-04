@@ -20,51 +20,59 @@
   </section>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
-import { Duration } from '/@/lib/apis'
+<script lang="ts" setup>
 import SectionTitle from '/@/components/Layout/SectionTitle.vue'
+import { computed } from 'vue'
+import { Duration, YearWithSemesterDuration } from '/@/lib/apis'
 
 interface Item {
   id: string
   name: string
-  duration: Duration
+  duration: Duration | YearWithSemesterDuration
 }
 
-export default defineComponent({
-  name: 'RecentList',
-  components: {
-    SectionTitle
-  },
-  props: {
-    items: {
-      type: Array as PropType<Item[]>,
-      default: []
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    path: {
-      type: String,
-      required: true
-    }
-  },
-  setup(props) {
-    const listItem = computed(() => {
-      if (!props.items) return []
-      const li = props.items
-      li.sort((a, b) => {
-        if (a.duration.since > b.duration.since) {
+interface Props {
+  items: Item[]
+  title: string
+  path: string
+}
+
+const props = defineProps<Props>()
+
+// TODO: ソートのロジックをちゃんと書く
+const listItem = computed(() => {
+  if (!props.items) return []
+  const li = props.items
+  li.sort((a, b) => {
+    if (
+      typeof a.duration.since === 'string' &&
+      typeof b.duration.since === 'string'
+    ) {
+      if (a.duration.since > b.duration.since) {
+        return -1
+      } else {
+        return 1
+      }
+    } else if (
+      typeof a.duration.since === 'object' &&
+      typeof b.duration.since === 'object'
+    ) {
+      if (a.duration.since.year > b.duration.since.year) {
+        return -1
+      } else if (a.duration.since.year < b.duration.since.year) {
+        return 1
+      } else {
+        if (a.duration.since.semester > b.duration.since.semester) {
           return -1
         } else {
           return 1
         }
-      })
-      return li.slice(0, 5)
-    })
-    return { listItem }
-  }
+      }
+    } else {
+      return 0
+    }
+  })
+  return li.slice(0, 5)
 })
 </script>
 

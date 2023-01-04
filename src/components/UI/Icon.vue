@@ -4,29 +4,22 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue'
+<script lang="ts" setup>
+import { computed } from 'vue'
 
-export default defineComponent({
-  name: 'Icon',
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-    size: {
-      type: Number,
-      default: 24
-    }
-  },
-  setup(props) {
-    const styles = computed(() => ({
-      height: `${props.size}px`,
-      width: `${props.size}px`
-    }))
-    return { styles }
-  }
+interface Props {
+  name: string
+  size?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  size: 24
 })
+
+const styles = computed(() => ({
+  height: `${props.size}px`,
+  width: `${props.size}px`
+}))
 </script>
 
 <style lang="scss" module>

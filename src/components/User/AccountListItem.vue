@@ -9,49 +9,45 @@
   </a>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, PropType, ComputedRef } from 'vue'
-import Icon from '../UI/Icon.vue'
+<script lang="ts" setup>
+import Icon from '/@/components/UI/Icon.vue'
+
+import { computed, ComputedRef } from 'vue'
 import { Account, AccountType } from '/@/lib/apis'
 import AtcoderImgPath from '/@/assets/AtCoder.svg'
 
-export default defineComponent({
-  name: 'AccountListItem',
-  components: { Icon },
-  props: {
-    account: {
-      type: Object as PropType<Account>,
-      required: true
-    }
-  },
-  setup(props) {
-    type Icon = { type: 'icon'; name: string }
-    type Img = { type: 'img'; path: string }
-    type IconOrImg = Icon | Img
-    const icon: ComputedRef<IconOrImg> = computed(() => {
-      switch (props.account.type) {
-        case AccountType.homepage:
-          return { type: 'icon', name: 'mdi:home' }
-        case AccountType.blog:
-          return { type: 'icon', name: 'mdi:document' }
-        case AccountType.twitter:
-          return { type: 'icon', name: 'mdi:twitter' }
-        case AccountType.facebook:
-          return { type: 'icon', name: 'mdi:facebook' }
-        case AccountType.pixiv:
-          return { type: 'icon', name: 'simple-icons:pixiv' }
-        case AccountType.github:
-          return { type: 'icon', name: 'mdi:github' }
-        case AccountType.qiita:
-          return { type: 'icon', name: 'simple-icons:qiita' }
-        case AccountType.atcoder:
-          return { type: 'img', path: AtcoderImgPath }
-        case AccountType.soundcloud:
-          return { type: 'icon', name: 'mdi:soundcloud' }
-      }
-    })
-    return { icon }
+interface Props {
+  account: Account
+}
+
+const props = defineProps<Props>()
+
+// TODO:
+type IconType = { type: 'icon'; name: string }
+type ImgType = { type: 'img'; path: string }
+type IconOrImg = IconType | ImgType
+const icon: ComputedRef<IconOrImg> = computed(() => {
+  switch (props.account.type) {
+    case AccountType.homepage:
+      return { type: 'icon', name: 'mdi:home' }
+    case AccountType.blog:
+      return { type: 'icon', name: 'mdi:document' }
+    case AccountType.twitter:
+      return { type: 'icon', name: 'mdi:twitter' }
+    case AccountType.facebook:
+      return { type: 'icon', name: 'mdi:facebook' }
+    case AccountType.pixiv:
+      return { type: 'icon', name: 'simple-icons:pixiv' }
+    case AccountType.github:
+      return { type: 'icon', name: 'mdi:github' }
+    case AccountType.qiita:
+      return { type: 'icon', name: 'simple-icons:qiita' }
+    case AccountType.atcoder:
+      return { type: 'img', path: AtcoderImgPath }
+    case AccountType.soundcloud:
+      return { type: 'icon', name: 'mdi:soundcloud' }
   }
+  return { type: 'icon', name: 'mdi:link' }
 })
 </script>
 <style lang="scss" module>

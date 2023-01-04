@@ -6,28 +6,28 @@
       :class="$style.search"
     />
     <group-name-list
-      v-if="fetcherStateGroups === 'loaded'"
+      v-if="fetcherStateGroups === 'loaded' && groups !== null"
       :groups="groups"
       :class="$style.groupName"
     />
     <p v-else>{{ fetcherStateGroups }}</p>
     <div :class="$style.container">
       <recent-list
-        v-if="fetcherStateContests === 'loaded'"
+        v-if="fetcherStateContests === 'loaded' && contests !== null"
         :items="contests"
         title="実績"
         path="contests"
       />
       <p v-else>{{ fetcherStateContests }}</p>
       <recent-list
-        v-if="fetcherStateProjects === 'loaded'"
+        v-if="fetcherStateProjects === 'loaded' && projects !== null"
         :items="projects"
         title="プロジェクト"
         path="projects"
       />
       <p v-else>{{ fetcherStateProjects }}</p>
       <recent-list
-        v-if="fetcherStateProjects"
+        v-if="fetcherStateProjects === 'loaded' && events !== null"
         :items="events"
         title="イベント"
         path="events"

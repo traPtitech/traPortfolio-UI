@@ -5,22 +5,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { ContestTeamWithContestName } from '/@/lib/apis'
+<script lang="ts" setup>
+import { UserContest } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'ContestsContainer',
-  props: {
-    contests: {
-      type: Array as PropType<ContestTeamWithContestName[]>,
-      default: []
-    }
-  },
-  setup() {
-    return
-  }
-})
+interface Props {
+  contests: UserContest[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

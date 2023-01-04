@@ -14,23 +14,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
+<script lang="ts" setup>
+import SectionTitle from '/@/components/Layout/SectionTitle.vue'
 import { Group } from '/@/lib/apis'
-import SectionTitle from '../Layout/SectionTitle.vue'
 
-export default defineComponent({
-  name: 'GroupNameList',
-  components: {
-    SectionTitle
-  },
-  props: {
-    groups: {
-      type: Array as PropType<Group[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  groups: Group[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

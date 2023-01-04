@@ -13,20 +13,24 @@
     />
     <p v-else>{{ fetcherStateUserDetail }}</p>
     <groups-container
-      v-if="fetcherStateUserGroups === 'loaded'"
+      v-if="
+        fetcherStateUserGroups === 'loaded' &&
+        userGroups !== undefined &&
+        userProjects !== undefined
+      "
       :class="$style.groupsContainer"
       :groups="userGroups"
       :projects="userProjects"
     />
     <p v-else>{{ fetcherStateUserGroups }}</p>
     <contests-container
-      v-if="fetcherStateUserContests === 'loaded'"
+      v-if="fetcherStateUserContests === 'loaded' && userContests !== undefined"
       :class="$style.contestsContainer"
       :contests="userContests"
     />
     <p v-else>{{ fetcherStateUserContests }}</p>
     <events-container
-      v-if="fetcherStateUserEvents === 'loaded'"
+      v-if="fetcherStateUserEvents === 'loaded' && userEvents !== undefined"
       :class="$style.eventsContainer"
       :events="userEvents"
     />

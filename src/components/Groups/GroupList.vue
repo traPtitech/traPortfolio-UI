@@ -4,23 +4,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { Group } from '/@/lib/apis'
+<script lang="ts" setup>
 import GroupListItem from './GroupListItem.vue'
+import { Group } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'GroupList',
-  components: {
-    GroupListItem
-  },
-  props: {
-    groups: {
-      type: Array as PropType<Group[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  groups: Group[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

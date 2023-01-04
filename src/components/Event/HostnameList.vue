@@ -11,25 +11,16 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { User } from '/@/lib/apis'
+<script lang="ts" setup>
 import HostnameListItem from './HostnameListItem.vue'
 import SectionTitle from '/@/components/Layout/SectionTitle.vue'
+import { User } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'HostnameList',
-  components: {
-    HostnameListItem,
-    SectionTitle
-  },
-  props: {
-    hostnames: {
-      type: Array as PropType<User[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  hostnames: User[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>
