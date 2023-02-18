@@ -40,16 +40,13 @@ export default defineComponent({
 
     const { groups } = storeToRefs(groupStore)
     const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
-    const group = computed(() =>
-      groups.value?.find(g => g.id === groupId.value)
-    )
 
     const groupDetail = ref<GroupDetail>()
     watchEffect(async () => {
       groupDetail.value = (await apis.getGroup(groupId.value)).data
     })
 
-    const name = computed(() => group.value?.name ?? 'Loading... 班')
+    const name = computed(() => groupDetail.value?.name ?? 'Loading... 班')
     const link = 'https://trap.jp' // TODO
     const members = computed(() => groupDetail.value?.members)
 
