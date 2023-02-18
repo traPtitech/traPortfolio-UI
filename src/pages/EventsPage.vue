@@ -20,7 +20,7 @@ import PageTitle from '/@/components/Layout/PageTitle.vue'
 import EventList from '/@/components/Events/EventList.vue'
 
 export default defineComponent({
-  name: 'Events',
+  name: 'EventsPage',
   components: {
     PageContainer,
     PageTitle,
