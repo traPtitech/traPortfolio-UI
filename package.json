@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run start-mock\"",
     "build": "vite build",
+    "format": "prettier --check src",
+    "fix:format": "prettier --write src",
     "lint": "eslint --ext .ts,.vue src",
     "type-check": "tsc",
     "fetch-openapi": "node scripts/fetchOpenapi.js",
@@ -31,7 +33,6 @@
     "concurrently": "^7.6.0",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.8.0",
     "node-fetch": "^2.6.7",
     "prettier": "^2.8.1",
