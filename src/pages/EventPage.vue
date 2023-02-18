@@ -20,7 +20,7 @@ import apis, { EventDetail } from '/@/lib/apis'
 import { getDisplayDuration } from '/@/lib/date'
 
 export default defineComponent({
-  name: 'Event',
+  name: 'EventPage',
   components: {
     PageContainer,
     PageTitle,

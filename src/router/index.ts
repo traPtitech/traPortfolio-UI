@@ -8,7 +8,7 @@ const Group = () => import('/@/pages/Group.vue')
 const Projects = () => import('/@/pages/Projects.vue')
 const Project = () => import('/@/pages/Project.vue')
 const Events = () => import('/@/pages/Events.vue')
-const Event = () => import('/@/pages/Event.vue')
+const EventPage = () => import('/@/pages/EventPage.vue')
 const ContestsPage = () => import('/@/pages/ContestsPage.vue')
 const ContestPage = () => import('/@/pages/ContestPage.vue')
 const ContestTeam = () => import('/@/pages/ContestTeam.vue')
@@ -61,7 +61,7 @@ const routes = [
   {
     path: '/events/:eventId',
     name: 'Event',
-    component: Event
+    component: EventPage
   },
   {
     path: '/contests',
