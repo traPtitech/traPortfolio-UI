@@ -29,7 +29,7 @@ import useParam from '/@/use/param'
 import apis, { ContestDetail } from '/@/lib/apis'
 
 export default defineComponent({
-  name: 'Contest',
+  name: 'ContestPage',
   components: {
     PageContainer,
     PageTitle,
