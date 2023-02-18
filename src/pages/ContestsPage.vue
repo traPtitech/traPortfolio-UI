@@ -19,7 +19,7 @@ import ContestList from '/@/components/Contests/ContestList.vue'
 import { storeToRefs } from 'pinia'
 
 export default defineComponent({
-  name: 'Contests',
+  name: 'ContestsPage',
   components: {
     PageContainer,
     PageTitle,
