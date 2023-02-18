@@ -9,24 +9,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
+<script lang="ts" setup>
 import GroupListItem from './GroupListItem.vue'
 import ProjectListItem from './ProjectListItem.vue'
 import { UserGroup, UserProject } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'BelongsList',
-  components: { GroupListItem, ProjectListItem },
-  props: {
-    groups: {
-      type: Array as PropType<UserGroup[]>,
-      default: []
-    },
-    projects: {
-      type: Array as PropType<UserProject[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  groups: UserGroup[]
+  projects: UserProject[]
+}
+
+defineProps<Props>()
 </script>

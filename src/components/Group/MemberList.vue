@@ -8,23 +8,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { GroupMember } from '/@/lib/apis'
+<script lang="ts" setup>
 import MemberListItem from './MemberListItem.vue'
+import { GroupMember } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'MemberList',
-  components: {
-    MemberListItem
-  },
-  props: {
-    members: {
-      type: Array as PropType<GroupMember[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  members: GroupMember[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

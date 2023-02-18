@@ -4,23 +4,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { Event } from '/@/lib/apis'
+<script lang="ts" setup>
 import EventListItem from './EventListItem.vue'
+import { Event } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'EventList',
-  components: {
-    EventListItem
-  },
-  props: {
-    events: {
-      type: Array as PropType<Event[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  events: Event[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

@@ -9,9 +9,9 @@
       >
         紹介ページ
       </external-link>
-      <p :class="$style.descirption">{{ description }}</p>
+      <p :class="$style.description">{{ description }}</p>
     </div>
-    <member-list :members="members" />
+    <member-list v-if="members !== undefined" :members="members" />
   </page-container>
 </template>
 
@@ -25,7 +25,7 @@ import apis, { ProjectDetail } from '/@/lib/apis'
 import MemberList from '/@/components/Project/MemberList.vue'
 
 export default defineComponent({
-  name: 'Project',
+  name: 'ProjectPage',
   components: {
     PageContainer,
     PageTitle,
@@ -58,7 +58,7 @@ export default defineComponent({
 .link {
   color: $color-secondary-text;
 }
-.descirption {
+.description {
   color: $color-text;
   font-size: 1rem;
 }

@@ -6,23 +6,28 @@
         紹介ページ
       </external-link>
     </div>
-    <member-list v-if="fetcherState === 'loaded'" :members="members" />
+    <member-list
+      v-if="fetcherState === 'loaded' && members !== undefined"
+      :members="members"
+    />
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import { useStore } from '/@/store'
+import { defineComponent, computed, ref, watchEffect } from 'vue'
+import { storeToRefs } from 'pinia'
+import useParam from '/@/use/param'
+import apis, { GroupDetail } from '/@/lib/apis'
+import { useGroupStore } from '/@/store/group'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
-import useParam from '/@/use/param'
 import MemberList from '/@/components/Group/MemberList.vue'
 
 export default defineComponent({
-  name: 'Group',
+  name: 'GroupPage',
   components: {
     PageContainer,
     PageTitle,
@@ -30,20 +35,20 @@ export default defineComponent({
     MemberList
   },
   setup() {
-    const store = useStore()
     const groupId = useParam('groupId')
+    const groupStore = useGroupStore()
 
-    const groups = computed(() => store.state.groups)
-    const { fetcherState } = useFetcher(groups, () =>
-      store.dispatch.fetchGroups()
-    )
-    const group = computed(() =>
-      groups.value?.find(g => g.id === groupId.value)
-    )
+    const { groups } = storeToRefs(groupStore)
+    const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
 
-    const name = computed(() => group.value?.name ?? 'Loading... 班')
+    const groupDetail = ref<GroupDetail>()
+    watchEffect(async () => {
+      groupDetail.value = (await apis.getGroup(groupId.value)).data
+    })
+
+    const name = computed(() => groupDetail.value?.name ?? 'Loading... 班')
     const link = 'https://trap.jp' // TODO
-    const members = computed(() => group.value?.members)
+    const members = computed(() => groupDetail.value?.members)
 
     return { fetcherState, name, link, members }
   }

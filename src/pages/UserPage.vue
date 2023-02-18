@@ -13,20 +13,24 @@
     />
     <p v-else>{{ fetcherStateUserDetail }}</p>
     <groups-container
-      v-if="fetcherStateUserGroups === 'loaded'"
+      v-if="
+        fetcherStateUserGroups === 'loaded' &&
+        userGroups !== undefined &&
+        userProjects !== undefined
+      "
       :class="$style.groupsContainer"
       :groups="userGroups"
       :projects="userProjects"
     />
     <p v-else>{{ fetcherStateUserGroups }}</p>
     <contests-container
-      v-if="fetcherStateUserContests === 'loaded'"
+      v-if="fetcherStateUserContests === 'loaded' && userContests !== undefined"
       :class="$style.contestsContainer"
       :contests="userContests"
     />
     <p v-else>{{ fetcherStateUserContests }}</p>
     <events-container
-      v-if="fetcherStateUserEvents === 'loaded'"
+      v-if="fetcherStateUserEvents === 'loaded' && userEvents !== undefined"
       :class="$style.eventsContainer"
       :events="userEvents"
     />
@@ -47,7 +51,7 @@ import UserDetailContainer from '../components/User/UserDetailContainer.vue'
 import useUserDataFetcher from '/@/use/userDataFetcher'
 
 export default defineComponent({
-  name: 'User',
+  name: 'UserPage',
   components: {
     PageContainer,
     BioContainer,
@@ -58,30 +62,20 @@ export default defineComponent({
   },
   setup() {
     const userId = useParam('userId')
-    const {
-      data: userDetail,
-      fetcherState: fetcherStateUserDetail
-    } = useUserDataFetcher(userId, userId => apis.getUser(userId))
+    const { data: userDetail, fetcherState: fetcherStateUserDetail } =
+      useUserDataFetcher(userId, userId => apis.getUser(userId))
 
-    const {
-      data: userProjects,
-      fetcherState: fetcherStateUserProjects
-    } = useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
+    const { data: userProjects, fetcherState: fetcherStateUserProjects } =
+      useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
 
-    const {
-      data: userContests,
-      fetcherState: fetcherStateUserContests
-    } = useUserDataFetcher(userId, userId => apis.getUserContests(userId))
+    const { data: userContests, fetcherState: fetcherStateUserContests } =
+      useUserDataFetcher(userId, userId => apis.getUserContests(userId))
 
-    const {
-      data: userGroups,
-      fetcherState: fetcherStateUserGroups
-    } = useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
+    const { data: userGroups, fetcherState: fetcherStateUserGroups } =
+      useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
 
-    const {
-      data: userEvents,
-      fetcherState: fetcherStateUserEvents
-    } = useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
+    const { data: userEvents, fetcherState: fetcherStateUserEvents } =
+      useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
 
     return {
       userDetail,

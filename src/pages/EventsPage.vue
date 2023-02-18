@@ -1,33 +1,36 @@
 <template>
   <page-container>
     <page-title :class="$style.title">イベント一覧</page-title>
-    <event-list v-if="fetcherState === 'loaded'" :events="events" />
+    <event-list
+      v-if="fetcherState === 'loaded' && events !== null"
+      :events="events"
+    />
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import { useStore } from '/@/store'
+import { defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+
+import { useEventStore } from '/@/store/event'
 import useFetcher from '/@/use/fetcher'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import EventList from '/@/components/Events/EventList.vue'
 
 export default defineComponent({
-  name: 'Events',
+  name: 'EventsPage',
   components: {
     PageContainer,
     PageTitle,
     EventList
   },
   setup() {
-    const store = useStore()
+    const eventStore = useEventStore()
 
-    const events = computed(() => store.state.events)
-    const { fetcherState } = useFetcher(events, () =>
-      store.dispatch.fetchEvents()
-    )
+    const { events } = storeToRefs(eventStore)
+    const { fetcherState } = useFetcher(events, () => eventStore.fetchEvents())
 
     return { events, fetcherState }
   }

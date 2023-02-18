@@ -5,17 +5,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import SearchInput from '/@/components/UI/SearchInput.vue'
-
-export default defineComponent({
-  name: 'Header',
-  components: { SearchInput },
-  setup() {
-    return {}
-  }
-})
 </script>
 
 <style lang="scss" module>

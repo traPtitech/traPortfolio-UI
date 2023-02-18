@@ -1,28 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const Index = () => import('/@/pages/Index.vue')
-const Search = () => import('/@/pages/Search.vue')
-const User = () => import('/@/pages/User.vue')
-const Groups = () => import('/@/pages/Groups.vue')
-const Group = () => import('/@/pages/Group.vue')
-const Projects = () => import('/@/pages/Projects.vue')
-const Project = () => import('/@/pages/Project.vue')
-const Events = () => import('/@/pages/Events.vue')
-const Event = () => import('/@/pages/Event.vue')
-const Contests = () => import('/@/pages/Contests.vue')
-const Contest = () => import('/@/pages/Contest.vue')
+const IndexPage = () => import('/@/pages/IndexPage.vue')
+const SearchPage = () => import('/@/pages/SearchPage.vue')
+const UserPage = () => import('/@/pages/UserPage.vue')
+const GroupsPage = () => import('/@/pages/GroupsPage.vue')
+const GroupPage = () => import('/@/pages/GroupPage.vue')
+const ProjectsPage = () => import('/@/pages/ProjectsPage.vue')
+const ProjectPage = () => import('/@/pages/ProjectPage.vue')
+const EventsPage = () => import('/@/pages/EventsPage.vue')
+const EventPage = () => import('/@/pages/EventPage.vue')
+const ContestsPage = () => import('/@/pages/ContestsPage.vue')
+const ContestPage = () => import('/@/pages/ContestPage.vue')
 const ContestTeam = () => import('/@/pages/ContestTeam.vue')
 
 const routes = [
   {
     path: '/',
     name: 'Index',
-    component: Index
+    component: IndexPage
   },
   {
     path: '/search',
     name: 'UserSearch',
-    component: Search
+    component: SearchPage
   },
   {
     path: '/users',
@@ -31,47 +31,47 @@ const routes = [
   {
     path: '/users/:userId',
     name: 'User',
-    component: User
+    component: UserPage
   },
   {
     path: '/groups',
     name: 'Groups',
-    component: Groups
+    component: GroupsPage
   },
   {
     path: '/groups/:groupId',
     name: 'Group',
-    component: Group
+    component: GroupPage
   },
   {
     path: '/projects',
     name: 'Projects',
-    component: Projects
+    component: ProjectsPage
   },
   {
     path: '/projects/:projectId',
     name: 'Project',
-    component: Project
+    component: ProjectPage
   },
   {
     path: '/events',
     name: 'Events',
-    component: Events
+    component: EventsPage
   },
   {
     path: '/events/:eventId',
     name: 'Event',
-    component: Event
+    component: EventPage
   },
   {
     path: '/contests',
     name: 'Contests',
-    component: Contests
+    component: ContestsPage
   },
   {
     path: '/contests/:contestId',
     name: 'Contest',
-    component: Contest
+    component: ContestPage
   },
   {
     path: '/contests/:contestId/:teamId',

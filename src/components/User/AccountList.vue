@@ -8,24 +8,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
+<script lang="ts" setup>
 import AccountListItem from './AccountListItem.vue'
 import { Account } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'AccountsContainer',
-  components: { AccountListItem },
-  props: {
-    accounts: {
-      type: Array as PropType<Account[]>,
-      default: []
-    }
-  },
-  setup() {
-    return
-  }
-})
+interface Props {
+  accounts: Account[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

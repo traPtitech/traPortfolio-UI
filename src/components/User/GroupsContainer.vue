@@ -5,27 +5,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { UserGroup, UserProject } from '/@/lib/apis'
+<script lang="ts" setup>
 import BelongsList from './BelongsList.vue'
+import { UserGroup, UserProject } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'GroupsContainer',
-  components: {
-    BelongsList
-  },
-  props: {
-    groups: {
-      type: Array as PropType<UserGroup[]>,
-      default: []
-    },
-    projects: {
-      type: Array as PropType<UserProject[]>,
-      default: []
-    }
-  }
-})
+interface Props {
+  groups: UserGroup[]
+  projects: UserProject[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

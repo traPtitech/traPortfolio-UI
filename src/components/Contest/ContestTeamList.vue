@@ -12,30 +12,17 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { ContestTeam } from '/@/lib/apis'
+<script lang="ts" setup>
 import ContestTeamListItem from './ContestTeamListItem.vue'
 import SectionTitle from '/@/components/Layout/SectionTitle.vue'
+import { ContestTeam } from '/@/lib/apis'
 
-export default defineComponent({
-  name: 'ContestTeamList',
-  components: {
-    ContestTeamListItem,
-    SectionTitle
-  },
-  props: {
-    contestTeams: {
-      type: Array as PropType<ContestTeam[]>,
-      default: []
-    },
-    contestId: {
-      type: String,
-      require: true,
-      default: ''
-    }
-  }
-})
+interface Props {
+  contestTeams: ContestTeam[]
+  contestId: string
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" module>

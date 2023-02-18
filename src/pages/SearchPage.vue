@@ -1,7 +1,7 @@
 <template>
   <page-container>
     <page-title :class="$style.title">検索結果: {{ search }}</page-title>
-    <member-list :members="users" />
+    <member-list v-if="users !== undefined" :members="users" />
   </page-container>
 </template>
 
@@ -17,7 +17,7 @@ import useQuery from '/@/use/query'
 import apis, { User } from '/@/lib/apis'
 
 export default defineComponent({
-  name: 'Search',
+  name: 'SearchPage',
   components: { PageContainer, PageTitle, MemberList },
   setup() {
     const search = useQuery('q')

@@ -9,9 +9,13 @@
       >
         説明ページ
       </external-link>
-      <p :class="$style.descirption">{{ description }}</p>
+      <p :class="$style.description">{{ description }}</p>
     </div>
-    <contest-team-list :contest-teams="contestTeams" :contest-id="contestId" />
+    <contest-team-list
+      v-if="contestTeams !== undefined"
+      :contest-teams="contestTeams"
+      :contest-id="contestId"
+    />
   </page-container>
 </template>
 
@@ -25,7 +29,7 @@ import useParam from '/@/use/param'
 import apis, { ContestDetail } from '/@/lib/apis'
 
 export default defineComponent({
-  name: 'Contest',
+  name: 'ContestPage',
   components: {
     PageContainer,
     PageTitle,
@@ -58,7 +62,7 @@ export default defineComponent({
 .link {
   color: $color-secondary-text;
 }
-.descirption {
+.description {
   color: $color-text;
   font-size: 1rem;
 }

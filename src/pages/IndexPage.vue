@@ -6,28 +6,28 @@
       :class="$style.search"
     />
     <group-name-list
-      v-if="fetcherStateGroups === 'loaded'"
+      v-if="fetcherStateGroups === 'loaded' && groups !== null"
       :groups="groups"
       :class="$style.groupName"
     />
     <p v-else>{{ fetcherStateGroups }}</p>
     <div :class="$style.container">
       <recent-list
-        v-if="fetcherStateContests === 'loaded'"
+        v-if="fetcherStateContests === 'loaded' && contests !== null"
         :items="contests"
         title="実績"
         path="contests"
       />
       <p v-else>{{ fetcherStateContests }}</p>
       <recent-list
-        v-if="fetcherStateProjects === 'loaded'"
+        v-if="fetcherStateProjects === 'loaded' && projects !== null"
         :items="projects"
         title="プロジェクト"
         path="projects"
       />
       <p v-else>{{ fetcherStateProjects }}</p>
       <recent-list
-        v-if="fetcherStateProjects"
+        v-if="fetcherStateProjects === 'loaded' && events !== null"
         :items="events"
         title="イベント"
         path="events"
@@ -38,16 +38,21 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
-import { useStore } from '/@/store'
+import { defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useGroupStore } from '/@/store/group'
+import { useContestStore } from '/@/store/contest'
+import { useProjectStore } from '/@/store/project'
+import { useEventStore } from '/@/store/event'
 import useFetcher from '/@/use/fetcher'
-import PageContainer from '../components/Layout/PageContainer.vue'
+
+import PageContainer from '/@/components/Layout/PageContainer.vue'
 import SearchInput from '/@/components/UI/SearchInput.vue'
 import GroupNameList from '/@/components/Index/GroupNameList.vue'
 import RecentList from '/@/components/Index/RecentList.vue'
 
 export default defineComponent({
-  name: 'Index',
+  name: 'IndexPage',
   components: {
     SearchInput,
     PageContainer,
@@ -55,24 +60,28 @@ export default defineComponent({
     RecentList
   },
   setup() {
-    const store = useStore()
-
-    const groups = computed(() => store.state.groups)
+    const groupStore = useGroupStore()
+    const { groups } = storeToRefs(groupStore)
     const { fetcherState: fetcherStateGroups } = useFetcher(groups, () =>
-      store.dispatch.fetchGroups()
+      groupStore.fetchGroups()
     )
 
-    const contests = computed(() => store.state.contests)
+    const contestStore = useContestStore()
+    const { contests } = storeToRefs(contestStore)
     const { fetcherState: fetcherStateContests } = useFetcher(contests, () =>
-      store.dispatch.fetchContests()
+      contestStore.fetchContests()
     )
-    const projects = computed(() => store.state.projects)
+
+    const projectStore = useProjectStore()
+    const { projects } = storeToRefs(projectStore)
     const { fetcherState: fetcherStateProjects } = useFetcher(projects, () =>
-      store.dispatch.fetchProjects()
+      projectStore.fetchProjects()
     )
-    const events = computed(() => store.state.events)
+
+    const eventStore = useEventStore()
+    const { events } = storeToRefs(eventStore)
     const { fetcherState: fetcherStateEvents } = useFetcher(events, () =>
-      store.dispatch.fetchEvents()
+      eventStore.fetchEvents()
     )
 
     return {

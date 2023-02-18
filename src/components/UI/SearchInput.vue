@@ -1,6 +1,6 @@
 <template>
   <div :class="[$style.inputWrapper, size === 'large' ? $style.large : '']">
-    <icon name="mdi:magnify" :size="iconSize" :class="$style.icon" />
+    <a-icon name="mdi:magnify" :size="iconSize" :class="$style.icon" />
     <input
       v-model="input"
       type="text"
@@ -14,12 +14,12 @@
 <script lang="ts">
 import { defineComponent, computed, ref, PropType } from 'vue'
 import { useRouter } from 'vue-router'
-import Icon from '/@/components/UI/Icon.vue'
+import AIcon from './AIcon.vue'
 
 export default defineComponent({
   name: 'SearchInput',
   components: {
-    Icon
+    AIcon
   },
   props: {
     size: {
