@@ -19,7 +19,7 @@ import PageTitle from '/@/components/Layout/PageTitle.vue'
 import GroupList from '/@/components/Groups/GroupList.vue'
 
 export default defineComponent({
-  name: 'Groups',
+  name: 'GroupsPage',
   components: {
     PageContainer,
     PageTitle,

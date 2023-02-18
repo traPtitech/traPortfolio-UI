@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 const Index = () => import('/@/pages/Index.vue')
 const Search = () => import('/@/pages/Search.vue')
 const User = () => import('/@/pages/User.vue')
-const Groups = () => import('/@/pages/Groups.vue')
-const Group = () => import('/@/pages/Group.vue')
+const GroupsPage = () => import('/@/pages/GroupsPage.vue')
+const GroupPage = () => import('/@/pages/GroupPage.vue')
 const Projects = () => import('/@/pages/Projects.vue')
 const Project = () => import('/@/pages/Project.vue')
 const EventsPage = () => import('/@/pages/EventsPage.vue')
@@ -36,12 +36,12 @@ const routes = [
   {
     path: '/groups',
     name: 'Groups',
-    component: Groups
+    component: GroupsPage
   },
   {
     path: '/groups/:groupId',
     name: 'Group',
-    component: Group
+    component: GroupPage
   },
   {
     path: '/projects',

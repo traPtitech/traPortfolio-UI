@@ -27,7 +27,7 @@ import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import MemberList from '/@/components/Group/MemberList.vue'
 
 export default defineComponent({
-  name: 'Group',
+  name: 'GroupPage',
   components: {
     PageContainer,
     PageTitle,
