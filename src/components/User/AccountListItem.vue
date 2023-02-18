@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import AIcon from '/@/UI/AIcon.vue'
+import AIcon from '/@/components/UI/AIcon.vue'
 import { Account } from '/@/lib/apis'
 import { services } from '/@/consts/services'
 
