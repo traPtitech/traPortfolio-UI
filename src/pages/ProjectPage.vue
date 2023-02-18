@@ -25,7 +25,7 @@ import apis, { ProjectDetail } from '/@/lib/apis'
 import MemberList from '/@/components/Project/MemberList.vue'
 
 export default defineComponent({
-  name: 'Project',
+  name: 'ProjectPage',
   components: {
     PageContainer,
     PageTitle,

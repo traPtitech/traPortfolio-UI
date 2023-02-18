@@ -17,7 +17,7 @@ import useQuery from '/@/use/query'
 import apis, { User } from '/@/lib/apis'
 
 export default defineComponent({
-  name: 'Search',
+  name: 'SearchPage',
   components: { PageContainer, PageTitle, MemberList },
   setup() {
     const search = useQuery('q')

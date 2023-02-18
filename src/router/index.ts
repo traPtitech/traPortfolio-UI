@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const IndexPage = () => import('/@/pages/IndexPage.vue')
-const Search = () => import('/@/pages/Search.vue')
-const User = () => import('/@/pages/User.vue')
+const SearchPage = () => import('/@/pages/SearchPage.vue')
+const UserPage = () => import('/@/pages/UserPage.vue')
 const GroupsPage = () => import('/@/pages/GroupsPage.vue')
 const GroupPage = () => import('/@/pages/GroupPage.vue')
-const Projects = () => import('/@/pages/Projects.vue')
-const Project = () => import('/@/pages/Project.vue')
+const ProjectsPage = () => import('/@/pages/ProjectsPage.vue')
+const ProjectPage = () => import('/@/pages/ProjectPage.vue')
 const EventsPage = () => import('/@/pages/EventsPage.vue')
 const EventPage = () => import('/@/pages/EventPage.vue')
 const ContestsPage = () => import('/@/pages/ContestsPage.vue')
@@ -22,7 +22,7 @@ const routes = [
   {
     path: '/search',
     name: 'UserSearch',
-    component: Search
+    component: SearchPage
   },
   {
     path: '/users',
@@ -31,7 +31,7 @@ const routes = [
   {
     path: '/users/:userId',
     name: 'User',
-    component: User
+    component: UserPage
   },
   {
     path: '/groups',
@@ -46,12 +46,12 @@ const routes = [
   {
     path: '/projects',
     name: 'Projects',
-    component: Projects
+    component: ProjectsPage
   },
   {
     path: '/projects/:projectId',
     name: 'Project',
-    component: Project
+    component: ProjectPage
   },
   {
     path: '/events',

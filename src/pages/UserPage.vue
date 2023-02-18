@@ -51,7 +51,7 @@ import UserDetailContainer from '../components/User/UserDetailContainer.vue'
 import useUserDataFetcher from '/@/use/userDataFetcher'
 
 export default defineComponent({
-  name: 'User',
+  name: 'UserPage',
   components: {
     PageContainer,
     BioContainer,

@@ -19,7 +19,7 @@ import ProjectList from '/@/components/Projects/ProjectList.vue'
 import { storeToRefs } from 'pinia'
 
 export default defineComponent({
-  name: 'Projects',
+  name: 'ProjectsPage',
   components: {
     PageContainer,
     PageTitle,
