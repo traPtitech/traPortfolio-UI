@@ -1,11 +1,11 @@
 <template>
   <a :class="$style.link" :href="account.url">
-    <icon :name="services.get(account.type)?.icon ?? ''" :size="24" />
+    <a-icon :name="services.get(account.type)?.icon ?? ''" :size="24" />
   </a>
 </template>
 
 <script lang="ts" setup>
-import Icon from '/@/components/UI/Icon.vue'
+import AIcon from '/@/UI/AIcon.vue'
 import { Account } from '/@/lib/apis'
 import { services } from '/@/consts/services'
 
