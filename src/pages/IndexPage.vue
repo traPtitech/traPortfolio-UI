@@ -52,7 +52,7 @@ import GroupNameList from '/@/components/Index/GroupNameList.vue'
 import RecentList from '/@/components/Index/RecentList.vue'
 
 export default defineComponent({
-  name: 'Index',
+  name: 'IndexPage',
   components: {
     SearchInput,
     PageContainer,

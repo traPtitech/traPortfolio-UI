@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const Index = () => import('/@/pages/Index.vue')
+const IndexPage = () => import('/@/pages/IndexPage.vue')
 const Search = () => import('/@/pages/Search.vue')
 const User = () => import('/@/pages/User.vue')
 const GroupsPage = () => import('/@/pages/GroupsPage.vue')
@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    component: Index
+    component: IndexPage
   },
   {
     path: '/search',
