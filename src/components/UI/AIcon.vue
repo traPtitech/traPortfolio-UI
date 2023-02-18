@@ -1,7 +1,10 @@
 <template>
-  <div :class="$style.container">
-    <span class="iconify" :data-icon="name" :style="styles" />
-  </div>
+  <span
+    class="iconify"
+    :data-icon="name"
+    :style="styles"
+    :class="$style.icon"
+  />
 </template>
 
 <script lang="ts" setup>
