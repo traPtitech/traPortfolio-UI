@@ -1,3 +1,31 @@
+<script lang="ts" setup>
+import PageContainer from '/@/components/Layout/PageContainer.vue'
+import BioContainer from '/@/components/User/BioContainer.vue'
+import GroupsContainer from '/@/components/User/GroupsContainer.vue'
+import ContestsContainer from '/@/components/User/ContestsContainer.vue'
+import EventsContainer from '/@/components/User/EventsContainer.vue'
+import UserDetailContainer from '../components/User/UserDetailContainer.vue'
+import apis from '../lib/apis'
+import useParam from '/@/use/param'
+import useUserDataFetcher from '/@/use/userDataFetcher'
+
+const userId = useParam('userId')
+const { data: userDetail, fetcherState: fetcherStateUserDetail } =
+  useUserDataFetcher(userId, userId => apis.getUser(userId))
+
+const { data: userProjects, fetcherState: fetcherStateUserProjects } =
+  useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
+
+const { data: userContests, fetcherState: fetcherStateUserContests } =
+  useUserDataFetcher(userId, userId => apis.getUserContests(userId))
+
+const { data: userGroups, fetcherState: fetcherStateUserGroups } =
+  useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
+
+const { data: userEvents, fetcherState: fetcherStateUserEvents } =
+  useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
+</script>
+
 <template>
   <page-container>
     <user-detail-container
@@ -37,61 +65,6 @@
     <p v-else>{{ fetcherStateUserEvents }}</p>
   </page-container>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import apis from '../lib/apis'
-import useParam from '/@/use/param'
-import PageContainer from '/@/components/Layout/PageContainer.vue'
-import BioContainer from '/@/components/User/BioContainer.vue'
-import GroupsContainer from '/@/components/User/GroupsContainer.vue'
-import ContestsContainer from '/@/components/User/ContestsContainer.vue'
-import EventsContainer from '/@/components/User/EventsContainer.vue'
-import UserDetailContainer from '../components/User/UserDetailContainer.vue'
-import useUserDataFetcher from '/@/use/userDataFetcher'
-
-export default defineComponent({
-  name: 'UserPage',
-  components: {
-    PageContainer,
-    BioContainer,
-    GroupsContainer,
-    ContestsContainer,
-    EventsContainer,
-    UserDetailContainer
-  },
-  setup() {
-    const userId = useParam('userId')
-    const { data: userDetail, fetcherState: fetcherStateUserDetail } =
-      useUserDataFetcher(userId, userId => apis.getUser(userId))
-
-    const { data: userProjects, fetcherState: fetcherStateUserProjects } =
-      useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
-
-    const { data: userContests, fetcherState: fetcherStateUserContests } =
-      useUserDataFetcher(userId, userId => apis.getUserContests(userId))
-
-    const { data: userGroups, fetcherState: fetcherStateUserGroups } =
-      useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
-
-    const { data: userEvents, fetcherState: fetcherStateUserEvents } =
-      useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
-
-    return {
-      userDetail,
-      fetcherStateUserDetail,
-      userProjects,
-      fetcherStateUserProjects,
-      userContests,
-      fetcherStateUserContests,
-      userGroups,
-      fetcherStateUserGroups,
-      userEvents,
-      fetcherStateUserEvents
-    }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .userInfoContainer {

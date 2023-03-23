@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { User } from '/@/lib/apis'
+
+defineProps<{
+  member: User
+}>()
+
+const iconSrc = computed(
+  () =>
+    `https://q.trap.jp/api/v3/public/icon/${/*props.member.name*/ 'sappi_red'}`
+)
+</script>
+
 <template>
   <div>
     <router-link :class="$style.link" :to="`/users/${member.id}`">
@@ -11,30 +25,6 @@
     </router-link>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
-import { User } from '/@/lib/apis'
-
-export default defineComponent({
-  name: 'MemberListItem',
-  props: {
-    member: {
-      type: Object as PropType<User>,
-      required: true
-    }
-  },
-  setup() {
-    const iconSrc = computed(
-      () =>
-        `https://q.trap.jp/api/v3/public/icon/${
-          /*props.member.name*/ 'sappi_red'
-        }`
-    )
-    return { iconSrc }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .link {

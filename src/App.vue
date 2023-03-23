@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+import PageHeader from '/@/components/Layout/PageHeader.vue'
+import LoadingPage from '/@/pages/LoadingPage.vue'
+import PageFooter from '/@/components/Layout/PageFooter.vue'
+</script>
+
 <template>
   <page-header />
   <Suspense>
@@ -10,22 +16,6 @@
   </Suspense>
   <page-footer />
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import PageHeader from '/@/components/Layout/PageHeader.vue'
-import LoadingPage from '/@/pages/LoadingPage.vue'
-import PageFooter from '/@/components/Layout/PageFooter.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    PageHeader,
-    LoadingPage,
-    PageFooter
-  }
-})
-</script>
 
 <style lang="scss" module>
 .main {

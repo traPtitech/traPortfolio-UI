@@ -1,3 +1,20 @@
+<script lang="ts" setup>
+import AccountList from './AccountList.vue'
+import { computed } from 'vue'
+import { UserDetail } from '/@/lib/apis'
+
+defineProps<{
+  userDetail?: UserDetail
+}>()
+
+const iconSrc = computed(
+  () =>
+    `https://q.trap.jp/api/v3/public/icon/${
+      /*userDetail.value.name*/ 'sappi_red'
+    }`
+)
+</script>
+
 <template>
   <div>
     <img :class="$style.icon" :src="iconSrc" />
@@ -8,36 +25,14 @@
           {{ userDetail?.realName ?? 'Loading ...' }}
         </div>
       </div>
-      <account-list :accounts="userDetail?.accounts" :class="$style.accounts" />
+      <account-list
+        v-if="userDetail"
+        :accounts="userDetail.accounts"
+        :class="$style.accounts"
+      />
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
-import AccountList from './AccountList.vue'
-import { UserDetail } from '/@/lib/apis'
-
-export default defineComponent({
-  name: 'UserDetailContainer',
-  components: { AccountList },
-  props: {
-    userDetail: {
-      type: Object as PropType<UserDetail>,
-      default: undefined
-    }
-  },
-  setup() {
-    const iconSrc = computed(
-      () =>
-        `https://q.trap.jp/api/v3/public/icon/${
-          /*userDetail.value.name*/ 'sappi_red'
-        }`
-    )
-    return { iconSrc }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .icon {
