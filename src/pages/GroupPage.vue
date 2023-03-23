@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import PageContainer from '/@/components/Layout/PageContainer.vue';
-import PageTitle from '/@/components/Layout/PageTitle.vue';
-import ExternalLink from '/@/components/UI/ExternalLink.vue';
-import MemberList from '/@/components/Group/MemberList.vue';
-import { computed, ref, watchEffect } from 'vue';
+import PageContainer from '/@/components/Layout/PageContainer.vue'
+import PageTitle from '/@/components/Layout/PageTitle.vue'
+import ExternalLink from '/@/components/UI/ExternalLink.vue'
+import MemberList from '/@/components/Group/MemberList.vue'
+import { computed, ref, watchEffect } from 'vue'
 import { storeToRefs } from 'pinia'
 import useParam from '/@/use/param'
 import apis, { GroupDetail } from '/@/lib/apis'
@@ -41,8 +41,6 @@ const members = computed(() => groupDetail.value?.members)
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>
-
-
 
 <style lang="scss" module>
 .titleContainer {

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import PageContainer from '/@/components/Layout/PageContainer.vue';
-import PageTitle from '/@/components/Layout/PageTitle.vue';
-import ExternalLink from '/@/components/UI/ExternalLink.vue';
-import ContestTeamList from '/@/components/Contest/ContestTeamList.vue';
-import { computed, ref, watchEffect } from 'vue';
+import PageContainer from '/@/components/Layout/PageContainer.vue'
+import PageTitle from '/@/components/Layout/PageTitle.vue'
+import ExternalLink from '/@/components/UI/ExternalLink.vue'
+import ContestTeamList from '/@/components/Contest/ContestTeamList.vue'
+import { computed, ref, watchEffect } from 'vue'
 import useParam from '/@/use/param'
 import apis, { ContestDetail } from '/@/lib/apis'
 
@@ -41,8 +41,6 @@ const contestTeams = computed(() => contestDetail.value?.teams)
     />
   </page-container>
 </template>
-
-
 
 <style lang="scss" module>
 .titleContainer {
