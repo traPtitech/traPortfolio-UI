@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+import { Group } from '/@/lib/apis'
+
+defineProps<{
+  group: Group
+}>()
+</script>
+
 <template>
   <div>
     <router-link :class="$style.link" :to="`/groups/${group.id}`">
@@ -5,21 +13,6 @@
     </router-link>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { Group } from '/@/lib/apis'
-
-export default defineComponent({
-  name: 'GroupListItem',
-  props: {
-    group: {
-      type: Object as PropType<Group>,
-      required: true
-    }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .link {

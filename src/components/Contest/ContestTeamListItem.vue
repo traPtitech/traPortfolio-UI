@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { ContestTeam } from '/@/lib/apis'
+
+withDefaults(
+  defineProps<{
+    contestTeam: ContestTeam
+    contestId?: string
+  }>(),
+  {
+    contestId: ''
+  }
+)
+</script>
+
 <template>
   <div>
     <router-link
@@ -11,26 +25,6 @@
     </router-link>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { ContestTeam } from '/@/lib/apis'
-
-export default defineComponent({
-  name: 'ContestTeamListItem',
-  props: {
-    contestTeam: {
-      type: Object as PropType<ContestTeam>,
-      required: true
-    },
-    contestId: {
-      type: String,
-      require: true,
-      default: ''
-    }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .link {

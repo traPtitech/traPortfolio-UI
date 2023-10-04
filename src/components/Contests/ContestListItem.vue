@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { Contest } from '/@/lib/apis'
+import { getFullDayString } from '/@/lib/date'
+
+const props = defineProps<{
+  contest: Contest
+}>()
+
+const date = computed(() =>
+  getFullDayString(new Date(props.contest.duration.since))
+)
+</script>
+
 <template>
   <div>
     <router-link :class="$style.link" :to="`/contests/${contest.id}`">
@@ -6,28 +20,6 @@
     </router-link>
   </div>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
-import { Contest } from '/@/lib/apis'
-import { getFullDayString } from '/@/lib/date'
-
-export default defineComponent({
-  name: 'ContestListItem',
-  props: {
-    contest: {
-      type: Object as PropType<Contest>,
-      required: true
-    }
-  },
-  setup(props) {
-    const date = computed(() =>
-      getFullDayString(new Date(props.contest.duration.since))
-    )
-    return { date }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .link {

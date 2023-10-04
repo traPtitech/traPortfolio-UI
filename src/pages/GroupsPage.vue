@@ -1,3 +1,16 @@
+<script lang="ts" setup>
+import PageContainer from '/@/components/Layout/PageContainer.vue'
+import PageTitle from '/@/components/Layout/PageTitle.vue'
+import GroupList from '/@/components/Groups/GroupList.vue'
+import { storeToRefs } from 'pinia'
+import { useGroupStore } from '/@/store/group'
+import useFetcher from '/@/use/fetcher'
+
+const groupStore = useGroupStore()
+const { groups } = storeToRefs(groupStore)
+const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
+</script>
+
 <template>
   <page-container>
     <page-title :class="$style.title">班一覧</page-title>
@@ -8,32 +21,6 @@
     <p v-else>{{ fetcherState }}</p>
   </page-container>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useGroupStore } from '/@/store/group'
-import useFetcher from '/@/use/fetcher'
-import PageContainer from '/@/components/Layout/PageContainer.vue'
-import PageTitle from '/@/components/Layout/PageTitle.vue'
-import GroupList from '/@/components/Groups/GroupList.vue'
-
-export default defineComponent({
-  name: 'GroupsPage',
-  components: {
-    PageContainer,
-    PageTitle,
-    GroupList
-  },
-  setup() {
-    const groupStore = useGroupStore()
-    const { groups } = storeToRefs(groupStore)
-    const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
-
-    return { groups, fetcherState }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .title {

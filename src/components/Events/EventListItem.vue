@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { Event } from '/@/lib/apis'
+import { getFullDayString } from '/@/lib/date'
+
+const props = defineProps<{
+  event: Event
+}>()
+
+const date = computed(() =>
+  getFullDayString(new Date(props.event.duration.since))
+)
+</script>
+
 <template>
   <div>
     <router-link :class="$style.link" :to="`/events/${event.id}`">
@@ -6,28 +20,6 @@
     </router-link>
   </div>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
-import { Event } from '/@/lib/apis'
-import { getFullDayString } from '/@/lib/date'
-
-export default defineComponent({
-  name: 'EventListItem',
-  props: {
-    event: {
-      type: Object as PropType<Event>,
-      required: true
-    }
-  },
-  setup(props) {
-    const date = computed(() =>
-      getFullDayString(new Date(props.event.duration.since))
-    )
-    return { date }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .link {

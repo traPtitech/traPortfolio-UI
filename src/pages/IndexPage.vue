@@ -1,3 +1,40 @@
+<script lang="ts" setup>
+import PageContainer from '/@/components/Layout/PageContainer.vue'
+import SearchInput from '/@/components/UI/SearchInput.vue'
+import GroupNameList from '/@/components/Index/GroupNameList.vue'
+import RecentList from '/@/components/Index/RecentList.vue'
+import { storeToRefs } from 'pinia'
+import { useGroupStore } from '/@/store/group'
+import { useContestStore } from '/@/store/contest'
+import { useProjectStore } from '/@/store/project'
+import { useEventStore } from '/@/store/event'
+import useFetcher from '/@/use/fetcher'
+
+const groupStore = useGroupStore()
+const { groups } = storeToRefs(groupStore)
+const { fetcherState: fetcherStateGroups } = useFetcher(groups, () =>
+  groupStore.fetchGroups()
+)
+
+const contestStore = useContestStore()
+const { contests } = storeToRefs(contestStore)
+const { fetcherState: fetcherStateContests } = useFetcher(contests, () =>
+  contestStore.fetchContests()
+)
+
+const projectStore = useProjectStore()
+const { projects } = storeToRefs(projectStore)
+const { fetcherState: fetcherStateProjects } = useFetcher(projects, () =>
+  projectStore.fetchProjects()
+)
+
+const eventStore = useEventStore()
+const { events } = storeToRefs(eventStore)
+const { fetcherState: fetcherStateEvents } = useFetcher(events, () =>
+  eventStore.fetchEvents()
+)
+</script>
+
 <template>
   <page-container>
     <search-input
@@ -36,67 +73,6 @@
     </div>
   </page-container>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useGroupStore } from '/@/store/group'
-import { useContestStore } from '/@/store/contest'
-import { useProjectStore } from '/@/store/project'
-import { useEventStore } from '/@/store/event'
-import useFetcher from '/@/use/fetcher'
-
-import PageContainer from '/@/components/Layout/PageContainer.vue'
-import SearchInput from '/@/components/UI/SearchInput.vue'
-import GroupNameList from '/@/components/Index/GroupNameList.vue'
-import RecentList from '/@/components/Index/RecentList.vue'
-
-export default defineComponent({
-  name: 'IndexPage',
-  components: {
-    SearchInput,
-    PageContainer,
-    GroupNameList,
-    RecentList
-  },
-  setup() {
-    const groupStore = useGroupStore()
-    const { groups } = storeToRefs(groupStore)
-    const { fetcherState: fetcherStateGroups } = useFetcher(groups, () =>
-      groupStore.fetchGroups()
-    )
-
-    const contestStore = useContestStore()
-    const { contests } = storeToRefs(contestStore)
-    const { fetcherState: fetcherStateContests } = useFetcher(contests, () =>
-      contestStore.fetchContests()
-    )
-
-    const projectStore = useProjectStore()
-    const { projects } = storeToRefs(projectStore)
-    const { fetcherState: fetcherStateProjects } = useFetcher(projects, () =>
-      projectStore.fetchProjects()
-    )
-
-    const eventStore = useEventStore()
-    const { events } = storeToRefs(eventStore)
-    const { fetcherState: fetcherStateEvents } = useFetcher(events, () =>
-      eventStore.fetchEvents()
-    )
-
-    return {
-      groups,
-      fetcherStateGroups,
-      contests,
-      fetcherStateContests,
-      projects,
-      fetcherStateProjects,
-      events,
-      fetcherStateEvents
-    }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .search {

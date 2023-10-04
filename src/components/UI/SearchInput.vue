@@ -1,3 +1,35 @@
+<script lang="ts" setup>
+import AIcon from './AIcon.vue'
+import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const props = withDefaults(
+  defineProps<{
+    size?: 'large' | 'normal'
+    placeholder?: string
+  }>(),
+  {
+    size: 'normal',
+    placeholder: '検索'
+  }
+)
+
+const router = useRouter()
+const input = ref('')
+const submit = () => {
+  // 検索結果ページへ遷移
+  router.push({ name: 'UserSearch', query: { q: input.value } })
+}
+const iconSize = computed(() => {
+  if (props.size === 'large') return 36
+  else if (props.size === 'normal') return 20
+  else {
+    const _exhaustiveCheck: never = props.size
+    return _exhaustiveCheck
+  }
+})
+</script>
+
 <template>
   <div :class="[$style.inputWrapper, size === 'large' ? $style.large : '']">
     <a-icon name="mdi:magnify" :size="iconSize" :class="$style.icon" />
@@ -10,46 +42,6 @@
     />
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent, computed, ref, PropType } from 'vue'
-import { useRouter } from 'vue-router'
-import AIcon from './AIcon.vue'
-
-export default defineComponent({
-  name: 'SearchInput',
-  components: {
-    AIcon
-  },
-  props: {
-    size: {
-      type: String as PropType<'large' | 'normal'>,
-      default: 'normal'
-    },
-    placeholder: {
-      type: String,
-      default: '検索'
-    }
-  },
-  setup(props) {
-    const router = useRouter()
-    const input = ref('')
-    const submit = () => {
-      // 検索結果ページへ遷移
-      router.push({ name: 'UserSearch', query: { q: input.value } })
-    }
-    const iconSize = computed(() => {
-      if (props.size === 'large') return 36
-      else if (props.size === 'normal') return 20
-      else {
-        const _exhaustiveCheck: never = props.size
-        return _exhaustiveCheck
-      }
-    })
-    return { input, submit, iconSize }
-  }
-})
-</script>
 
 <style lang="scss" module>
 .inputWrapper {
