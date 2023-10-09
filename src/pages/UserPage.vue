@@ -43,6 +43,7 @@ const { data: userEvents, fetcherState: fetcherStateUserEvents } =
     <groups-container
       v-if="
         fetcherStateUserGroups === 'loaded' &&
+        fetcherStateUserProjects === 'loaded' &&
         userGroups !== undefined &&
         userProjects !== undefined
       "
