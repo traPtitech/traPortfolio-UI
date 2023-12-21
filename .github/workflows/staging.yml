@@ -1,13 +1,13 @@
-name: Build image (main)
+name: Build image (master)
 
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   IMAGE_NAME: traportfolio-ui
-  IMAGE_TAG: main
+  IMAGE_TAG: master
 
 jobs:
   image:
