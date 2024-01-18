@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: npm
@@ -22,13 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: npm
-      - run: SKIP_GENAPI=1 npm ci
-      - run: npm run postinstall
-      - uses: actions/upload-artifact@v3
+      - run: npm ci
+      - uses: actions/upload-artifact@v4
         with:
           name: apis
           path: ./src/lib/apis/generated
@@ -38,12 +37,12 @@ jobs:
     needs: [packages, genApi]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: npm
       - run: SKIP_GENAPI=1 npm ci
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: apis
           path: ./src/lib/apis/generated
@@ -56,12 +55,12 @@ jobs:
     needs: [packages, genApi]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: npm
       - run: SKIP_GENAPI=1 npm ci
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: apis
           path: ./src/lib/apis/generated
@@ -72,12 +71,12 @@ jobs:
     needs: [packages, genApi]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: npm
       - run: SKIP_GENAPI=1 npm ci
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: apis
           path: ./src/lib/apis/generated
@@ -88,12 +87,12 @@ jobs:
     needs: [packages, genApi]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: npm
       - run: SKIP_GENAPI=1 npm ci
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: apis
           path: ./src/lib/apis/generated
