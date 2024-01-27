@@ -21,4 +21,3 @@ const users = (await apis.getUsers(false, search.value)).data
   margin: 4rem 0;
 }
 </style>
-../lib/query
