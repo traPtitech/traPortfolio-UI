@@ -1,13 +1,3 @@
-<template>
-  <section :class="$style.container">
-    <contest-list-item
-      v-for="contest in contests"
-      :key="contest.id"
-      :contest="contest"
-    />
-  </section>
-</template>
-
 <script lang="ts" setup>
 import ContestListItem from './ContestListItem.vue'
 import { Contest } from '/@/lib/apis'
@@ -18,6 +8,16 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<template>
+  <section :class="$style.container">
+    <contest-list-item
+      v-for="contest in contests"
+      :key="contest.id"
+      :contest="contest"
+    />
+  </section>
+</template>
 
 <style lang="scss" module>
 .container {

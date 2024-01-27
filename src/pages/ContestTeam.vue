@@ -3,43 +3,27 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import MemberList from '/@/components/ContestTeam/MemberList.vue'
-import { computed, ref, watchEffect } from 'vue'
-import useParam from '/@/use/param'
-import apis, { ContestTeamDetail } from '/@/lib/apis'
+import useParam from '/@/lib/param'
+import apis from '/@/lib/apis'
 
 const contestId = useParam('contestId')
 const teamId = useParam('teamId')
-const contestTeamDetail = ref<ContestTeamDetail>()
-watchEffect(async () => {
-  contestTeamDetail.value = (
-    await apis.getContestTeam(contestId.value, teamId.value)
-  ).data
-})
-
-const name = computed(
-  () => contestTeamDetail.value?.name ?? 'Loading... コンテストチーム'
-)
-const link = computed(() => contestTeamDetail.value?.link)
-const result = computed(() => contestTeamDetail.value?.result)
-const members = computed(() => contestTeamDetail.value?.members)
-const description = computed(() => contestTeamDetail.value?.description)
+const contestTeamDetail = (
+  await apis.getContestTeam(contestId.value, teamId.value)
+).data
 </script>
 
 <template>
   <page-container>
     <div :class="$style.titleContainer">
-      <page-title>チーム「{{ name }}」</page-title>
-      <external-link
-        v-if="link !== undefined"
-        :href="link"
-        :class="$style.link"
-      >
+      <page-title>チーム「{{ contestTeamDetail.name }}」</page-title>
+      <external-link :href="contestTeamDetail.link" :class="$style.link">
         説明ページ
       </external-link>
-      <p v-if="result" :class="$style.result">{{ result }}</p>
-      <p v-if="description" :class="$style.description">{{ description }}</p>
+      <p :class="$style.result">{{ contestTeamDetail.result }}</p>
+      <p :class="$style.description">{{ contestTeamDetail.description }}</p>
     </div>
-    <member-list v-if="members !== undefined" :members="members" />
+    <member-list :members="contestTeamDetail.members" />
   </page-container>
 </template>
 

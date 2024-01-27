@@ -1,15 +1,10 @@
 <script lang="ts" setup>
 import { ContestTeam } from '/@/lib/apis'
 
-withDefaults(
-  defineProps<{
-    contestTeam: ContestTeam
-    contestId?: string
-  }>(),
-  {
-    contestId: ''
-  }
-)
+defineProps<{
+  contestTeam: ContestTeam
+  contestId: string
+}>()
 </script>
 
 <template>
@@ -19,9 +14,9 @@ withDefaults(
       :to="`/contests/${contestId}/${contestTeam.id}`"
     >
       <span :class="$style.name">{{ contestTeam.name }}</span>
-      <span v-if="contestTeam.result" :class="$style.result"
-        >({{ contestTeam.result }})</span
-      >
+      <span v-if="contestTeam.result" :class="$style.result">
+        ({{ contestTeam.result }})
+      </span>
     </router-link>
   </div>
 </template>

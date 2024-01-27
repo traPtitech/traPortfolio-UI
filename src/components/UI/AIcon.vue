@@ -1,12 +1,3 @@
-<template>
-  <span
-    class="iconify"
-    :data-icon="name"
-    :style="styles"
-    :class="$style.icon"
-  />
-</template>
-
 <script lang="ts" setup>
 import { computed } from 'vue'
 
@@ -24,6 +15,15 @@ const styles = computed(() => ({
   width: `${props.size}px`
 }))
 </script>
+
+<template>
+  <span
+    class="iconify"
+    :data-icon="name"
+    :style="styles"
+    :class="$style.icon"
+  />
+</template>
 
 <style lang="scss" module>
 .icon {

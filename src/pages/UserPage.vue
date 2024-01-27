@@ -4,66 +4,35 @@ import BioContainer from '/@/components/User/BioContainer.vue'
 import GroupsContainer from '/@/components/User/GroupsContainer.vue'
 import ContestsContainer from '/@/components/User/ContestsContainer.vue'
 import EventsContainer from '/@/components/User/EventsContainer.vue'
-import UserDetailContainer from '../components/User/UserDetailContainer.vue'
-import apis from '../lib/apis'
-import useParam from '/@/use/param'
-import useUserDataFetcher from '/@/use/userDataFetcher'
+import UserDetailContainer from '/@/components/User/UserDetailContainer.vue'
+import apis from '/@/lib/apis'
+import useParam from '/@/lib/param'
 
 const userId = useParam('userId')
-const { data: userDetail, fetcherState: fetcherStateUserDetail } =
-  useUserDataFetcher(userId, userId => apis.getUser(userId))
-
-const { data: userProjects, fetcherState: fetcherStateUserProjects } =
-  useUserDataFetcher(userId, userId => apis.getUserProjects(userId))
-
-const { data: userContests, fetcherState: fetcherStateUserContests } =
-  useUserDataFetcher(userId, userId => apis.getUserContests(userId))
-
-const { data: userGroups, fetcherState: fetcherStateUserGroups } =
-  useUserDataFetcher(userId, userId => apis.getUserGroups(userId))
-
-const { data: userEvents, fetcherState: fetcherStateUserEvents } =
-  useUserDataFetcher(userId, userId => apis.getUserEvents(userId))
+const userDetail = (await apis.getUser(userId.value)).data
+const userProjects = (await apis.getUserProjects(userId.value)).data
+const userContests = (await apis.getUserContests(userId.value)).data
+const userGroups = (await apis.getUserGroups(userId.value)).data
+const userEvents = (await apis.getUserEvents(userId.value)).data
 </script>
 
 <template>
   <page-container>
     <user-detail-container
-      v-if="fetcherStateUserDetail === 'loaded'"
       :class="$style.userInfoContainer"
       :user-detail="userDetail"
     />
-    <p v-else>{{ fetcherStateUserDetail }}</p>
-    <bio-container
-      v-if="fetcherStateUserDetail === 'loaded'"
-      :class="$style.bioContainer"
-      :bio="userDetail?.bio"
-    />
-    <p v-else>{{ fetcherStateUserDetail }}</p>
+    <bio-container :class="$style.bioContainer" :bio="userDetail?.bio" />
     <groups-container
-      v-if="
-        fetcherStateUserGroups === 'loaded' &&
-        fetcherStateUserProjects === 'loaded' &&
-        userGroups !== undefined &&
-        userProjects !== undefined
-      "
       :class="$style.groupsContainer"
       :groups="userGroups"
       :projects="userProjects"
     />
-    <p v-else>{{ fetcherStateUserGroups }}</p>
     <contests-container
-      v-if="fetcherStateUserContests === 'loaded' && userContests !== undefined"
       :class="$style.contestsContainer"
       :contests="userContests"
     />
-    <p v-else>{{ fetcherStateUserContests }}</p>
-    <events-container
-      v-if="fetcherStateUserEvents === 'loaded' && userEvents !== undefined"
-      :class="$style.eventsContainer"
-      :events="userEvents"
-    />
-    <p v-else>{{ fetcherStateUserEvents }}</p>
+    <events-container :class="$style.eventsContainer" :events="userEvents" />
   </page-container>
 </template>
 

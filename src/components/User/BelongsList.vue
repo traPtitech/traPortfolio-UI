@@ -1,14 +1,3 @@
-<template>
-  <section>
-    <group-list-item v-for="group in groups" :key="group.id" :group="group" />
-    <project-list-item
-      v-for="project in projects"
-      :key="project.id"
-      :project="project"
-    />
-  </section>
-</template>
-
 <script lang="ts" setup>
 import GroupListItem from './GroupListItem.vue'
 import ProjectListItem from './ProjectListItem.vue'
@@ -21,3 +10,14 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<template>
+  <section>
+    <group-list-item v-for="group in groups" :key="group.id" :group="group" />
+    <project-list-item
+      v-for="project in projects"
+      :key="project.id"
+      :project="project"
+    />
+  </section>
+</template>

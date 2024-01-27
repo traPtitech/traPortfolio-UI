@@ -1,25 +1,3 @@
-<template>
-  <section :class="$style.container">
-    <section-title :class="$style.title">
-      <span :class="$style.prefixTitle">最近の</span>
-      <span>{{ title }}</span>
-    </section-title>
-    <div>
-      <router-link
-        v-for="item in listItem"
-        :key="item.id"
-        :to="`/${path}/${item.id}`"
-        :class="$style.link"
-      >
-        <span :class="$style.name">{{ item.name }}</span>
-      </router-link>
-    </div>
-    <router-link :to="`/${path}`" :class="$style.moreRead">
-      <span :class="$style.name">もっと見る</span>
-    </router-link>
-  </section>
-</template>
-
 <script lang="ts" setup>
 import SectionTitle from '/@/components/Layout/SectionTitle.vue'
 import { computed } from 'vue'
@@ -75,6 +53,28 @@ const listItem = computed(() => {
   return li.slice(0, 5)
 })
 </script>
+
+<template>
+  <section :class="$style.container">
+    <section-title :class="$style.title">
+      <span :class="$style.prefixTitle">最近の</span>
+      <span>{{ title }}</span>
+    </section-title>
+    <div>
+      <router-link
+        v-for="item in listItem"
+        :key="item.id"
+        :to="`/${path}/${item.id}`"
+        :class="$style.link"
+      >
+        <span :class="$style.name">{{ item.name }}</span>
+      </router-link>
+    </div>
+    <router-link :to="`/${path}`" :class="$style.moreRead">
+      <span :class="$style.name">もっと見る</span>
+    </router-link>
+  </section>
+</template>
 
 <style lang="scss" module>
 .link {

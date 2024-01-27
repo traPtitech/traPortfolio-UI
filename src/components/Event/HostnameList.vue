@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+import HostnameListItem from './HostnameListItem.vue'
+import SectionTitle from '/@/components/Layout/SectionTitle.vue'
+import { User } from '/@/lib/apis'
+
+interface Props {
+  hostnames: User[]
+}
+
+defineProps<Props>()
+</script>
+
 <template>
   <section>
     <section-title>主催者</section-title>
@@ -10,18 +22,6 @@
     </div>
   </section>
 </template>
-
-<script lang="ts" setup>
-import HostnameListItem from './HostnameListItem.vue'
-import SectionTitle from '/@/components/Layout/SectionTitle.vue'
-import { User } from '/@/lib/apis'
-
-interface Props {
-  hostnames: User[]
-}
-
-defineProps<Props>()
-</script>
 
 <style lang="scss" module>
 .container {

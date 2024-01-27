@@ -3,15 +3,12 @@ import AccountList from './AccountList.vue'
 import { computed } from 'vue'
 import { UserDetail } from '/@/lib/apis'
 
-defineProps<{
-  userDetail?: UserDetail
+const props = defineProps<{
+  userDetail: UserDetail
 }>()
 
 const iconSrc = computed(
-  () =>
-    `https://q.trap.jp/api/v3/public/icon/${
-      /*userDetail.value.name*/ 'sappi_red'
-    }`
+  () => `https://q.trap.jp/api/v3/public/icon/${props.userDetail.name}`
 )
 </script>
 
@@ -20,9 +17,9 @@ const iconSrc = computed(
     <img :class="$style.icon" :src="iconSrc" />
     <div>
       <div :class="$style.nameContainer">
-        <div :class="$style.name">{{ userDetail?.name ?? 'Loading ...' }}</div>
+        <div :class="$style.name">{{ userDetail.name }}</div>
         <div :class="$style.realName">
-          {{ userDetail?.realName ?? 'Loading ...' }}
+          {{ userDetail.realName }}
         </div>
       </div>
       <account-list

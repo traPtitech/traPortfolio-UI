@@ -1,3 +1,16 @@
+<script lang="ts" setup>
+import ContestTeamListItem from './ContestTeamListItem.vue'
+import SectionTitle from '/@/components/Layout/SectionTitle.vue'
+import { ContestTeam } from '/@/lib/apis'
+
+interface Props {
+  contestTeams: ContestTeam[]
+  contestId: string
+}
+
+defineProps<Props>()
+</script>
+
 <template>
   <section>
     <section-title>チーム</section-title>
@@ -11,19 +24,6 @@
     </div>
   </section>
 </template>
-
-<script lang="ts" setup>
-import ContestTeamListItem from './ContestTeamListItem.vue'
-import SectionTitle from '/@/components/Layout/SectionTitle.vue'
-import { ContestTeam } from '/@/lib/apis'
-
-interface Props {
-  contestTeams: ContestTeam[]
-  contestId: string
-}
-
-defineProps<Props>()
-</script>
 
 <style lang="scss" module>
 .container {
