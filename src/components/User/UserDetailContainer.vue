@@ -1,20 +1,16 @@
 <script lang="ts" setup>
 import AccountList from './AccountList.vue'
-import { computed } from 'vue'
 import { UserDetail } from '/@/lib/apis'
+import UserIcon from '/@/components/UI/UserIcon.vue'
 
-const props = defineProps<{
+defineProps<{
   userDetail: UserDetail
 }>()
-
-const iconSrc = computed(
-  () => `https://q.trap.jp/api/v3/public/icon/${props.userDetail.name}`
-)
 </script>
 
 <template>
   <div>
-    <img :class="$style.icon" :src="iconSrc" />
+    <user-icon :class="$style.icon" :user-id="userDetail.name" :size="128" />
     <div>
       <div :class="$style.nameContainer">
         <div :class="$style.name">{{ userDetail.name }}</div>
@@ -33,10 +29,7 @@ const iconSrc = computed(
 
 <style lang="scss" module>
 .icon {
-  height: 8rem;
-  width: 8rem;
   margin-right: 2rem;
-  border-radius: 50%;
 }
 
 .name {

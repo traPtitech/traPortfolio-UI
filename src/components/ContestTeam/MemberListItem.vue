@@ -1,20 +1,16 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
 import { User } from '/@/lib/apis'
+import UserIcon from '/@/components/UI/UserIcon.vue'
 
-const props = defineProps<{
+defineProps<{
   member: User
 }>()
-
-const iconSrc = computed(
-  () => `https://q.trap.jp/api/v3/public/icon/${props.member.name}`
-)
 </script>
 
 <template>
   <div>
     <router-link :class="$style.link" :to="`/users/${member.id}`">
-      <img :src="iconSrc" :class="$style.icon" />
+      <user-icon :class="$style.icon" :user-id="member.name" :size="128" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ member.name }}</div>
         <div v-if="member.realName" :class="$style.realName">
@@ -31,10 +27,7 @@ const iconSrc = computed(
   text-decoration: none;
 }
 .icon {
-  height: 8rem;
-  width: 8rem;
   margin-right: 2rem;
-  border-radius: 50%;
 }
 .name {
   word-break: break-all;
