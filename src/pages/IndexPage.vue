@@ -3,36 +3,20 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import SearchInput from '/@/components/UI/SearchInput.vue'
 import GroupNameList from '/@/components/Index/GroupNameList.vue'
 import RecentList from '/@/components/Index/RecentList.vue'
-import { storeToRefs } from 'pinia'
 import { useGroupStore } from '/@/store/group'
 import { useContestStore } from '/@/store/contest'
 import { useProjectStore } from '/@/store/project'
 import { useEventStore } from '/@/store/event'
-import useFetcher from '/@/use/fetcher'
 
 const groupStore = useGroupStore()
-const { groups } = storeToRefs(groupStore)
-const { fetcherState: fetcherStateGroups } = useFetcher(groups, () =>
-  groupStore.fetchGroups()
-)
-
 const contestStore = useContestStore()
-const { contests } = storeToRefs(contestStore)
-const { fetcherState: fetcherStateContests } = useFetcher(contests, () =>
-  contestStore.fetchContests()
-)
-
 const projectStore = useProjectStore()
-const { projects } = storeToRefs(projectStore)
-const { fetcherState: fetcherStateProjects } = useFetcher(projects, () =>
-  projectStore.fetchProjects()
-)
-
 const eventStore = useEventStore()
-const { events } = storeToRefs(eventStore)
-const { fetcherState: fetcherStateEvents } = useFetcher(events, () =>
-  eventStore.fetchEvents()
-)
+
+const groups = await groupStore.fetchGroups()
+const contests = await contestStore.fetchContests()
+const projects = await projectStore.fetchProjects()
+const events = await eventStore.fetchEvents()
 </script>
 
 <template>
@@ -42,34 +26,11 @@ const { fetcherState: fetcherStateEvents } = useFetcher(events, () =>
       placeholder="ユーザー検索"
       :class="$style.search"
     />
-    <group-name-list
-      v-if="fetcherStateGroups === 'loaded' && groups !== null"
-      :groups="groups"
-      :class="$style.groupName"
-    />
-    <p v-else>{{ fetcherStateGroups }}</p>
+    <group-name-list :groups="groups" :class="$style.groupName" />
     <div :class="$style.container">
-      <recent-list
-        v-if="fetcherStateContests === 'loaded' && contests !== null"
-        :items="contests"
-        title="実績"
-        path="contests"
-      />
-      <p v-else>{{ fetcherStateContests }}</p>
-      <recent-list
-        v-if="fetcherStateProjects === 'loaded' && projects !== null"
-        :items="projects"
-        title="プロジェクト"
-        path="projects"
-      />
-      <p v-else>{{ fetcherStateProjects }}</p>
-      <recent-list
-        v-if="fetcherStateProjects === 'loaded' && events !== null"
-        :items="events"
-        title="イベント"
-        path="events"
-      />
-      <p v-else>{{ fetcherStateEvents }}</p>
+      <recent-list :items="contests" title="実績" path="contests" />
+      <recent-list :items="projects" title="プロジェクト" path="projects" />
+      <recent-list :items="events" title="イベント" path="events" />
     </div>
   </page-container>
 </template>

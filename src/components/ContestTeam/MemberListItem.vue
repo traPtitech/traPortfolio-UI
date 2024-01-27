@@ -2,13 +2,12 @@
 import { computed } from 'vue'
 import { User } from '/@/lib/apis'
 
-defineProps<{
+const props = defineProps<{
   member: User
 }>()
 
 const iconSrc = computed(
-  () =>
-    `https://q.trap.jp/api/v3/public/icon/${/*props.member.name*/ 'sappi_red'}`
+  () => `https://q.trap.jp/api/v3/public/icon/${props.member.name}`
 )
 </script>
 

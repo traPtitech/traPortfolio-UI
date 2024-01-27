@@ -1,13 +1,13 @@
-<template>
-  <div :class="$style.container">
-    <div>Logo</div>
-    <search-input />
-  </div>
-</template>
-
 <script lang="ts" setup>
 import SearchInput from '/@/components/UI/SearchInput.vue'
 </script>
+
+<template>
+  <header :class="$style.container">
+    <router-link to="/">Logo</router-link>
+    <search-input />
+  </header>
+</template>
 
 <style lang="scss" module>
 .container {

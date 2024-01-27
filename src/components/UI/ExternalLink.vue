@@ -1,13 +1,13 @@
+<script lang="ts" setup>
+import AIcon from './AIcon.vue'
+</script>
+
 <template>
-  <a :class="$style.container">
+  <a :class="$style.container" target="_blank" rel="noreferrer noopener">
     <a-icon name="mdi:open-in-new" :class="$style.icon" />
     <slot />
   </a>
 </template>
-
-<script lang="ts" setup>
-import AIcon from './AIcon.vue'
-</script>
 
 <style lang="scss" module>
 .container {

@@ -1,13 +1,3 @@
-<template>
-  <section :class="$style.container">
-    <member-list-item
-      v-for="member in members"
-      :key="member.id"
-      :member="member"
-    />
-  </section>
-</template>
-
 <script lang="ts" setup>
 import MemberListItem from './MemberListItem.vue'
 import { GroupMember } from '/@/lib/apis'
@@ -18,6 +8,16 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<template>
+  <section :class="$style.container">
+    <member-list-item
+      v-for="member in members"
+      :key="member.id"
+      :member="member"
+    />
+  </section>
+</template>
 
 <style lang="scss" module>
 .container {

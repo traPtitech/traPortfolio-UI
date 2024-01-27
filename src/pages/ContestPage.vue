@@ -3,40 +3,24 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import ContestTeamList from '/@/components/Contest/ContestTeamList.vue'
-import { computed, ref, watchEffect } from 'vue'
-import useParam from '/@/use/param'
-import apis, { ContestDetail } from '/@/lib/apis'
+import useParam from '/@/lib/param'
+import apis from '/@/lib/apis'
 
 const contestId = useParam('contestId')
-const contestDetail = ref<ContestDetail>()
-watchEffect(async () => {
-  contestDetail.value = (await apis.getContest(contestId.value)).data
-})
-
-const name = computed(
-  () => contestDetail.value?.name ?? 'Loading... コンテスト'
-)
-const link = computed(() => contestDetail.value?.link)
-const description = computed(() => contestDetail.value?.description)
-const contestTeams = computed(() => contestDetail.value?.teams)
+const contestDetail = (await apis.getContest(contestId.value)).data
 </script>
 
 <template>
   <page-container>
     <div :class="$style.titleContainer">
-      <page-title>{{ name }}</page-title>
-      <external-link
-        v-if="link !== undefined"
-        :href="link"
-        :class="$style.link"
-      >
+      <page-title>{{ contestDetail.name }}</page-title>
+      <external-link :href="contestDetail.link" :class="$style.link">
         説明ページ
       </external-link>
-      <p :class="$style.description">{{ description }}</p>
+      <p :class="$style.description">{{ contestDetail.description }}</p>
     </div>
     <contest-team-list
-      v-if="contestTeams !== undefined"
-      :contest-teams="contestTeams"
+      :contest-teams="contestDetail.teams"
       :contest-id="contestId"
     />
   </page-container>
@@ -54,3 +38,4 @@ const contestTeams = computed(() => contestDetail.value?.teams)
   font-size: 1rem;
 }
 </style>
+../lib/param

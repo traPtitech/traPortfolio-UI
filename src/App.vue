@@ -6,14 +6,18 @@ import PageFooter from '/@/components/Layout/PageFooter.vue'
 
 <template>
   <page-header />
-  <Suspense>
-    <template #default>
-      <router-view :class="$style.main" />
+  <router-view v-slot="{ Component }" :class="$style.main">
+    <template v-if="Component">
+      <suspense>
+        <template #default>
+          <component :is="Component" />
+        </template>
+        <template #fallback>
+          <loading-page />
+        </template>
+      </suspense>
     </template>
-    <template #fallback>
-      <loading-page />
-    </template>
-  </Suspense>
+  </router-view>
   <page-footer />
 </template>
 

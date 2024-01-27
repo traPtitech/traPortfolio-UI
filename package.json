@@ -10,7 +10,7 @@
     "lint": "eslint --ext .ts,.vue src",
     "type-check": "tsc",
     "gen-api": "node scripts/generateApi.js",
-    "start-mock": "prism mock -p 4010 -d https://github.com/traPtitech/traPortfolio/blob/main/docs/swagger/traPortfolio.v1.yaml",
+    "start-mock": "prism mock -p 4010 -d https://raw.githubusercontent.com/traPtitech/traPortfolio/main/docs/swagger/traPortfolio.v1.yaml",
     "postinstall": "npm run gen-api"
   },
   "dependencies": {

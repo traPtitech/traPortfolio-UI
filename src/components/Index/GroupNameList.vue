@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+import SectionTitle from '/@/components/Layout/SectionTitle.vue'
+import { Group } from '/@/lib/apis'
+
+interface Props {
+  groups: Group[]
+}
+
+defineProps<Props>()
+</script>
+
 <template>
   <section>
     <section-title :class="$style.title">班一覧</section-title>
@@ -13,17 +24,6 @@
     </div>
   </section>
 </template>
-
-<script lang="ts" setup>
-import SectionTitle from '/@/components/Layout/SectionTitle.vue'
-import { Group } from '/@/lib/apis'
-
-interface Props {
-  groups: Group[]
-}
-
-defineProps<Props>()
-</script>
 
 <style lang="scss" module>
 .container {

@@ -1,12 +1,7 @@
 <script lang="ts" setup>
-withDefaults(
-  defineProps<{
-    bio?: string
-  }>(),
-  {
-    bio: 'Loading'
-  }
-)
+defineProps<{
+  bio: string
+}>()
 </script>
 
 <template>

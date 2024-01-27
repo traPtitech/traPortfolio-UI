@@ -1,9 +1,3 @@
-<template>
-  <section :class="$style.container">
-    <group-list-item v-for="group in groups" :key="group.id" :group="group" />
-  </section>
-</template>
-
 <script lang="ts" setup>
 import GroupListItem from './GroupListItem.vue'
 import { Group } from '/@/lib/apis'
@@ -14,6 +8,12 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<template>
+  <section :class="$style.container">
+    <group-list-item v-for="group in groups" :key="group.id" :group="group" />
+  </section>
+</template>
 
 <style lang="scss" module>
 .container {

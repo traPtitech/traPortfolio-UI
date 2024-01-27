@@ -3,42 +3,23 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import MemberList from '/@/components/Group/MemberList.vue'
-import { computed, ref, watchEffect } from 'vue'
-import { storeToRefs } from 'pinia'
-import useParam from '/@/use/param'
-import apis, { GroupDetail } from '/@/lib/apis'
-import { useGroupStore } from '/@/store/group'
-import useFetcher from '/@/use/fetcher'
+import useParam from '/@/lib/param'
+import apis from '/@/lib/apis'
 
 const groupId = useParam('groupId')
-const groupStore = useGroupStore()
 
-const { groups } = storeToRefs(groupStore)
-const { fetcherState } = useFetcher(groups, () => groupStore.fetchGroups())
-
-const groupDetail = ref<GroupDetail>()
-watchEffect(async () => {
-  groupDetail.value = (await apis.getGroup(groupId.value)).data
-})
-
-const name = computed(() => groupDetail.value?.name ?? 'Loading... 班')
-const link = 'https://trap.jp' // TODO
-const members = computed(() => groupDetail.value?.members)
+const groupDetail = (await apis.getGroup(groupId.value)).data
 </script>
 
 <template>
   <page-container>
     <div :class="$style.titleContainer">
-      <page-title>{{ name }}</page-title>
-      <external-link :href="link" :class="$style.link">
+      <page-title>{{ groupDetail.name }}</page-title>
+      <external-link :href="groupDetail.link" :class="$style.link">
         紹介ページ
       </external-link>
     </div>
-    <member-list
-      v-if="fetcherState === 'loaded' && members !== undefined"
-      :members="members"
-    />
-    <p v-else>{{ fetcherState }}</p>
+    <member-list :members="groupDetail.members" />
   </page-container>
 </template>
 
@@ -50,3 +31,4 @@ const members = computed(() => groupDetail.value?.members)
   color: $color-secondary-text;
 }
 </style>
+../lib/param
