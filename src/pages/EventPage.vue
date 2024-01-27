@@ -42,4 +42,3 @@ const eventDetail = (await apis.getEvent(eventId.value)).data
   font-size: 1rem;
 }
 </style>
-../lib/param

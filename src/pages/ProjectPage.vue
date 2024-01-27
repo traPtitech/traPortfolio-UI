@@ -35,4 +35,3 @@ const projectDetail = (await apis.getProject(projectId.value)).data
   font-size: 1rem;
 }
 </style>
-../lib/param

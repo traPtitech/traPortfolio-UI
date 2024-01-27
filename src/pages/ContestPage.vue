@@ -38,4 +38,3 @@ const contestDetail = (await apis.getContest(contestId.value)).data
   font-size: 1rem;
 }
 </style>
-../lib/param

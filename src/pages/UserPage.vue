@@ -59,4 +59,3 @@ const userEvents = (await apis.getUserEvents(userId.value)).data
   margin-bottom: 4rem;
 }
 </style>
-../lib/param

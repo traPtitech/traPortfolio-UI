@@ -31,4 +31,3 @@ const groupDetail = (await apis.getGroup(groupId.value)).data
   color: $color-secondary-text;
 }
 </style>
-../lib/param

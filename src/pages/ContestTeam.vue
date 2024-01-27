@@ -43,4 +43,3 @@ const contestTeamDetail = (
   font-size: 1rem;
 }
 </style>
-../lib/param
