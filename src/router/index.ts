@@ -7,8 +7,8 @@ const GroupsPage = () => import('/@/pages/GroupsPage.vue')
 const GroupPage = () => import('/@/pages/GroupPage.vue')
 const ProjectsPage = () => import('/@/pages/ProjectsPage.vue')
 const ProjectPage = () => import('/@/pages/ProjectPage.vue')
-const EventsPage = () => import('/@/pages/EventsPage.vue')
-const EventPage = () => import('/@/pages/EventPage.vue')
+// const EventsPage = () => import('/@/pages/EventsPage.vue')
+// const EventPage = () => import('/@/pages/EventPage.vue')
 const ContestsPage = () => import('/@/pages/ContestsPage.vue')
 const ContestPage = () => import('/@/pages/ContestPage.vue')
 const ContestTeam = () => import('/@/pages/ContestTeam.vue')
@@ -53,16 +53,16 @@ const routes = [
     name: 'Project',
     component: ProjectPage
   },
-  {
-    path: '/events',
-    name: 'Events',
-    component: EventsPage
-  },
-  {
-    path: '/events/:eventId',
-    name: 'Event',
-    component: EventPage
-  },
+  // {
+  //   path: '/events',
+  //   name: 'Events',
+  //   component: EventsPage
+  // },
+  // {
+  //   path: '/events/:eventId',
+  //   name: 'Event',
+  //   component: EventPage
+  // },
   {
     path: '/contests',
     name: 'Contests',

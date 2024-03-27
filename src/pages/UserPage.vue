@@ -3,7 +3,7 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import BioContainer from '/@/components/User/BioContainer.vue'
 import GroupsContainer from '/@/components/User/GroupsContainer.vue'
 import ContestsContainer from '/@/components/User/ContestsContainer.vue'
-import EventsContainer from '/@/components/User/EventsContainer.vue'
+// import EventsContainer from '/@/components/User/EventsContainer.vue'
 import UserDetailContainer from '/@/components/User/UserDetailContainer.vue'
 import apis from '/@/lib/apis'
 import useParam from '/@/lib/param'
@@ -13,7 +13,7 @@ const userDetail = (await apis.getUser(userId.value)).data
 const userProjects = (await apis.getUserProjects(userId.value)).data
 const userContests = (await apis.getUserContests(userId.value)).data
 const userGroups = (await apis.getUserGroups(userId.value)).data
-const userEvents = (await apis.getUserEvents(userId.value)).data
+// const userEvents = (await apis.getUserEvents(userId.value)).data
 </script>
 
 <template>
@@ -32,7 +32,7 @@ const userEvents = (await apis.getUserEvents(userId.value)).data
       :class="$style.contestsContainer"
       :contests="userContests"
     />
-    <events-container :class="$style.eventsContainer" :events="userEvents" />
+    <!-- <events-container :class="$style.eventsContainer" :events="userEvents" /> -->
   </page-container>
 </template>
 

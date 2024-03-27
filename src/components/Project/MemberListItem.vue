@@ -13,7 +13,7 @@ defineProps<{
       <user-icon :class="$style.icon" :user-id="member.name" :size="128" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ member.name }}</div>
-        <div :class="$style.realName">{{ member.realName }}</div>
+        <!-- <div :class="$style.realName">{{ member.realName }}</div> -->
       </div>
     </router-link>
   </div>
