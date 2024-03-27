@@ -14,9 +14,9 @@ defineProps<{
     <div>
       <div :class="$style.nameContainer">
         <div :class="$style.name">{{ userDetail.name }}</div>
-        <div :class="$style.realName">
+        <!-- <div :class="$style.realName">
           {{ userDetail.realName }}
-        </div>
+        </div> -->
       </div>
       <account-list
         v-if="userDetail"

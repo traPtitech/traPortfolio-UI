@@ -6,17 +6,17 @@ import RecentList from '/@/components/Index/RecentList.vue'
 import { useGroupStore } from '/@/store/group'
 import { useContestStore } from '/@/store/contest'
 import { useProjectStore } from '/@/store/project'
-import { useEventStore } from '/@/store/event'
+// import { useEventStore } from '/@/store/event'
 
 const groupStore = useGroupStore()
 const contestStore = useContestStore()
 const projectStore = useProjectStore()
-const eventStore = useEventStore()
+// const eventStore = useEventStore()
 
 const groups = await groupStore.fetchGroups()
 const contests = await contestStore.fetchContests()
 const projects = await projectStore.fetchProjects()
-const events = await eventStore.fetchEvents()
+// const events = await eventStore.fetchEvents()
 </script>
 
 <template>
@@ -30,7 +30,7 @@ const events = await eventStore.fetchEvents()
     <div :class="$style.container">
       <recent-list :items="contests" title="実績" path="contests" />
       <recent-list :items="projects" title="プロジェクト" path="projects" />
-      <recent-list :items="events" title="イベント" path="events" />
+      <!-- <recent-list :items="events" title="イベント" path="events" /> -->
     </div>
   </page-container>
 </template>
