@@ -13,9 +13,9 @@ defineProps<{
       <user-icon :class="$style.icon" :user-id="member.name" :size="128" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ member.name }}</div>
-        <div v-if="member.realName" :class="$style.realName">
+        <!-- <div v-if="member.realName" :class="$style.realName">
           {{ member.realName }}
-        </div>
+        </div> -->
       </div>
     </router-link>
   </div>
