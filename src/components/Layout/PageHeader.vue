@@ -5,7 +5,7 @@ import SearchInput from '/@/components/UI/SearchInput.vue'
 <template>
   <header :class="$style.container">
     <router-link to="/">
-      <img src="/traP_logo_blue.svg" alt="traP" width="343" height="48" />
+      <img src="/@/assets/traP_logo_blue.svg" alt="traP" width="343" height="48" />
     </router-link>
     <search-input />
   </header>
