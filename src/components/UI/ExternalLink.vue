@@ -12,8 +12,8 @@ import AIcon from './AIcon.vue'
 <style lang="scss" module>
 .container {
   display: flex;
-}
-.icon {
-  margin-right: 0.25rem;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-text-secondary);
 }
 </style>

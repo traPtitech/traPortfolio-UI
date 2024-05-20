@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import MemberListItem from './MemberListItem.vue'
-import { ProjectMember } from '/@/lib/apis'
+import AdminListItem from './AdminListItem.vue'
+import { User } from '/@/lib/apis'
 import SectionTitle from '/@/components/Layout/SectionTitle.vue'
 
 interface Props {
-  members: ProjectMember[]
+  admins: User[]
 }
 
 defineProps<Props>()
@@ -12,12 +12,12 @@ defineProps<Props>()
 
 <template>
   <section :class="$style.section">
-    <section-title>プロジェクトメンバー</section-title>
+    <section-title>リーダー</section-title>
     <div :class="$style.container">
-      <member-list-item
-        v-for="member in members"
-        :key="member.id"
-        :member="member"
+      <admin-list-item
+        v-for="admin in admins"
+        :key="admin.id"
+        :admin="admin"
       />
     </div>
   </section>

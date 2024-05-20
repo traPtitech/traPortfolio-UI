@@ -2,6 +2,7 @@
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import BioContainer from '/@/components/User/BioContainer.vue'
 import GroupsContainer from '/@/components/User/GroupsContainer.vue'
+import ProjectsContainer from '/@/components/User/ProjectsContainer.vue'
 import ContestsContainer from '/@/components/User/ContestsContainer.vue'
 // import EventsContainer from '/@/components/User/EventsContainer.vue'
 import UserDetailContainer from '/@/components/User/UserDetailContainer.vue'
@@ -18,20 +19,11 @@ const userGroups = (await apis.getUserGroups(userId.value)).data
 
 <template>
   <page-container>
-    <user-detail-container
-      :class="$style.userInfoContainer"
-      :user-detail="userDetail"
-    />
-    <bio-container :class="$style.bioContainer" :bio="userDetail?.bio" />
-    <groups-container
-      :class="$style.groupsContainer"
-      :groups="userGroups"
-      :projects="userProjects"
-    />
-    <contests-container
-      :class="$style.contestsContainer"
-      :contests="userContests"
-    />
+    <user-detail-container :user-detail="userDetail" />
+    <bio-container :bio="userDetail.bio" />
+    <groups-container :groups="userGroups" />
+    <projects-container :projects="userProjects" />
+    <contests-container :contests="userContests" />
     <!-- <events-container :class="$style.eventsContainer" :events="userEvents" /> -->
   </page-container>
 </template>
@@ -41,21 +33,5 @@ const userGroups = (await apis.getUserGroups(userId.value)).data
   display: flex;
   align-items: center;
   margin: 4rem 0 2rem;
-}
-
-.bioContainer {
-  margin-bottom: 2rem;
-}
-
-.groupsContainer {
-  margin-bottom: 4rem;
-}
-
-.contestsContainer {
-  margin-bottom: 4rem;
-}
-
-.eventsContainer {
-  margin-bottom: 4rem;
 }
 </style>

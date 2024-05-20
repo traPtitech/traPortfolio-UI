@@ -1,38 +1,36 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { Project, Semester } from '/@/lib/apis'
+import { Project } from '/@/lib/apis'
+import { getGroupOrProjectDuration } from '/@/lib/date'
 
-const props = defineProps<{
+defineProps<{
   project: Project
 }>()
-
-const date = computed(() => {
-  const semester =
-    props.project.duration.since.semester == Semester.first ? '前期' : '後期'
-  return `${props.project.duration.since.year}${semester}`
-})
 </script>
 
 <template>
   <div>
     <router-link :class="$style.link" :to="`/projects/${project.id}`">
       <span :class="$style.name">{{ project.name }}</span>
-      <span :class="$style.date">({{ date }}~)</span>
+      <span :class="$style.date">
+        {{ getGroupOrProjectDuration(project.duration) }}
+      </span>
     </router-link>
   </div>
 </template>
 
 <style lang="scss" module>
 .link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
 }
 .name {
   color: $color-text;
-  font-size: 3rem;
+  font-size: 1.25rem;
 }
 .date {
-  color: $color-text;
-  font-size: 1.5rem;
-  margin: 0 0.5em;
+  color: $color-text-secondary;
+  font-size: 0.75rem;
 }
 </style>

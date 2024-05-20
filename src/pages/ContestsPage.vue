@@ -11,13 +11,17 @@ const contests = await contestStore.fetchContests()
 
 <template>
   <page-container>
-    <page-title :class="$style.title">コンテスト一覧</page-title>
-    <contest-list :contests="contests" />
+    <div :class="$style.container">
+      <page-title>コンテスト一覧</page-title>
+      <contest-list :contests="contests" />
+    </div>
   </page-container>
 </template>
 
 <style lang="scss" module>
-.title {
-  margin: 4rem 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 </style>

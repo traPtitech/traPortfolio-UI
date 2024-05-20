@@ -22,5 +22,6 @@ defineProps<Props>()
 <style lang="scss" module>
 .accounts {
   display: flex;
+  gap: 0.5rem;
 }
 </style>

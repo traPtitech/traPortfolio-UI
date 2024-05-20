@@ -1,25 +1,24 @@
 <script lang="ts" setup>
-import BelongsList from './BelongsList.vue'
-import { UserGroup, UserProject } from '/@/lib/apis'
+import { UserGroup } from '/@/lib/apis'
+import GroupList from '/@/components/Groups/GroupList.vue'
 
 interface Props {
   groups: UserGroup[]
-  projects: UserProject[]
 }
 
 defineProps<Props>()
 </script>
 
 <template>
-  <div>
-    <div :class="$style.title">traPでの所属</div>
-    <belongs-list :groups="groups" :projects="projects" />
-  </div>
+  <section>
+    <h2 :class="$style.title">班</h2>
+    <group-list :groups="groups" />
+  </section>
 </template>
 
 <style lang="scss" module>
 .title {
   color: $color-text;
-  font-size: 2.25rem;
+  font-size: 1.25rem;
 }
 </style>

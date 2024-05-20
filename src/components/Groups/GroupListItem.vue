@@ -16,10 +16,13 @@ defineProps<{
 
 <style lang="scss" module>
 .link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
 }
 .name {
   color: $color-text;
-  font-size: 3rem;
+  font-size: 1.25rem;
 }
 </style>

@@ -7,27 +7,34 @@ import useParam from '/@/lib/param'
 import apis from '/@/lib/apis'
 
 const groupId = useParam('groupId')
-
 const groupDetail = (await apis.getGroup(groupId.value)).data
 </script>
 
 <template>
   <page-container>
-    <div :class="$style.titleContainer">
-      <page-title>{{ groupDetail.name }}</page-title>
-      <external-link :href="groupDetail.link" :class="$style.link">
-        紹介ページ
-      </external-link>
+    <div :class="$style.container">
+      <div :class="$style.titleContainer">
+        <page-title>{{ groupDetail.name }}</page-title>
+        <external-link :href="groupDetail.link" :class="$style.link">
+          紹介ページ
+        </external-link>
+      </div>
+      <p>{{ groupDetail.description }}</p>
     </div>
+    <admin-list :admins="groupDetail.admin" />
     <member-list :members="groupDetail.members" />
   </page-container>
 </template>
 
 <style lang="scss" module>
-.titleContainer {
-  margin: 4rem 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.link {
-  color: $color-secondary-text;
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>

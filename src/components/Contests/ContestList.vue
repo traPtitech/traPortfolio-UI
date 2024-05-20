@@ -10,19 +10,17 @@ defineProps<Props>()
 </script>
 
 <template>
-  <section :class="$style.container">
+  <div :class="$style.container">
     <contest-list-item
       v-for="contest in contests"
       :key="contest.id"
       :contest="contest"
     />
-  </section>
+  </div>
 </template>
 
 <style lang="scss" module>
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
+  gap: 0.75rem;
 }
 </style>

@@ -3,16 +3,14 @@ import ContestTeamListItem from './ContestTeamListItem.vue'
 import SectionTitle from '/@/components/Layout/SectionTitle.vue'
 import { ContestTeam } from '/@/lib/apis'
 
-interface Props {
+defineProps<{
   contestTeams: ContestTeam[]
   contestId: string
-}
-
-defineProps<Props>()
+}>()
 </script>
 
 <template>
-  <section>
+  <section :class="$style.section">
     <section-title>チーム</section-title>
     <div :class="$style.container">
       <contest-team-list-item
@@ -26,9 +24,14 @@ defineProps<Props>()
 </template>
 
 <style lang="scss" module>
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 </style>
