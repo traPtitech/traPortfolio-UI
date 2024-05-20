@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { GroupMember} from '/@/lib/apis'
+import { GroupMember } from '/@/lib/apis'
 import UserIcon from '/@/components/UI/UserIcon.vue'
 import { getGroupOrProjectDuration } from '/@/lib/date'
 
@@ -13,7 +13,9 @@ defineProps<{
     <router-link :class="$style.link" :to="`/users/${member.id}`">
       <user-icon :class="$style.icon" :user-id="member.name" :size="32" />
       <p :class="$style.name">{{ member.name }}</p>
-      <p :class="$style.duration">{{ getGroupOrProjectDuration(member.duration) }}</p>
+      <p :class="$style.duration">
+        {{ getGroupOrProjectDuration(member.duration) }}
+      </p>
     </router-link>
   </li>
 </template>
