@@ -13,13 +13,13 @@ defineProps<Props>()
 <template>
   <section :class="$style.section">
     <section-title>プロジェクトメンバー</section-title>
-    <div :class="$style.container">
+    <ul :class="$style.container">
       <member-list-item
         v-for="member in members"
         :key="member.id"
         :member="member"
       />
-    </div>
+    </ul>
   </section>
 </template>
 
@@ -33,5 +33,6 @@ defineProps<Props>()
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  list-style: none;
 }
 </style>

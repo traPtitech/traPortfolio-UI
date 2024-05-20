@@ -13,13 +13,13 @@ defineProps<Props>()
 <template>
   <section :class="$style.section">
     <section-title>リーダー</section-title>
-    <div :class="$style.container">
+    <ul :class="$style.container">
       <admin-list-item
         v-for="admin in admins"
         :key="admin.id"
         :admin="admin"
       />
-    </div>
+    </ul>
   </section>
 </template>
 
@@ -33,5 +33,6 @@ defineProps<Props>()
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  list-style: none;
 }
 </style>

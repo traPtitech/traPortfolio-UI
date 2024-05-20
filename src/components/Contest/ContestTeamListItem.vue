@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="$style.container">
+  <li :class="$style.container">
     <router-link
       :class="$style.link"
       :to="`/contests/${contestId}/${contestTeam.id}`"
@@ -20,7 +20,7 @@ defineProps<{
       </span>
     </router-link>
     <user-icons :user-ids="contestTeam.members.map(u => u.id)" />
-  </div>
+  </li>
 </template>
 
 <style lang="scss" module>

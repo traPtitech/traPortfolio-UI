@@ -11,8 +11,8 @@ defineProps<Props>()
 <template>
   <section>
     <h2 :class="$style.title">実績</h2>
-    <div :class="$style.contests">
-      <div
+    <ul :class="$style.contests">
+      <li
         v-for="contest in contests"
         :key="contest.id"
         :class="$style.contest"
@@ -24,8 +24,8 @@ defineProps<Props>()
             <div>{{ contest.teams[0]?.result }}</div>
           </div>
         </router-link>
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -38,6 +38,7 @@ defineProps<Props>()
   display: flex;
   flex-direction: column;
   gap: 0.75em;
+  list-style: none;
 }
 .contest {
   display: flex;

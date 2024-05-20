@@ -8,14 +8,14 @@ defineProps<{
 </script>
 
 <template>
-  <div>
+  <li>
     <router-link :class="$style.link" :to="`/projects/${project.id}`">
       <span :class="$style.name">{{ project.name }}</span>
       <span :class="$style.date">
         {{ getGroupOrProjectDuration(project.duration) }}
       </span>
     </router-link>
-  </div>
+  </li>
 </template>
 
 <style lang="scss" module>

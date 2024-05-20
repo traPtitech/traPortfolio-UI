@@ -10,13 +10,13 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div :class="$style.accounts">
+  <ul :class="$style.accounts">
     <account-list-item
       v-for="account in accounts"
       :key="account.id"
       :account="account"
     />
-  </div>
+  </ul>
 </template>
 
 <style lang="scss" module>

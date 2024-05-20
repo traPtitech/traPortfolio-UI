@@ -7,11 +7,11 @@ defineProps<{
 </script>
 
 <template>
-  <div>
+  <li>
     <router-link :class="$style.link" :to="`/groups/${group.id}`">
       <span :class="$style.name">{{ group.name }}</span>
     </router-link>
-  </div>
+  </li>
 </template>
 
 <style lang="scss" module>

@@ -10,17 +10,20 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div :class="$style.container">
+  <ul :class="$style.container">
     <contest-list-item
       v-for="contest in contests"
       :key="contest.id"
       :contest="contest"
     />
-  </div>
+  </ul>
 </template>
 
 <style lang="scss" module>
 .container {
+  display: flex;
+  flex-direction: column;
   gap: 0.75rem;
+  list-style: none;
 }
 </style>

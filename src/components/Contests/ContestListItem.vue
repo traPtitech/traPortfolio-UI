@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <div>
+  <li>
     <router-link :class="$style.link" :to="`/contests/${contest.id}`">
       <span :class="$style.name">{{ contest.name }}</span>
       <span :class="$style.date">
@@ -19,7 +19,7 @@ defineProps<{
         }}
       </span>
     </router-link>
-  </div>
+  </li>
 </template>
 
 <style lang="scss" module>

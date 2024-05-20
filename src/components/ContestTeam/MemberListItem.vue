@@ -8,12 +8,12 @@ defineProps<{
 </script>
 
 <template>
-  <div>
+  <li>
     <router-link :class="$style.link" :to="`/users/${member.id}`">
       <user-icon :class="$style.icon" :user-id="member.name" :size="32" />
       <p :class="$style.name">{{ member.name }}</p>
     </router-link>
-  </div>
+  </li>
 </template>
 
 <style lang="scss" module>
