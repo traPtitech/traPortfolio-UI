@@ -74,7 +74,7 @@ const routes = [
     component: ContestPage
   },
   {
-    path: '/contests/:contestId/:teamId',
+    path: '/contests/:contestId/teams/:teamId',
     name: 'ContestTeam',
     component: ContestTeamPage
   }
