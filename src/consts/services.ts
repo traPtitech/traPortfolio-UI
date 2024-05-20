@@ -28,8 +28,8 @@ export const services: ServiceRecord = new Map([
   [
     AccountType.twitter,
     {
-      name: 'Twitter',
-      icon: 'mdi:twitter'
+      name: 'X',
+      icon: 'ph:x-logo'
     }
   ],
   [
