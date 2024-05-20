@@ -18,7 +18,7 @@ defineProps<Props>()
         :class="$style.contest"
       >
         <router-link :to="`/contests/${contest.id}`" :class="$style.link">
-          <div :class="$style.name">{{ contest.name }}</div>
+          <div>{{ contest.name }}</div>
           <div :class="$style.detail">
             <div>チーム {{ contest.teams[0]?.name }}</div>
             <div>{{ contest.teams[0]?.result }}</div>
