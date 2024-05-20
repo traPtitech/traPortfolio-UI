@@ -9,14 +9,10 @@ defineProps<Props>()
 </script>
 
 <template>
-  <section>
+  <section :class="$style.section">
     <h2 :class="$style.title">実績</h2>
     <ul :class="$style.contests">
-      <li
-        v-for="contest in contests"
-        :key="contest.id"
-        :class="$style.contest"
-      >
+      <li v-for="contest in contests" :key="contest.id" :class="$style.contest">
         <router-link :to="`/contests/${contest.id}`" :class="$style.link">
           <div>{{ contest.name }}</div>
           <div :class="$style.detail">
@@ -30,14 +26,19 @@ defineProps<Props>()
 </template>
 
 <style lang="scss" module>
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 .title {
   color: $color-text;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 .contests {
   display: flex;
   flex-direction: column;
-  gap: 0.75em;
+  gap: 0.25em;
   list-style: none;
 }
 .contest {

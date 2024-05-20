@@ -19,19 +19,21 @@ const userGroups = (await apis.getUserGroups(userId.value)).data
 
 <template>
   <page-container>
-    <user-detail-container :user-detail="userDetail" />
-    <bio-container :bio="userDetail.bio" />
-    <groups-container :groups="userGroups" />
-    <projects-container :projects="userProjects" />
-    <contests-container :contests="userContests" />
-    <!-- <events-container :class="$style.eventsContainer" :events="userEvents" /> -->
+    <div :class="$style.container">
+      <user-detail-container :user-detail="userDetail" />
+      <bio-container :bio="userDetail.bio" />
+      <groups-container :groups="userGroups" />
+      <projects-container :projects="userProjects" />
+      <contests-container :contests="userContests" />
+      <!-- <events-container :class="$style.eventsContainer" :events="userEvents" /> -->
+    </div>
   </page-container>
 </template>
 
 <style lang="scss" module>
-.userInfoContainer {
+.container {
   display: flex;
-  align-items: center;
-  margin: 4rem 0 2rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 </style>

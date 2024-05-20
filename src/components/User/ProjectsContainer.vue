@@ -10,15 +10,20 @@ defineProps<Props>()
 </script>
 
 <template>
-  <section>
+  <section :class="$style.section">
     <h2 :class="$style.title">参加プロジェクト</h2>
     <project-list :projects="projects" />
   </section>
 </template>
 
 <style lang="scss" module>
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 .title {
   color: $color-text;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 </style>
