@@ -18,7 +18,9 @@ const router = useRouter()
 const input = ref('')
 const submit = () => {
   // 検索結果ページへ遷移
-  router.push({ name: 'UserSearch', query: { q: input.value } })
+  if (input.value !== '') {
+    router.push({ name: 'UserSearch', query: { q: input.value } })
+  }
 }
 const iconSize = computed(() => {
   if (props.size === 'large') return 36
