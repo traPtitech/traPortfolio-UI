@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ContestTeam } from '/@/lib/apis'
+import UserIcons from '/@/components/UI/UserIcons.vue'
 
 defineProps<{
   contestTeam: ContestTeam
@@ -18,7 +19,7 @@ defineProps<{
         ({{ contestTeam.result }})
       </span>
     </router-link>
-    <!--TODO: icons-->
+    <user-icons :user-ids="contestTeam.members.map(u => u.id)" />
   </div>
 </template>
 
