@@ -1,12 +1,7 @@
-<script lang="ts" setup>
-const date = new Date()
-const year = date.getFullYear()
-</script>
-
 <template>
   <footer :class="$style.container">
     <img src="/@/assets/traP_logo.svg" :class="$style.logo" />
-    <div :class="$style.copyright">© 2015-{{ year }} traP TokyoTech</div>
+    <div :class="$style.copyright">© 2015- traP TokyoTech</div>
   </footer>
 </template>
 
