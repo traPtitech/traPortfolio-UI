@@ -2,6 +2,7 @@
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ExternalLink from '/@/components/UI/ExternalLink.vue'
+import AdminList from '/@/components/Group/AdminList.vue'
 import MemberList from '/@/components/Group/MemberList.vue'
 import useParam from '/@/lib/param'
 import apis from '/@/lib/apis'
