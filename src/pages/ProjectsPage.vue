@@ -11,13 +11,17 @@ const projects = await projectStore.fetchProjects()
 
 <template>
   <page-container>
-    <page-title :class="$style.title">Project一覧</page-title>
-    <project-list :projects="projects" />
+    <div :class="$style.container">
+      <page-title>プロジェクト一覧</page-title>
+      <project-list :projects="projects" />
+    </div>
   </page-container>
 </template>
 
 <style lang="scss" module>
-.title {
-  margin: 4rem 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 </style>

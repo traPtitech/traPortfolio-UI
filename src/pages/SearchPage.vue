@@ -11,13 +11,17 @@ const users = (await apis.getUsers(false, search.value)).data
 
 <template>
   <page-container>
-    <page-title :class="$style.title">検索結果: {{ search }}</page-title>
-    <member-list :members="users" />
+    <div :class="$style.container">
+      <page-title>検索結果: {{ search }}</page-title>
+      <member-list :members="users" />
+    </div>
   </page-container>
 </template>
 
 <style lang="scss" module>
-.title {
-  margin: 4rem 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 </style>

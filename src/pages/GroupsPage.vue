@@ -10,13 +10,17 @@ const groups = await groupStore.fetchGroups()
 
 <template>
   <page-container>
-    <page-title :class="$style.title">班一覧</page-title>
-    <group-list :groups="groups" />
+    <div :class="$style.container">
+      <page-title>班一覧</page-title>
+      <group-list :groups="groups" />
+    </div>
   </page-container>
 </template>
 
 <style lang="scss" module>
-.title {
-  margin: 4rem 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 </style>

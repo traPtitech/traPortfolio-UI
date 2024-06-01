@@ -5,10 +5,11 @@
     "dev": "concurrently \"vite\" \"npm run start-mock\"",
     "serve": "vite preview",
     "build": "vite build",
-    "format": "prettier --check src",
-    "fix:format": "prettier --write src",
-    "lint": "eslint --ext .ts,.vue src",
-    "type-check": "tsc",
+    "lint": "eslint --fix --cache --ext .ts,.vue src",
+    "lint:nofix": "eslint --cache --ext .ts,.vue src",
+    "format": "prettier --cache --write \"src/**/*.{vue,ts}\"",
+    "format:nofix": "prettier --cache --check \"src/**/*.{vue,ts}\"",
+    "type-check": "vue-tsc --noEmit",
     "gen-api": "node scripts/generateApi.js",
     "start-mock": "prism mock -p 4010 -d https://raw.githubusercontent.com/traPtitech/traPortfolio/main/docs/swagger/traPortfolio.v1.yaml",
     "postinstall": "npm run gen-api"
@@ -40,7 +41,8 @@
     "ts-morph": "^22.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.12",
-    "vite-plugin-purge-icons": "^0.10.0"
+    "vite-plugin-purge-icons": "^0.10.0",
+    "vue-tsc": "^2.0.19"
   },
   "private": true
 }

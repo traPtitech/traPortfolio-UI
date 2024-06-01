@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { UserGroup } from '/@/lib/apis'
-import GroupList from '/@/components/Groups/GroupList.vue'
+import { UserProject } from '/@/lib/apis'
+import ProjectList from '/@/components/Projects/ProjectList.vue'
 
 interface Props {
-  groups: UserGroup[]
+  projects: UserProject[]
 }
 
 defineProps<Props>()
@@ -11,8 +11,8 @@ defineProps<Props>()
 
 <template>
   <section :class="$style.section">
-    <h2 :class="$style.title">班</h2>
-    <group-list :groups="groups" />
+    <h2 :class="$style.title">参加プロジェクト</h2>
+    <project-list :projects="projects" />
   </section>
 </template>
 

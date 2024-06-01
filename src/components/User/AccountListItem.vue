@@ -24,12 +24,5 @@ defineProps<Props>()
 <style lang="scss" module>
 .link {
   color: $color-secondary-text;
-  margin: 0 0.3rem;
-  font-size: 5px;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
 }
 </style>

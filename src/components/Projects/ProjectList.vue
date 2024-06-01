@@ -10,19 +10,20 @@ defineProps<Props>()
 </script>
 
 <template>
-  <section :class="$style.container">
+  <ul :class="$style.container">
     <project-list-item
       v-for="project in projects"
       :key="project.id"
       :project="project"
     />
-  </section>
+  </ul>
 </template>
 
 <style lang="scss" module>
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
 }
 </style>

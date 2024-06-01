@@ -8,34 +8,23 @@ defineProps<{
 </script>
 
 <template>
-  <div>
+  <li>
     <router-link :class="$style.link" :to="`/users/${member.id}`">
-      <user-icon :class="$style.icon" :user-id="member.name" :size="128" />
-      <div :class="$style.desc">
-        <div :class="$style.name">{{ member.name }}</div>
-        <!-- <div v-if="member.realName" :class="$style.realName">
-          {{ member.realName }}
-        </div> -->
-      </div>
+      <user-icon :class="$style.icon" :user-id="member.name" :size="32" />
+      <p :class="$style.name">{{ member.name }}</p>
     </router-link>
-  </div>
+  </li>
 </template>
 
 <style lang="scss" module>
 .link {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
 }
-.icon {
-  margin-right: 2rem;
-}
 .name {
-  word-break: break-all;
   color: $color-text;
-  font-size: 3rem;
-}
-.realName {
-  color: $color-text;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 </style>

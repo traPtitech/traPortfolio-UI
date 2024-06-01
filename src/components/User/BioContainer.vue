@@ -5,15 +5,14 @@ defineProps<{
 </script>
 
 <template>
-  <div>
-    <div :class="$style.title">自己紹介文</div>
+  <div :class="$style.container">
     <p>{{ bio }}</p>
   </div>
 </template>
 
 <style lang="scss" module>
-.title {
+.container {
   color: $color-text;
-  font-size: 2.25rem;
+  font-size: 0.875rem;
 }
 </style>

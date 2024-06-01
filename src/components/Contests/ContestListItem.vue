@@ -1,37 +1,40 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
 import { Contest } from '/@/lib/apis'
-import { getFullDayString } from '/@/lib/date'
+import { getFullDayWithTimeString } from '/@/lib/date'
 
-const props = defineProps<{
+defineProps<{
   contest: Contest
 }>()
-
-const date = computed(() =>
-  getFullDayString(new Date(props.contest.duration.since))
-)
 </script>
 
 <template>
-  <div>
+  <li>
     <router-link :class="$style.link" :to="`/contests/${contest.id}`">
       <span :class="$style.name">{{ contest.name }}</span>
-      <span :class="$style.date">({{ date }})</span>
+      <span :class="$style.date">
+        {{ getFullDayWithTimeString(new Date(contest.duration.since)) }} -
+        {{
+          contest.duration.until &&
+          getFullDayWithTimeString(new Date(contest.duration.until))
+        }}
+      </span>
     </router-link>
-  </div>
+  </li>
 </template>
 
 <style lang="scss" module>
 .link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
 }
 .name {
   color: $color-text;
-  font-size: 3rem;
+  font-size: 1.25rem;
 }
 .date {
-  color: $color-text;
-  font-size: 1.5rem;
-  margin: 0 0.5em;
+  color: $color-text-secondary;
+  font-size: 0.75rem;
 }
 </style>
