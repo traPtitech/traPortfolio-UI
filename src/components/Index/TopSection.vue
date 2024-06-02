@@ -38,12 +38,12 @@ defineProps<{
   gap: 1.5rem;
 }
 .h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: medium;
   color: $color-primary;
 }
 .description {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .contentContainer {
   display: flex;
@@ -56,7 +56,7 @@ defineProps<{
   justify-content: flex-end;
 }
 .moreLink {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: $color-primary;
   text-decoration: none;
 }

@@ -28,8 +28,9 @@ const groups = computed(() =>
       case 'SysAd':
         return { ...group, logo: sysad }
       default:
+        // mockでグループがまともに返ってこないため、一時的にSysAdを返している
+        //throw new Error(`Invalid group: ${group.name}`)
         return { ...group, logo: sysad }
-      //throw new Error(`Invalid group: ${group.name}`)
     }
   })
 )
@@ -55,6 +56,7 @@ const groups = computed(() =>
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem 3rem;
+  padding: 1rem 0;
 }
 .link {
   display: flex;
