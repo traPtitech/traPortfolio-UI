@@ -1,36 +1,39 @@
 <script lang="ts" setup>
 import { Group } from '/@/lib/apis'
-import algorithm from '/@/assets/algorithm_logo.svg'
-import game from '/@/assets/game_logo.svg'
-import graphic from '/@/assets/graphic_logo.svg'
-import sound from '/@/assets/sound_logo.svg'
-import ctf from '/@/assets/CTF.svg'
-import sysad from '/@/assets/SysAd_logo.svg'
 import { computed } from 'vue'
+import { useResponsiveStore } from '/@/store/responsive'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps<{
   groups: Group[]
 }>()
 
+const responsiveStore = useResponsiveStore()
+const { isMobile } = storeToRefs(responsiveStore)
+
+const logoSize = computed(() => (isMobile.value ? '64px' : '120px'))
+
 const groups = computed(() =>
   props.groups.map(group => {
     switch (group.name) {
       case 'algorithm':
-        return { ...group, logo: algorithm }
+        return { ...group, logo: '/@/assets/algorithm_logo.svg' }
       case 'game':
-        return { ...group, logo: game }
+        return { ...group, logo: '/@/assets/game_logo.svg' }
       case 'graphic':
-        return { ...group, logo: graphic }
+        return { ...group, logo: '/@/assets/graphic_logo.svg' }
       case 'sound':
-        return { ...group, logo: sound }
+        return { ...group, logo: '/@/assets/sound_logo.svg' }
       case 'CTF':
-        return { ...group, logo: ctf }
+        return { ...group, logo: '/@/assets/CTF_logo.svg' }
+      case 'Kaggle':
+        return { ...group, logo: '/@/assets/kaggle_logo.svg' }
       case 'SysAd':
-        return { ...group, logo: sysad }
+        return { ...group, logo: '/@/assets/SysAd_logo.svg' }
       default:
         // mockでグループがまともに返ってこないため、一時的にSysAdを返している
         //throw new Error(`Invalid group: ${group.name}`)
-        return { ...group, logo: sysad }
+        return { ...group, logo: '/@/assets/SysAd_logo.svg' }
     }
   })
 )
@@ -44,7 +47,12 @@ const groups = computed(() =>
       :to="`/groups/${group.id}`"
       :class="$style.link"
     >
-      <img :src="group.logo" :alt="group.name" height="120" width="120" />
+      <img
+        :src="group.logo"
+        :alt="`${group.name}班のロゴ`"
+        :height="logoSize"
+        :width="logoSize"
+      />
       <span :class="$style.name">{{ group.name }}</span>
     </router-link>
   </div>
@@ -57,6 +65,12 @@ const groups = computed(() =>
   flex-wrap: wrap;
   gap: 1rem 3rem;
   padding: 1rem 0;
+
+  @media (width <= 768px) {
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
 }
 .link {
   display: flex;
@@ -68,8 +82,9 @@ const groups = computed(() =>
 .name {
   font-size: 1.5rem;
   color: $color-text;
-}
-.title {
-  color: $color-primary;
+
+  @media (width <= 768px) {
+    font-size: 1rem;
+  }
 }
 </style>

@@ -5,14 +5,22 @@ import { useGroupStore } from '/@/store/group'
 import { useContestStore } from '/@/store/contest'
 import { useProjectStore } from '/@/store/project'
 import TopSection from '/@/components/Index/TopSection.vue'
+import { useResponsiveStore } from '/@/store/responsive'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
 const groupStore = useGroupStore()
 const contestStore = useContestStore()
 const projectStore = useProjectStore()
+const responsiveStore = useResponsiveStore()
 
 const groups = await groupStore.fetchGroups()
 const contests = await contestStore.fetchContests()
 const projects = await projectStore.fetchProjects()
+
+const { isMobile } = storeToRefs(responsiveStore)
+
+const logoSize = computed(() => (isMobile.value ? '64px' : '120px'))
 </script>
 
 <template>
@@ -20,15 +28,15 @@ const projects = await projectStore.fetchProjects()
     <div :class="$style.heading">
       <h1 :class="$style.h1">traPortfolio</h1>
       <p :class="$style.description">
-        traPortfolioは東京工業大学デジタル創作同好会traPの部員のPortfolioです。
+        traPortfolioは東京工業大学デジタル創作同好会traPの部員のポートフォリオです。
       </p>
     </div>
     <div :class="$style.traP">
       <img
         src="/@/assets/traP_logo_icon.svg"
         alt="traPのロゴ"
-        height="120"
-        width="120"
+        :height="logoSize"
+        :width="logoSize"
       />
       <section :class="$style.traPDescriptionContainer">
         <h2 :class="$style.h2">traPとは</h2>
@@ -67,6 +75,11 @@ const projects = await projectStore.fetchProjects()
   flex-direction: column;
   gap: 2.5rem;
   padding: 2.5rem;
+
+  @media (width <= 768px) {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
 }
 .heading {
   display: flex;
@@ -78,9 +91,17 @@ const projects = await projectStore.fetchProjects()
   font-size: 2.5rem;
   font-weight: bold;
   color: $color-primary;
+
+  @media (width <= 768px) {
+    font-size: 1.5rem;
+  }
 }
 .description {
   font-size: 1.5rem;
+
+  @media (width <= 768px) {
+    font-size: 1.25rem;
+  }
 }
 .traP {
   display: flex;
@@ -88,6 +109,13 @@ const projects = await projectStore.fetchProjects()
   align-items: center;
   gap: 4rem;
   padding: 1.25rem 3.75rem;
+
+  @media (width <= 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0;
+  }
 }
 .traPDescriptionContainer {
   display: flex;
@@ -97,9 +125,18 @@ const projects = await projectStore.fetchProjects()
 .h2 {
   font-size: 1.5rem;
   font-weight: medium;
+  color: $color-primary;
+
+  @media (width <= 768px) {
+    font-size: 1.25rem;
+  }
 }
 .traPDescription {
   max-width: 940px;
   font-size: 1.25rem;
+
+  @media (width <= 768px) {
+    font-size: 1rem;
+  }
 }
 </style>

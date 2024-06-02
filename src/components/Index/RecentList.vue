@@ -70,6 +70,10 @@ const sortedList = computed(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 3.5rem;
+
+  @media (width <= 768px) {
+    gap: 0.5rem;
+  }
 }
 .link {
   color: $color-text;
@@ -77,5 +81,9 @@ const sortedList = computed(() => {
 }
 .name {
   font-size: 1.5rem;
+
+  @media (width <= 768px) {
+    font-size: 1rem;
+  }
 }
 </style>
