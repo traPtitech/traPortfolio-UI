@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import SectionTitle from '/@/components/Layout/SectionTitle.vue'
 import { computed } from 'vue'
 import { Duration, YearWithSemesterDuration } from '/@/lib/apis'
 
@@ -11,14 +10,13 @@ interface Item {
 
 interface Props {
   items: Item[]
-  title: string
   path: string
 }
 
 const props = defineProps<Props>()
 
 // TODO: ソートのロジックをちゃんと書く
-const listItem = computed(() => {
+const sortedList = computed(() => {
   if (!props.items) return []
   const li = props.items
   li.sort((a, b) => {
@@ -55,53 +53,29 @@ const listItem = computed(() => {
 </script>
 
 <template>
-  <section :class="$style.container">
-    <section-title :class="$style.title">
-      <span :class="$style.prefixTitle">最近の</span>
-      <span>{{ title }}</span>
-    </section-title>
-    <div>
-      <router-link
-        v-for="item in listItem"
-        :key="item.id"
-        :to="`/${path}/${item.id}`"
-        :class="$style.link"
-      >
-        <span :class="$style.name">{{ item.name }}</span>
-      </router-link>
-    </div>
-    <router-link :to="`/${path}`" :class="$style.moreRead">
-      <span :class="$style.name">もっと見る</span>
+  <div :class="$style.container">
+    <router-link
+      v-for="item in sortedList"
+      :key="item.id"
+      :to="`/${path}/${item.id}`"
+      :class="$style.link"
+    >
+      <span :class="$style.name">{{ item.name }}</span>
     </router-link>
-  </section>
+  </div>
 </template>
 
 <style lang="scss" module>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 3.5rem;
+}
 .link {
-  display: block;
-  margin: 0.5rem 1rem;
+  color: $color-text;
   text-decoration: none;
 }
 .name {
   font-size: 1.5rem;
-  color: $color-text;
-}
-.title {
-  color: $color-primary;
-}
-.prefixTitle {
-  font-size: 1.15rem;
-}
-.moreRead {
-  display: block;
-  margin: 1rem 1rem;
-  text-decoration: none;
-  text-align: right;
-  margin-top: auto;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 </style>
