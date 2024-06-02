@@ -10,7 +10,7 @@ const contests = await contestStore.fetchContests()
 </script>
 
 <template>
-  <page-container>
+  <page-container :paths="[{ name: 'Contests', link: '/contests' }]">
     <div :class="$style.container">
       <page-title>コンテスト一覧</page-title>
       <contest-list :contests="contests" />

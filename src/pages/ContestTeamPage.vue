@@ -8,13 +8,26 @@ import apis from '/@/lib/apis'
 
 const contestId = useParam('contestId')
 const teamId = useParam('teamId')
+const contestDetail = (await apis.getContest(contestId.value)).data
 const contestTeamDetail = (
   await apis.getContestTeam(contestId.value, teamId.value)
 ).data
 </script>
 
 <template>
-  <page-container>
+  <page-container
+    :paths="[
+      { name: 'Contests', link: '/contests' },
+      {
+        name: contestDetail.name,
+        link: `/contests/${contestId}`
+      },
+      {
+        name: contestTeamDetail.name,
+        link: `/contests/${contestId}/teams/${teamId}`
+      }
+    ]"
+  >
     <div :class="$style.container">
       <div :class="$style.titleContainer">
         <page-title>チーム {{ contestTeamDetail.name }}</page-title>

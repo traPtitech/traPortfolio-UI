@@ -12,7 +12,15 @@ const projectDetail = (await apis.getProject(projectId.value)).data
 </script>
 
 <template>
-  <page-container>
+  <page-container
+    :paths="[
+      { name: 'Projects', link: '/projects' },
+      {
+        name: projectDetail.name,
+        link: `/projects/${projectId}`
+      }
+    ]"
+  >
     <div :class="$style.container">
       <div :class="$style.titleContainer">
         <page-title>{{ projectDetail.name }}</page-title>
