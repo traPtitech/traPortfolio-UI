@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useRoute } from 'vue-router'
 import AIcon from '/@/components/UI/AIcon.vue'
 
 export interface Path {
@@ -10,12 +9,10 @@ export interface Path {
 defineProps<{
   paths: Path[]
 }>()
-
-const route = useRoute()
 </script>
 
 <template>
-  <div :class="$style.container">
+  <nav :class="$style.container">
     <template v-for="(path, index) in paths" :key="path">
       <a-icon
         v-if="index !== 0"
@@ -26,13 +23,12 @@ const route = useRoute()
         v-if="index !== paths.length - 1"
         :to="path.link"
         :class="$style.link"
-        :aria-current="route.path === path.link ? 'page' : undefined"
       >
         {{ path.name }}
       </router-link>
       <span v-else :class="$style.currentPath">{{ path.name }}</span>
     </template>
-  </div>
+  </nav>
 </template>
 
 <style lang="scss" module>
