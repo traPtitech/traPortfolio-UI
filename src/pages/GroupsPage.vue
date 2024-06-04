@@ -9,7 +9,7 @@ const groups = await groupStore.fetchGroups()
 </script>
 
 <template>
-  <page-container>
+  <page-container :paths="[{ name: 'Groups', link: '/groups' }]">
     <div :class="$style.container">
       <page-title>班一覧</page-title>
       <group-list :groups="groups" />

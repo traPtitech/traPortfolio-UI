@@ -12,7 +12,15 @@ const groupDetail = (await apis.getGroup(groupId.value)).data
 </script>
 
 <template>
-  <page-container>
+  <page-container
+    :paths="[
+      { name: 'Groups', link: '/groups' },
+      {
+        name: groupDetail.name,
+        link: `/groups/${groupId}`
+      }
+    ]"
+  >
     <div :class="$style.container">
       <div :class="$style.titleContainer">
         <page-title>{{ groupDetail.name }}</page-title>

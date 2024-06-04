@@ -10,7 +10,7 @@ const projects = await projectStore.fetchProjects()
 </script>
 
 <template>
-  <page-container>
+  <page-container :paths="[{ name: 'Projects', link: '/projects' }]">
     <div :class="$style.container">
       <page-title>プロジェクト一覧</page-title>
       <project-list :projects="projects" />

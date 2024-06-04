@@ -1,6 +1,15 @@
+<script setup lang="ts">
+import { Path } from '/@/components/Layout/BreadCrumbTrail.vue'
+import BreadCrumbTrail from '/@/components/Layout/BreadCrumbTrail.vue'
+
+defineProps<{
+  paths?: Path[]
+}>()
+</script>
+
 <template>
   <main :class="$style.container">
-    <div>パンくずリスト</div>
+    <bread-crumb-trail v-if="paths !== undefined" :paths="paths" />
     <slot />
   </main>
 </template>
@@ -16,3 +25,4 @@
   padding-top: 1rem;
 }
 </style>
+import { Path } from 'typescript';

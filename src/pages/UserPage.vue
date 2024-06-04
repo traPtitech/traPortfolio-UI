@@ -18,7 +18,15 @@ const userGroups = (await apis.getUserGroups(userId.value)).data
 </script>
 
 <template>
-  <page-container>
+  <page-container
+    :paths="[
+      { name: 'Users', link: '/users' },
+      {
+        name: userDetail.name,
+        link: `/users/${userId}`
+      }
+    ]"
+  >
     <div :class="$style.container">
       <user-detail-container :user-detail="userDetail" />
       <bio-container :bio="userDetail.bio" />

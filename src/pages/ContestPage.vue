@@ -12,7 +12,15 @@ const contestDetail = (await apis.getContest(contestId.value)).data
 </script>
 
 <template>
-  <page-container>
+  <page-container
+    :paths="[
+      { name: 'Contests', link: '/contests' },
+      {
+        name: contestDetail.name,
+        link: `/contests/${contestId}`
+      }
+    ]"
+  >
     <div :class="$style.container">
       <div :class="$style.titleContainer">
         <page-title>{{ contestDetail.name }}</page-title>
