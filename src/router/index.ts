@@ -12,6 +12,7 @@ const ProjectPage = () => import('/@/pages/ProjectPage.vue')
 const ContestsPage = () => import('/@/pages/ContestsPage.vue')
 const ContestPage = () => import('/@/pages/ContestPage.vue')
 const ContestTeamPage = () => import('/@/pages/ContestTeamPage.vue')
+const NotFound = () => import('/@/pages/NotFound.vue')
 
 const routes = [
   {
@@ -77,6 +78,11 @@ const routes = [
     path: '/contests/:contestId/teams/:teamId',
     name: 'ContestTeam',
     component: ContestTeamPage
+  },
+  {
+    path: '/:path(.*)*',
+    name: 'NotFound',
+    component: NotFound
   }
 ]
 
