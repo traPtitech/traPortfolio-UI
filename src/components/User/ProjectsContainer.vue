@@ -12,7 +12,8 @@ defineProps<Props>()
 <template>
   <section :class="$style.section">
     <h2 :class="$style.title">参加プロジェクト</h2>
-    <project-list :projects="projects" />
+    <project-list v-if="projects.length > 0" :projects="projects" />
+    <p v-else>参加プロジェクトはありません</p>
   </section>
 </template>
 
