@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import PageContainer from '/@/components/Layout/PageContainer.vue'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  document.title = '404 Not Found | traPortfolio'
+})
 </script>
 
 <template>

@@ -6,9 +6,14 @@ import AdminList from '/@/components/Group/AdminList.vue'
 import MemberList from '/@/components/Group/MemberList.vue'
 import useParam from '/@/lib/param'
 import apis from '/@/lib/apis'
+import { onMounted } from 'vue'
 
 const groupId = useParam('groupId')
 const groupDetail = (await apis.getGroup(groupId.value)).data
+
+onMounted(() => {
+  document.title = `${groupDetail.name} | traPortfolio`
+})
 </script>
 
 <template>

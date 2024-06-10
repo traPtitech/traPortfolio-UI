@@ -5,6 +5,7 @@ import ExternalLink from '/@/components/UI/ExternalLink.vue'
 import MemberList from '/@/components/ContestTeam/MemberList.vue'
 import useParam from '/@/lib/param'
 import apis from '/@/lib/apis'
+import { onMounted } from 'vue'
 
 const contestId = useParam('contestId')
 const teamId = useParam('teamId')
@@ -12,6 +13,10 @@ const contestDetail = (await apis.getContest(contestId.value)).data
 const contestTeamDetail = (
   await apis.getContestTeam(contestId.value, teamId.value)
 ).data
+
+onMounted(() => {
+  document.title = `${contestTeamDetail.name} | traPortfolio`
+})
 </script>
 
 <template>

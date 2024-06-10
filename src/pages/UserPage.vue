@@ -8,6 +8,7 @@ import ContestsContainer from '/@/components/User/ContestsContainer.vue'
 import UserDetailContainer from '/@/components/User/UserDetailContainer.vue'
 import apis from '/@/lib/apis'
 import useParam from '/@/lib/param'
+import { onMounted } from 'vue'
 
 const userId = useParam('userId')
 const userDetail = (await apis.getUser(userId.value)).data
@@ -15,6 +16,10 @@ const userProjects = (await apis.getUserProjects(userId.value)).data
 const userContests = (await apis.getUserContests(userId.value)).data
 const userGroups = (await apis.getUserGroups(userId.value)).data
 // const userEvents = (await apis.getUserEvents(userId.value)).data
+
+onMounted(() => {
+  document.title = `${userDetail.name} | traPortfolio`
+})
 </script>
 
 <template>
