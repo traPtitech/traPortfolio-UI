@@ -39,14 +39,8 @@ defineProps<{
 }
 .headingContainer {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-
-  @media (width <= 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+  flex-direction: column;
+  gap: 0.25rem;
 }
 .h2 {
   font-size: 1.5rem;
@@ -58,7 +52,8 @@ defineProps<{
   }
 }
 .description {
-  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  font-size: 1.125rem;
 
   @media (width <= 768px) {
     font-size: 1rem;
