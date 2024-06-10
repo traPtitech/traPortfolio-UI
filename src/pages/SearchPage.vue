@@ -6,7 +6,7 @@ import useQuery from '/@/lib/query'
 import apis from '/@/lib/apis'
 
 const search = useQuery('q')
-const users = (await apis.getUsers(false, search.value)).data
+const users = (await apis.getUsers(undefined, search.value)).data
 </script>
 
 <template>
