@@ -22,7 +22,7 @@ defineProps<Props>()
         </router-link>
       </li>
     </ul>
-    <p v-else>実績はありません</p>
+    <p v-else>まだ実績は登録されていません</p>
   </section>
 </template>
 

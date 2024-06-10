@@ -13,7 +13,7 @@ defineProps<Props>()
   <section :class="$style.section">
     <h2 :class="$style.title">班</h2>
     <group-list v-if="groups.length > 0" :groups="groups" />
-    <p v-else>所属している班はありません</p>
+    <p v-else>現在所属している班はありません</p>
   </section>
 </template>
 
