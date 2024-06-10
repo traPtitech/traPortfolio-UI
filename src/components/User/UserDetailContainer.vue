@@ -18,7 +18,11 @@ defineProps<{
           {{ userDetail.realName }}
         </div> -->
       </div>
-      <account-list v-if="userDetail" :accounts="userDetail.accounts" />
+      <account-list
+        v-if="userDetail"
+        :accounts="userDetail.accounts"
+        :user-name="userDetail.name"
+      />
     </div>
   </div>
 </template>

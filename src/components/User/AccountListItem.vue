@@ -11,14 +11,16 @@ defineProps<Props>()
 </script>
 
 <template>
-  <a
-    :class="$style.link"
-    :href="account.url"
-    target="_blank"
-    rel="noreferrer noopener"
-  >
-    <a-icon :name="services.get(account.type)?.icon ?? ''" :size="24" />
-  </a>
+  <li>
+    <a
+      :class="$style.link"
+      :href="account.url"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <a-icon :name="services.get(account.type)?.icon ?? ''" :size="24" />
+    </a>
+  </li>
 </template>
 
 <style lang="scss" module>
