@@ -3,7 +3,7 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import GroupList from '/@/components/Groups/GroupList.vue'
 import { useGroupStore } from '/@/store/group'
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 
 const groupStore = useGroupStore()
 const groups = await groupStore.fetchGroups()

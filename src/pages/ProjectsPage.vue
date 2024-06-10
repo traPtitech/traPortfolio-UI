@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ProjectList from '/@/components/Projects/ProjectList.vue'
