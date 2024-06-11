@@ -11,7 +11,7 @@ defineProps<Props>()
 <template>
   <section :class="$style.section">
     <h2 :class="$style.title">実績</h2>
-    <ul :class="$style.contests">
+    <ul v-if="contests.length > 0" :class="$style.contests">
       <li v-for="contest in contests" :key="contest.id" :class="$style.contest">
         <router-link :to="`/contests/${contest.id}`" :class="$style.link">
           <div>{{ contest.name }}</div>
@@ -22,6 +22,7 @@ defineProps<Props>()
         </router-link>
       </li>
     </ul>
+    <p v-else>まだ実績は登録されていません</p>
   </section>
 </template>
 
