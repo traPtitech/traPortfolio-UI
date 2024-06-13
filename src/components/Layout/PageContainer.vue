@@ -22,7 +22,6 @@ defineProps<{
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  padding-top: 1rem;
+  padding: 1rem 0.5rem 1rem;
 }
 </style>
-import { Path } from 'typescript';
