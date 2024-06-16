@@ -1,14 +1,23 @@
 <script lang="ts" setup>
 import SearchInput from '/@/components/UI/SearchInput.vue'
+import { useResponsiveStore } from '/@/store/responsive'
+import { storeToRefs } from 'pinia'
+
+const responsiveStore = useResponsiveStore()
+const { isMobile } = storeToRefs(responsiveStore)
 </script>
 
 <template>
   <header :class="$style.container">
     <router-link to="/">
       <img
-        src="/@/assets/traP_logo_blue.svg"
+        :src="
+          isMobile
+            ? '/@/assets/traP_logo_icon.svg'
+            : '/@/assets/traP_logo_blue.svg'
+        "
         alt="traP"
-        width="343"
+        :width="isMobile ? '48' : '343'"
         height="48"
       />
     </router-link>
@@ -19,10 +28,13 @@ import SearchInput from '/@/components/UI/SearchInput.vue'
 <style lang="scss" module>
 .container {
   display: flex;
-  height: 5rem;
-  padding: 0 1rem;
+  padding: 1rem 1rem;
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 0.1rem $color-secondary;
+
+  @media (width <= 768px) {
+    padding: 0.5rem 1rem;
+  }
 }
 </style>
