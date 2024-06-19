@@ -8,6 +8,8 @@ import {addApis} from './addApis.js'
 
 const __dirname = import.meta.dirname
 
+console.log(__dirname)
+
 const execPromise = promisify(exec)
 
 const SWAGGER_PATH =
