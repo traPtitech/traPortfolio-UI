@@ -4,11 +4,9 @@ import fs from 'fs/promises'
 import path from 'path'
 import { exec } from 'child_process'
 import { promisify } from 'util'
-import {addApis} from './addApis.js'
+import { addApis } from './addApis.js'
 
 const __dirname = import.meta.dirname
-
-console.log(__dirname)
 
 const execPromise = promisify(exec)
 
@@ -24,7 +22,7 @@ const generateCmd = [
   '-i',
   SWAGGER_PATH,
   '-o',
-  "/local/src/lib/apis/generated"
+  '/local/src/lib/apis/generated'
 ]
 
 if (process.env.SKIP_GENAPI) {
