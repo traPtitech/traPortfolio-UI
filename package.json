@@ -44,5 +44,6 @@
     "vite-plugin-purge-icons": "^0.10.0",
     "vue-tsc": "^2.0.19"
   },
-  "private": true
+  "private": true,
+  "type": "module"
 }
