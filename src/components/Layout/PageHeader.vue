@@ -2,6 +2,8 @@
 import SearchInput from '/@/components/UI/SearchInput.vue'
 import { useResponsiveStore } from '/@/store/responsive'
 import { storeToRefs } from 'pinia'
+import pcLogo from '/@/assets/traP_logo_blue.svg'
+import spLogo from '/@/assets/traP_logo_icon.svg'
 
 const responsiveStore = useResponsiveStore()
 const { isMobile } = storeToRefs(responsiveStore)
@@ -11,11 +13,7 @@ const { isMobile } = storeToRefs(responsiveStore)
   <header :class="$style.container">
     <router-link to="/">
       <img
-        :src="
-          isMobile
-            ? '/@/assets/traP_logo_icon.svg'
-            : '/@/assets/traP_logo_blue.svg'
-        "
+        :src="isMobile ? spLogo : pcLogo"
         alt="traP"
         :width="isMobile ? '48' : '343'"
         height="48"
