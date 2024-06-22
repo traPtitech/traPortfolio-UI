@@ -31,7 +31,8 @@ jobs:
   # GitHubリリース機能で自動リリース
   make-dist:
     runs-on: ubuntu-latest
-    needs: [genApi]
+    needs:
+      - genApi
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -61,7 +62,9 @@ jobs:
   # ghcrにビルド済みイメージをアップロード
   image:
     name: Build Docker Image
-    needs: [genApi, make-dist]
+    needs:
+      - genApi
+      - make-dist
     runs-on: ubuntu-latest
     steps:
       - name: Set IMAGE_TAG env
