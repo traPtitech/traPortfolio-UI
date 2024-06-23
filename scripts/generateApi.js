@@ -22,7 +22,9 @@ const generateCmd = [
   SWAGGER_PATH,
   '-o',
   `/local/${GENERATED_DIR}`
-](async () => {
+]
+
+;(async () => {
   await fs.mkdir(path.resolve(__dirname, '../', GENERATED_DIR), {
     recursive: true
   })
