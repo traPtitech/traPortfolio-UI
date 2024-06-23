@@ -10,24 +10,24 @@ defineProps<Props>()
 </script>
 
 <template>
-  <section :class="$style.section">
-    <ul :class="$style.container">
+  <div :class="$style.container">
+    <ul :class="$style.list">
       <member-list-item
         v-for="member in members"
         :key="member.id"
         :member="member"
       />
     </ul>
-  </section>
+  </div>
 </template>
 
 <style lang="scss" module>
-.section {
+.container {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
-.container {
+.list {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
