@@ -2,12 +2,12 @@
 import { computed } from 'vue'
 
 interface Props {
-  userId: string
+  userName: string
   size?: number
 }
 const props = withDefaults(defineProps<Props>(), { size: 24 })
 const src = computed(
-  () => `https://q.trap.jp/api/v3/public/icon/${props.userId}`
+  () => `https://q.trap.jp/api/v3/public/icon/${props.userName}`
 )
 
 const styles = computed(() => ({
@@ -23,7 +23,7 @@ const styles = computed(() => ({
     :style="styles"
     :width="size"
     :height="size"
-    :alt="userId"
+    :alt="userName"
   />
 </template>
 

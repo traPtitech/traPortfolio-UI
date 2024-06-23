@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <div>
     <router-link :class="$style.link" :to="`/users/${hostname.name}`">
-      <user-icon :class="$style.icon" :user-id="hostname.name" :size="128" />
+      <user-icon :class="$style.icon" :user-name="hostname.name" :size="128" />
       <div :class="$style.desc">
         <div :class="$style.name">{{ hostname.name }}</div>
         <!-- <div v-if="hostname.realName" :class="$style.realName">

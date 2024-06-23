@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <div :class="$style.container">
-    <user-icon :class="$style.icon" :user-id="userDetail.name" :size="64" />
+    <user-icon :class="$style.icon" :user-name="userDetail.name" :size="64" />
     <div :class="$style.rightContainer">
       <div :class="$style.nameContainer">
         <div :class="$style.name">{{ userDetail.name }}</div>
