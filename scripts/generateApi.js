@@ -22,14 +22,7 @@ const generateCmd = [
   SWAGGER_PATH,
   '-o',
   `/local/${GENERATED_DIR}`
-]
-
-if (process.env.SKIP_GENAPI) {
-  // eslint-disable-next-line no-console
-  console.log('Skipped generating apis.')
-}
-
-;(async () => {
+](async () => {
   await fs.mkdir(path.resolve(__dirname, '../', GENERATED_DIR), {
     recursive: true
   })
