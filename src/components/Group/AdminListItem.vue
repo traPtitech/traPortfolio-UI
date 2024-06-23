@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <li>
-    <router-link :class="$style.link" :to="`/users/${admin.id}`">
+    <router-link :class="$style.link" :to="`/users/${admin.name}`">
       <user-icon :class="$style.icon" :user-id="admin.name" :size="32" />
       <span :class="$style.name">{{ admin.name }}</span>
     </router-link>
