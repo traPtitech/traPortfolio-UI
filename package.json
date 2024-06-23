@@ -11,16 +11,15 @@
     "format:nofix": "prettier --cache --check \"src/**/*.{vue,ts}\"",
     "type-check": "vue-tsc --noEmit",
     "gen-api": "node scripts/generateApi.js",
-    "start-mock": "prism mock -p 4010 -d https://raw.githubusercontent.com/traPtitech/traPortfolio/main/docs/swagger/traPortfolio.v1.yaml",
-    "postinstall": "npm run gen-api"
+    "start-mock": "prism mock -p 4010 -d https://raw.githubusercontent.com/traPtitech/traPortfolio/main/docs/swagger/traPortfolio.v1.yaml"
   },
   "dependencies": {
     "@iconify/iconify": "^3.1.1",
-    "axios": "^1.5.1",
+    "axios": "^1.7.2",
     "pinia": "^2.1.7",
     "ress": "^5.0.2",
     "vue": "^3.4.27",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.215",
@@ -37,12 +36,13 @@
     "node-fetch": "^3.3.2",
     "prettier": "^3.0.3",
     "rimraf": "^5.0.7",
-    "sass": "^1.76.0",
+    "sass": "^1.77.6",
     "ts-morph": "^22.0.0",
-    "typescript": "^5.2.2",
+    "typescript": "^5.4.5",
     "vite": "^5.2.12",
     "vite-plugin-purge-icons": "^0.10.0",
     "vue-tsc": "^2.0.19"
   },
-  "private": true
+  "private": true,
+  "type": "module"
 }

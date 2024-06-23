@@ -7,7 +7,7 @@ import apis from '/@/lib/apis'
 import { onMounted } from 'vue'
 
 const search = useQuery('q')
-const users = (await apis.getUsers(false, search.value)).data
+const users = (await apis.getUsers(undefined, search.value)).data
 
 onMounted(() => {
   document.title = 'ユーザー検索 | traPortfolio'

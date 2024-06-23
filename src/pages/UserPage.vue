@@ -10,11 +10,21 @@ import apis from '/@/lib/apis'
 import useParam from '/@/lib/param'
 import { onMounted } from 'vue'
 
-const userId = useParam('userId')
-const userDetail = (await apis.getUser(userId.value)).data
-const userProjects = (await apis.getUserProjects(userId.value)).data
-const userContests = (await apis.getUserContests(userId.value)).data
-const userGroups = (await apis.getUserGroups(userId.value)).data
+const userUId = useParam('userId')
+// uuid
+const userId = (await apis.getUsers(undefined, userUId.value)).data[0]?.id ?? ''
+
+const [
+  { data: userDetail },
+  { data: userProjects },
+  { data: userContests },
+  { data: userGroups }
+] = await Promise.all([
+  apis.getUser(userId),
+  apis.getUserProjects(userId),
+  apis.getUserContests(userId),
+  apis.getUserGroups(userId)
+])
 // const userEvents = (await apis.getUserEvents(userId.value)).data
 
 onMounted(() => {

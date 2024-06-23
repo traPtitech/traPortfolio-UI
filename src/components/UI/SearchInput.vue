@@ -37,7 +37,7 @@ const iconSize = computed(() => {
     <a-icon name="mdi:magnify" :size="iconSize" :class="$style.icon" />
     <input
       v-model="input"
-      type="text"
+      type="search"
       :placeholder="placeholder"
       :class="$style.input"
       @keypress.prevent.enter.exact="submit"
