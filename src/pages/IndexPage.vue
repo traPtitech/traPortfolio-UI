@@ -7,7 +7,7 @@ import { useProjectStore } from '/@/store/project'
 import TopSection from '/@/components/Index/TopSection.vue'
 import { useResponsiveStore } from '/@/store/responsive'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const groupStore = useGroupStore()
 const contestStore = useContestStore()
@@ -21,6 +21,10 @@ const projects = await projectStore.fetchProjects()
 const { isMobile } = storeToRefs(responsiveStore)
 
 const logoSize = computed(() => (isMobile.value ? '64px' : '120px'))
+
+onMounted(() => {
+  document.title = 'トップページ | traPortfolio'
+})
 </script>
 
 <template>

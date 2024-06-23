@@ -6,9 +6,14 @@ import MemberList from '/@/components/Project/MemberList.vue'
 import useParam from '/@/lib/param'
 import apis from '/@/lib/apis'
 import { getGroupOrProjectDuration } from '/@/lib/date'
+import { onMounted } from 'vue'
 
 const projectId = useParam('projectId')
 const projectDetail = (await apis.getProject(projectId.value)).data
+
+onMounted(() => {
+  document.title = `${projectDetail.name} | traPortfolio`
+})
 </script>
 
 <template>

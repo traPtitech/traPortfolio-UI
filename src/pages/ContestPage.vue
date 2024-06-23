@@ -6,9 +6,14 @@ import ContestTeamList from '/@/components/Contest/ContestTeamList.vue'
 import useParam from '/@/lib/param'
 import apis from '/@/lib/apis'
 import { getFullDayWithTimeString } from '/@/lib/date'
+import { onMounted } from 'vue'
 
 const contestId = useParam('contestId')
 const contestDetail = (await apis.getContest(contestId.value)).data
+
+onMounted(() => {
+  document.title = `${contestDetail.name} | traPortfolio`
+})
 </script>
 
 <template>

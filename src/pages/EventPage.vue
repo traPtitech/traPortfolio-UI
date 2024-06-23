@@ -5,9 +5,14 @@ import HostnameList from '/@/components/Event/HostnameList.vue'
 import useParam from '/@/lib/param'
 import apis from '/@/lib/apis'
 import { getDisplayDuration } from '/@/lib/date'
+import { onMounted } from 'vue'
 
 const eventId = useParam('eventId')
 const eventDetail = (await apis.getEvent(eventId.value)).data
+
+onMounted(() => {
+  document.title = `${eventDetail.name} | traPortfolio`
+})
 </script>
 
 <template>

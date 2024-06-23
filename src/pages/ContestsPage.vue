@@ -3,10 +3,15 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import ContestList from '/@/components/Contests/ContestList.vue'
 import { useContestStore } from '/@/store/contest'
+import { onMounted } from 'vue'
 
 const contestStore = useContestStore()
 
 const contests = await contestStore.fetchContests()
+
+onMounted(() => {
+  document.title = 'コンテスト一覧 | traPortfolio'
+})
 </script>
 
 <template>

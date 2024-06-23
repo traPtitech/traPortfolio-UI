@@ -4,9 +4,14 @@ import PageTitle from '/@/components/Layout/PageTitle.vue'
 import MemberList from '/@/components/ContestTeam/MemberList.vue'
 import useQuery from '/@/lib/query'
 import apis from '/@/lib/apis'
+import { onMounted } from 'vue'
 
 const search = useQuery('q')
 const users = (await apis.getUsers(undefined, search.value)).data
+
+onMounted(() => {
+  document.title = 'ユーザー検索 | traPortfolio'
+})
 </script>
 
 <template>
