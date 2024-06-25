@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run start-mock\"",
     "serve": "vite preview",
-    "build": "vite build",
+    "start": "farm start && \"npm run start-mock\"",
+    "build": "farm build",
     "lint": "eslint --fix --cache --ext .ts,.vue src",
     "lint:nofix": "eslint --cache --ext .ts,.vue src",
     "format": "prettier --cache --write \"src/**/*.{vue,ts}\"",
@@ -22,6 +23,8 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@farmfe/cli": "^1.0.2",
+    "@farmfe/core": "^1.2.0",
     "@iconify/json": "^2.2.215",
     "@openapitools/openapi-generator-cli": "^2.13.4",
     "@stoplight/prism-cli": "^5.8.1",
