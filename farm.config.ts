@@ -1,8 +1,18 @@
 import { defineConfig } from '@farmfe/core'
+import path from 'path'
 import VuePlugin from '@vitejs/plugin-vue'
 import PurgeIcons from 'vite-plugin-purge-icons'
+import farmJsPluginSass from '@farmfe/js-plugin-sass'
 
 export default defineConfig({
+  compilation: {
+    resolve: {
+      alias: {
+        '/@/': path.join(process.cwd(), 'src')
+      }
+    },
+    script: { plugins: [], target: 'es2018' }
+  },
   server: {
     proxy: {
       '/api': {
@@ -13,5 +23,12 @@ export default defineConfig({
       }
     }
   },
+  plugins: [
+    [
+      farmJsPluginSass({
+        additionalData: "@import '/@/styles/common.scss';"
+      })
+    ]
+  ],
   vitePlugins: [VuePlugin(), PurgeIcons()]
 })

@@ -2,8 +2,8 @@
   "name": "traportfolio",
   "version": "0.0.0",
   "scripts": {
-    "start": "farm start && \"npm run start-mock\"",
-    "dev": "farm start && \"npm run start-mock\"",
+    "start": "concurrently farm start  \"npm run start-mock\"",
+    "dev": "concurrently farm start  \"npm run start-mock\"",
     "build": "farm build",
     "preview": "farm preview",
     "clean": "farm clean",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@farmfe/cli": "^1.0.2",
     "@farmfe/core": "^1.2.0",
+    "@farmfe/js-plugin-sass": "^2.8.0",
     "@iconify/json": "^2.2.215",
     "@openapitools/openapi-generator-cli": "^2.13.4",
     "@stoplight/prism-cli": "^5.8.1",
@@ -44,6 +45,7 @@
     "ts-morph": "^22.0.0",
     "typescript": "^5.4.5",
     "vite-plugin-purge-icons": "^0.10.0",
+    "vite-tsconfig-paths": "^4.3.2",
     "vue-tsc": "^2.0.19"
   },
   "private": true,
