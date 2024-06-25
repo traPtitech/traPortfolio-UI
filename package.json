@@ -2,10 +2,11 @@
   "name": "traportfolio",
   "version": "0.0.0",
   "scripts": {
-    "dev": "concurrently \"vite\" \"npm run start-mock\"",
-    "serve": "vite preview",
     "start": "farm start && \"npm run start-mock\"",
+    "dev": "farm start && \"npm run start-mock\"",
     "build": "farm build",
+    "preview": "farm preview",
+    "clean": "farm clean",
     "lint": "eslint --fix --cache --ext .ts,.vue src",
     "lint:nofix": "eslint --cache --ext .ts,.vue src",
     "format": "prettier --cache --write \"src/**/*.{vue,ts}\"",
@@ -42,7 +43,6 @@
     "sass": "^1.77.6",
     "ts-morph": "^22.0.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.12",
     "vite-plugin-purge-icons": "^0.10.0",
     "vue-tsc": "^2.0.19"
   },
