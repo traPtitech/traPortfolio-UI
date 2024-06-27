@@ -9,14 +9,15 @@ on:
       - created
       - edited
 
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
+
 jobs:
   pr_agent_job:
     if: ${{github.event.sender.type != 'Bot' && github.event.pull_request.draft == false}}
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
-      contents: write
     name: Run pr agent on every pull request, respond to user comments
     steps:
       - name: PR Agent action step
@@ -27,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTION.AUTO_REVIEW: 'true'
           GITHUB_ACTION.AUTO_DESCRIBE: 'true'
-          GITHUB_ACTION.AUTO_IMPROVE: 'false'
+          GITHUB_ACTION.AUTO_IMPROVE: 'true'
           PR_REVIEWER.EXTRA_INSTRUCTIONS: '必ず日本語で回答してください'
           PR_DESCRIPTION.PUBLISH_LABELS: 'false'
           PR_DESCRIPTION.ADD_ORIGINAL_USER_DESCRIPTION: 'true'
