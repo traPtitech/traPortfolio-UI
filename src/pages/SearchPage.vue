@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
-import MemberList from '/@/components/Search/UserList.vue'
+import UserList from '/@/components/Search/UserList.vue'
 import useQuery from '/@/lib/query'
 import apis from '/@/lib/apis'
 import { onMounted } from 'vue'
@@ -18,7 +18,7 @@ onMounted(() => {
   <page-container>
     <div :class="$style.container">
       <page-title>検索結果: {{ search }}</page-title>
-      <member-list :members="users" />
+      <user-list :members="users" />
     </div>
   </page-container>
 </template>
