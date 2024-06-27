@@ -2,20 +2,20 @@
 import UserIcon from './UserIcon.vue'
 
 defineProps<{
-  userIds: string[]
+  userNames: string[]
 }>()
 </script>
 
 <template>
   <div :class="$style.userIcons">
     <user-icon
-      v-for="(userId, i) in userIds.slice(0, 3)"
+      v-for="(userId, i) in userNames.slice(0, 3)"
       :key="userId"
-      :user-id="userId"
+      :user-name="userId"
       :class="$style.userIcon"
       :style="{ left: `${i * 16}px` }"
     />
-    <span v-if="userIds.length > 3">+{{ userIds.length - 3 }}</span>
+    <span v-if="userNames.length > 3">+{{ userNames.length - 3 }}</span>
   </div>
 </template>
 

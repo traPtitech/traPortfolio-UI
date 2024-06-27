@@ -19,7 +19,7 @@ defineProps<{
         ({{ contestTeam.result }})
       </span>
     </router-link>
-    <user-icons :user-ids="contestTeam.members.map(u => u.id)" />
+    <user-icons :user-names="contestTeam.members.map(u => u.name)" />
   </li>
 </template>
 
