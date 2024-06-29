@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import MemberListItem from './UserListItem.vue'
+import UserListItem from './UserListItem.vue'
 import { User } from '/@/lib/apis'
 
 interface Props {
@@ -12,7 +12,7 @@ defineProps<Props>()
 <template>
   <div :class="$style.container">
     <ul :class="$style.list">
-      <member-list-item
+      <user-list-item
         v-for="member in members"
         :key="member.id"
         :member="member"
