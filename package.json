@@ -19,7 +19,7 @@
     "pinia": "^2.1.7",
     "ress": "^5.0.2",
     "vue": "^3.4.31",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.223",
