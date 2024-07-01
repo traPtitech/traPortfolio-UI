@@ -18,11 +18,11 @@
     "axios": "^1.7.2",
     "pinia": "^2.1.7",
     "ress": "^5.0.2",
-    "vue": "^3.4.27",
+    "vue": "^3.4.31",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.215",
+    "@iconify/json": "^2.2.223",
     "@openapitools/openapi-generator-cli": "^2.13.4",
     "@stoplight/prism-cli": "^5.8.1",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
@@ -41,7 +41,7 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.12",
     "vite-plugin-purge-icons": "^0.10.0",
-    "vue-tsc": "^2.0.19"
+    "vue-tsc": "^2.0.24"
   },
   "private": true,
   "type": "module"
