@@ -19,12 +19,18 @@ defineProps<Props>()
       target="_blank"
       rel="noreferrer noopener"
     >
-      <a-icon
+      <img
         v-if="services.get(account.type)?.icon !== 'atcoder'"
+        alt="AtCoder Logo"
+        :src="AtCoder"
+        width="24px"
+        height="24px"
+      />
+      <a-icon
+        v-else
         :name="services.get(account.type)?.icon ?? ''"
         :size="24"
       />
-      <img v-else :src="AtCoder" width="24px" height="24px" />
     </a>
   </li>
 </template>
