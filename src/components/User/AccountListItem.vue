@@ -25,9 +25,10 @@ const service = computed<Service | undefined>(() =>
     >
       <img
         v-if="service.notIcon"
+        :alt="service.name"
         :src="service.icon"
-        width="24px"
-        height="24px"
+        width="24"
+        height="24"
       />
       <a-icon v-else :name="service.icon ?? ''" :size="24" />
     </a>
