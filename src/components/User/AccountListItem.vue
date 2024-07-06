@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import AIcon from '/@/components/UI/AIcon.vue'
-import AtCoder from '/@/assets/AtCoder.png'
 import { Account } from '/@/lib/apis'
 import { services } from '/@/consts/services'
 
@@ -20,9 +19,8 @@ defineProps<Props>()
       rel="noreferrer noopener"
     >
       <img
-        v-if="services.get(account.type)?.icon !== 'atcoder'"
-        alt="AtCoder Logo"
-        :src="AtCoder"
+        v-if="services.get(account.type)?.notIcon === true"
+        :src="services.get(account.type)?.icon"
         width="24px"
         height="24px"
       />

@@ -1,8 +1,10 @@
 import { AccountType } from '/@/lib/apis'
+import AtCoder from '/@/assets/AtCoder.png'
 
 interface Service {
   name: string
   icon: string
+  notIcon?: boolean
 }
 export interface ServiceWithType extends Service {
   type: AccountType
@@ -71,7 +73,8 @@ export const services: ServiceRecord = new Map([
     AccountType.atcoder,
     {
       name: 'AtCoder',
-      icon: 'atcoder'
+      icon: AtCoder,
+      notIcon: true
     }
   ],
   [
