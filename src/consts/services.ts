@@ -71,7 +71,7 @@ export const services: ServiceRecord = new Map([
     AccountType.atcoder,
     {
       name: 'AtCoder',
-      icon: 'atcoder' //アイコンは保留
+      icon: 'atcoder'
     }
   ],
   [
