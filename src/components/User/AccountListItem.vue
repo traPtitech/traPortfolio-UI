@@ -19,7 +19,7 @@ defineProps<Props>()
       rel="noreferrer noopener"
     >
       <img
-        v-if="services.get(account.type)?.notIcon === true"
+        v-if="services.get(account.type)?.notIcon"
         :src="services.get(account.type)?.icon"
         width="24px"
         height="24px"
