@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
+import AtCoder from '/@/assets/AtCoder.png'
 
 interface Props {
   name: string
@@ -18,11 +19,13 @@ const styles = computed(() => ({
 
 <template>
   <span
+    v-if="name !== 'atcoder'"
     class="iconify"
     :data-icon="name"
     :style="styles"
     :class="$style.icon"
   />
+  <img v-else :src="AtCoder" :style="styles" />
 </template>
 
 <style lang="scss" module>
