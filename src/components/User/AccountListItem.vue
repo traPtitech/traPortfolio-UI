@@ -1,17 +1,22 @@
 <script lang="ts" setup>
 import AIcon from '/@/components/UI/AIcon.vue'
 import { Account } from '/@/lib/apis'
-import { services } from '/@/consts/services'
+import { Service, services } from '/@/consts/services'
+import { computed } from 'vue'
 
 interface Props {
   account: Account
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const service = computed<Service | undefined>(() =>
+  services.get(props.account.type)
+)
 </script>
 
 <template>
-  <li>
+  <li v-if="service !== undefined">
     <a
       :class="$style.link"
       :href="account.url"
@@ -19,16 +24,12 @@ defineProps<Props>()
       rel="noreferrer noopener"
     >
       <img
-        v-if="services.get(account.type)?.notIcon"
-        :src="services.get(account.type)?.icon"
+        v-if="service.notIcon"
+        :src="service.icon"
         width="24px"
         height="24px"
       />
-      <a-icon
-        v-else
-        :name="services.get(account.type)?.icon ?? ''"
-        :size="24"
-      />
+      <a-icon v-else :name="service.icon ?? ''" :size="24" />
     </a>
   </li>
 </template>

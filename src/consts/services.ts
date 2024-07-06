@@ -1,7 +1,7 @@
 import { AccountType } from '/@/lib/apis'
 import AtCoder from '/@/assets/AtCoder.png'
 
-interface Service {
+export interface Service {
   name: string
   icon: string
   notIcon?: boolean
