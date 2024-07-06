@@ -14,10 +14,15 @@ defineProps<Props>()
     <ul v-if="contests.length > 0" :class="$style.contests">
       <li v-for="contest in contests" :key="contest.id" :class="$style.contest">
         <router-link :to="`/contests/${contest.id}`" :class="$style.link">
-          <div>{{ contest.name }}</div>
-          <div :class="$style.detail">
-            <div>チーム {{ contest.teams[0]?.name }}</div>
-            <div>{{ contest.teams[0]?.result }}</div>
+          <h4>{{ contest.name }}</h4>
+          <div
+            v-for="team in contest.teams"
+            :key="team.id"
+            :class="$style.detail"
+          >
+            チーム {{ team.name }}
+            <br />
+            {{ team.result }}
           </div>
         </router-link>
       </li>
@@ -50,12 +55,14 @@ defineProps<Props>()
 .link {
   color: $color-text;
   text-decoration: none;
+  margin: 4px 0;
 }
 .detail {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  padding-left: 0.75rem;
+  padding-left: 1.75rem;
   font-size: 0.875rem;
+  text-indent: -1rem;
 }
 </style>
