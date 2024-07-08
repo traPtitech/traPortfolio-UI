@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-// defineProps<{
-//   bio: string
-// }>()
-
-let bio = "おいす～ どうも　どうも　　　おはよう          さ\nこんにちは\n\n\n\nなんですか？あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+defineProps<{
+  bio: string
+}>()
 </script>
 
 <template>
