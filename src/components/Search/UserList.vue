@@ -13,7 +13,7 @@ const members = ref<User[]>([])
 const fetchUsers = async (query: string) => {
   const response = await apis.getUsers(undefined, query)
   members.value = response.data
-  }
+}
 watch(() => props.query, fetchUsers, { immediate: true })
 </script>
 
