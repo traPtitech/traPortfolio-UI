@@ -12,6 +12,8 @@ defineProps<{
 
 <style lang="scss" module>
 .container {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   color: $color-text;
   font-size: 0.875rem;
 }
