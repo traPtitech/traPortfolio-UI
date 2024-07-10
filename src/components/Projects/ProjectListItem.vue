@@ -9,7 +9,10 @@ defineProps<{
 
 <template>
   <li>
-    <router-link :class="$style.link" :to="`/projects/${project.id}`">
+    <router-link
+      :class="$style.link"
+      :to="{ name: 'Project', params: { projectID: project.id } }"
+    >
       <span :class="$style.name">{{ project.name }}</span>
       <span :class="$style.date">
         {{ getGroupOrProjectDuration(project.duration) }}

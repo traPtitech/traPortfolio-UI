@@ -10,7 +10,10 @@ defineProps<{
 
 <template>
   <li>
-    <router-link :class="$style.link" :to="`/users/${member.name}`">
+    <router-link
+      :class="$style.link"
+      :to="{ name: 'User', params: { userID: member.name } }"
+    >
       <user-icon :class="$style.icon" :user-name="member.name" :size="32" />
       <span :class="$style.name">{{ member.name }}</span>
       <span :class="$style.duration">

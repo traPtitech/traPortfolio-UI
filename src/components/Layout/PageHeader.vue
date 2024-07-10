@@ -11,7 +11,7 @@ const { isMobile } = storeToRefs(responsiveStore)
 
 <template>
   <header :class="$style.container">
-    <router-link to="/">
+    <router-link :to="{ name: 'Index' }">
       <img
         :src="isMobile ? spLogo : pcLogo"
         alt="traP"
