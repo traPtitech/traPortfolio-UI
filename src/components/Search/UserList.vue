@@ -1,20 +1,11 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
 import UserListItem from './UserListItem.vue'
 import { User } from '/@/lib/apis'
-import apis from '/@/lib/apis'
 
 interface Props {
-  query: string
+  members: User[]
 }
-const props = defineProps<Props>()
-const members = ref<User[]>([])
-
-const fetchUsers = async (query: string) => {
-  const response = await apis.getUsers(undefined, query)
-  members.value = response.data
-}
-watch(() => props.query, fetchUsers, { immediate: true })
+defineProps<Props>()
 </script>
 
 <template>
