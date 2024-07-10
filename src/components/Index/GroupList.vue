@@ -44,7 +44,7 @@ const groups = computed(() =>
     <router-link
       v-for="group in groups"
       :key="group.id"
-      :to="{ name: 'Group', params: { groupID: group.id } }"
+      :to="{ name: 'Group', params: { groupId: group.id } }"
       :class="$style.link"
     >
       <img

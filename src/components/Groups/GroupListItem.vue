@@ -10,7 +10,7 @@ defineProps<{
   <li>
     <router-link
       :class="$style.link"
-      :to="{ name: 'Group', params: { groupID: group.id } }"
+      :to="{ name: 'Group', params: { groupId: group.id } }"
     >
       <span :class="$style.name">{{ group.name }}</span>
     </router-link>

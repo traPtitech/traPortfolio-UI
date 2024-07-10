@@ -11,7 +11,7 @@ defineProps<{
   <li>
     <router-link
       :class="$style.link"
-      :to="{ name: 'Contest', params: { contestID: contest.id } }"
+      :to="{ name: 'Contest', params: { contestId: contest.id } }"
     >
       <span :class="$style.name">{{ contest.name }}</span>
       <span :class="$style.date">

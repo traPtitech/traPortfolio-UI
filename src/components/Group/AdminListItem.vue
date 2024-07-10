@@ -11,7 +11,7 @@ defineProps<{
   <li>
     <router-link
       :class="$style.link"
-      :to="{ name: `User`, params: { userID: admin.name } }"
+      :to="{ name: 'User', params: { userId: admin.name } }"
     >
       <user-icon :class="$style.icon" :user-name="admin.name" :size="32" />
       <span :class="$style.name">{{ admin.name }}</span>

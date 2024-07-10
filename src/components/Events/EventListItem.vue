@@ -16,7 +16,7 @@ const date = computed(() =>
   <div>
     <router-link
       :class="$style.link"
-      :to="{ name: 'Event', params: { eventID: event.id } }"
+      :to="{ name: 'Event', params: { eventId: event.id } }"
     >
       <span :class="$style.name">{{ event.name }}</span>
       <span :class="$style.date">({{ date }})</span>

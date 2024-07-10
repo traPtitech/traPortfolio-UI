@@ -14,7 +14,7 @@ defineProps<Props>()
     <ul v-if="contests.length > 0" :class="$style.contests">
       <li v-for="contest in contests" :key="contest.id" :class="$style.contest">
         <router-link
-          :to="{ name: 'Contest', params: { contestID: contest.id } }"
+          :to="{ name: 'Contest', params: { contestId: contest.id } }"
           :class="$style.link"
         >
           <h4>{{ contest.name }}</h4>
