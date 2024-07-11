@@ -3,11 +3,11 @@ import UserListItem from './UserListItem.vue'
 import apis from '/@/lib/apis'
 
 interface Props {
-  search: string
+  query: string
 }
 const props = defineProps<Props>()
 
-const users = (await apis.getUsers(undefined, props.search)).data
+const users = (await apis.getUsers(undefined, props.query)).data
 </script>
 
 <template>
