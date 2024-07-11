@@ -3,11 +3,9 @@ import PageContainer from '/@/components/Layout/PageContainer.vue'
 import PageTitle from '/@/components/Layout/PageTitle.vue'
 import UserList from '/@/components/Search/UserList.vue'
 import useQuery from '/@/lib/query'
-import apis from '/@/lib/apis'
 import { onMounted } from 'vue'
 
-const search = useQuery('q')
-const users = (await apis.getUsers(undefined, search.value)).data
+const query = useQuery('q')
 
 onMounted(() => {
   document.title = 'ユーザー検索 | traPortfolio'
@@ -17,8 +15,11 @@ onMounted(() => {
 <template>
   <page-container>
     <div :class="$style.container">
-      <page-title>検索結果: {{ search }}</page-title>
-      <user-list :members="users" />
+      <page-title>検索結果: {{ query }}</page-title>
+      <suspense :key="query">
+        <user-list :query="query ?? ''" />
+        <template #fallback>loading...</template>
+      </suspense>
     </div>
   </page-container>
 </template>
