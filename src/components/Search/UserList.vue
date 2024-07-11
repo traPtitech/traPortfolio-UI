@@ -1,18 +1,20 @@
 <script lang="ts" setup>
 import UserListItem from './UserListItem.vue'
-import { User } from '/@/lib/apis'
+import apis from '/@/lib/apis'
 
 interface Props {
-  members: User[]
+  search: string
 }
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const users = (await apis.getUsers(undefined, props.search)).data
 </script>
 
 <template>
   <div :class="$style.container">
     <ul :class="$style.list">
       <user-list-item
-        v-for="member in members"
+        v-for="member in users"
         :key="member.id"
         :member="member"
       />
