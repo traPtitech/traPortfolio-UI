@@ -19,7 +19,7 @@ onMounted(() => {
 <template>
   <page-container
     :paths="[
-      { name: 'Contests', link: { name: 'Contest' } },
+      { name: 'Contests', link: { name: 'Contests' } },
       {
         name: contestDetail.name,
         link: { name: 'Contest', params: { contestId: contestId } }
@@ -43,7 +43,7 @@ onMounted(() => {
     </div>
     <contest-team-list
       :contest-teams="contestDetail.teams"
-      :contest-id="contestId"
+      :contest-id="contestId ?? 'undefined'"
     />
   </page-container>
 </template>
