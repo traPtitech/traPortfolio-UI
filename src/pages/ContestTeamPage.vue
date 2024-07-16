@@ -36,7 +36,10 @@ onMounted(() => {
     <div :class="$style.container">
       <div :class="$style.titleContainer">
         <page-title>チーム {{ contestTeamDetail.name }}</page-title>
-        <external-link :href="contestTeamDetail.link">
+        <external-link
+          v-if="contestTeamDetail.link"
+          :href="contestTeamDetail.link"
+        >
           説明ページ
         </external-link>
       </div>
