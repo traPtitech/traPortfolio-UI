@@ -43,7 +43,7 @@ onMounted(() => {
     </div>
     <contest-team-list
       :contest-teams="contestDetail.teams"
-      :contest-id="contestId ?? 'undefined'"
+      :contest-id="contestId"
     />
   </page-container>
 </template>
