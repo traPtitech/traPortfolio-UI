@@ -4,7 +4,6 @@ import router from './router'
 import App from './App.vue'
 
 import './index.scss'
-import '@purge-icons/generated'
 
 const pinia = createPinia()
 const app = createApp(App)
