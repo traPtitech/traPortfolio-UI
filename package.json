@@ -14,7 +14,6 @@
     "start-mock": "prism mock -p 4010 -d https://raw.githubusercontent.com/traPtitech/traPortfolio/main/docs/swagger/traPortfolio.v1.yaml"
   },
   "dependencies": {
-    "@iconify/iconify": "^3.1.1",
     "axios": "^1.7.2",
     "pinia": "^2.1.7",
     "ress": "^5.0.2",
@@ -22,7 +21,7 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.223",
+    "@iconify/vue": "^4.1.2",
     "@stoplight/prism-cli": "^5.8.1",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
@@ -39,7 +38,6 @@
     "ts-morph": "^23.0.0",
     "typescript": "^5.5.2",
     "vite": "^5.3.2",
-    "vite-plugin-purge-icons": "^0.10.0",
     "vue-tsc": "^2.0.24"
   },
   "private": true,
