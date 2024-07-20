@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import GroupList from '/@/components/Index/GroupList.vue'
+// import GroupList from '/@/components/Index/GroupList.vue'
 import RecentList from '/@/components/Index/RecentList.vue'
-import { useGroupStore } from '/@/store/group'
+// import { useGroupStore } from '/@/store/group'
 import { useContestStore } from '/@/store/contest'
 import { useProjectStore } from '/@/store/project'
 import TopSection from '/@/components/Index/TopSection.vue'
@@ -9,12 +9,12 @@ import { useResponsiveStore } from '/@/store/responsive'
 import { storeToRefs } from 'pinia'
 import { computed, onMounted } from 'vue'
 
-const groupStore = useGroupStore()
+// const groupStore = useGroupStore()
 const contestStore = useContestStore()
 const projectStore = useProjectStore()
 const responsiveStore = useResponsiveStore()
 
-const groups = await groupStore.fetchGroups()
+// const groups = await groupStore.fetchGroups()
 const contests = await contestStore.fetchContests()
 const projects = await projectStore.fetchProjects()
 
@@ -66,9 +66,9 @@ onMounted(() => {
     </top-section>
     <top-section
       title="班一覧"
-      description="7つの班に分かれてそれぞれの活動を行っています。"
+      description="7つの班に分かれてそれぞれの活動を行っています。班一覽は今後実装予定です。"
     >
-      <group-list :groups="groups" :class="$style.groupName" />
+      <!-- <group-list :groups="groups" :class="$style.groupName" /> -->
     </top-section>
   </div>
 </template>
