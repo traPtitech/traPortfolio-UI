@@ -10,7 +10,7 @@ const props = withDefaults(
   }>(),
   {
     size: 'normal',
-    placeholder: '検索'
+    placeholder: 'ユーザー検索'
   }
 )
 
