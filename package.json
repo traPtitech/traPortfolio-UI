@@ -14,7 +14,7 @@
     "start-mock": "prism mock -p 4010 -d https://raw.githubusercontent.com/traPtitech/traPortfolio/main/docs/swagger/traPortfolio.v1.yaml"
   },
   "dependencies": {
-    "axios": "^1.7.2",
+    "axios": "^1.7.4",
     "pinia": "^2.1.7",
     "ress": "^5.0.2",
     "vue": "^3.4.31",
