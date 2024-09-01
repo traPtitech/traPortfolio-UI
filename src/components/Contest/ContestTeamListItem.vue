@@ -12,7 +12,10 @@ defineProps<{
   <li :class="$style.container">
     <router-link
       :class="$style.link"
-      :to="`/contests/${contestId}/teams/${contestTeam.id}`"
+      :to="{
+        name: 'ContestTeam',
+        params: { contestId: contestId, teamId: contestTeam.id }
+      }"
     >
       <span :class="$style.name">{{ contestTeam.name }}</span>
       <span v-if="contestTeam.result" :class="$style.result">

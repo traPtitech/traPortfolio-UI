@@ -9,7 +9,10 @@ defineProps<{
 
 <template>
   <li>
-    <router-link :class="$style.link" :to="`/contests/${contest.id}`">
+    <router-link
+      :class="$style.link"
+      :to="{ name: 'Contest', params: { contestId: contest.id } }"
+    >
       <span :class="$style.name">{{ contest.name }}</span>
       <span :class="$style.date">
         {{ getFullDayWithTimeString(new Date(contest.duration.since)) }} -

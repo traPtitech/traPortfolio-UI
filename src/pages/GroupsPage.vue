@@ -14,7 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <page-container :paths="[{ name: 'Groups', link: '/groups' }]">
+  <page-container :paths="[{ name: 'Groups', link: { name: 'Groups' } }]">
     <div :class="$style.container">
       <page-title>班一覧</page-title>
       <group-list :groups="groups" />
