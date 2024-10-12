@@ -32,7 +32,7 @@ onMounted(() => {
     <div :class="$style.heading">
       <h1 :class="$style.h1">traPortfolio</h1>
       <p :class="$style.description">
-        traPortfolioは東京工業大学デジタル創作同好会traPの部員のポートフォリオです。
+        traPortfolioは東京科学大学デジタル創作同好会traPの部員のポートフォリオです。
       </p>
     </div>
     <div :class="$style.traP">
@@ -45,7 +45,7 @@ onMounted(() => {
       <section :class="$style.traPDescriptionContainer">
         <h2 :class="$style.h2">traPとは</h2>
         <p :class="$style.traPDescription">
-          東京工業大学・大岡山キャンパスを拠点に活動する創作・プログラミングの総合サークルです。<br />
+          東京科学大学・大岡山キャンパスを拠点に活動する創作・プログラミングの総合サークルです。<br />
           アプリ・ゲームの制作を中心に、音楽（DTM）、グラフィック（イラスト、3DCG、ドット絵、動画）などの創作活動に加え、Webインフラや競技プログラミング・サイバーセキュリティ（CTF）、機械学習（kaggle）などに関する活動も行っています。
         </p>
       </section>
