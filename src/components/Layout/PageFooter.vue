@@ -18,11 +18,11 @@
     text-align: center;
   }
 }
-.logo {
+.copy {
   max-width: 20rem;
 }
-.copy {
-  width: 320px;
+.logo {
+  width: 100%;
 }
 .copyright {
   font-size: 0.8rem;
