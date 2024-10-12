@@ -15,7 +15,7 @@ const { isMobile } = storeToRefs(responsiveStore)
       <img
         :src="isMobile ? spLogo : pcLogo"
         alt="traP"
-        :width="isMobile ? '48' : '343'"
+        :width="isMobile ? '48' : '224'"
         height="48"
       />
     </router-link>
