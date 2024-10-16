@@ -7,7 +7,7 @@ on:
 
 env:
   IMAGE_NAME: traportfolio-ui
-  IMAGE_TAG: master
+  IMAGE_TAG: main
 
 jobs:
   genApi:
