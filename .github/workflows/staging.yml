@@ -1,13 +1,13 @@
-name: Build image (master)
+name: Build image (main)
 
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   IMAGE_NAME: traportfolio-ui
-  IMAGE_TAG: master
+  IMAGE_TAG: main
 
 jobs:
   genApi:
