@@ -16,9 +16,7 @@ onMounted(() => {
 
 <template>
   <page-container>
-    <page-title :class="$style.title">
-      イベント一覧
-    </page-title>
+    <page-title :class="$style.title"> イベント一覧 </page-title>
     <event-list :events="events" />
   </page-container>
 </template>

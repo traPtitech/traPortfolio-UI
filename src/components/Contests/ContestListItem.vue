@@ -18,7 +18,7 @@ defineProps<{
         {{ getFullDayWithTimeString(new Date(contest.duration.since)) }} -
         {{
           contest.duration.until &&
-            getFullDayWithTimeString(new Date(contest.duration.until))
+          getFullDayWithTimeString(new Date(contest.duration.until))
         }}
       </span>
     </router-link>

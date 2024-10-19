@@ -18,14 +18,8 @@ defineProps<{
     </div>
     <div :class="$style.contentContainer">
       <slot />
-      <div
-        v-if="moreLink !== undefined"
-        :class="$style.moreLinkContainer"
-      >
-        <router-link
-          :to="moreLink"
-          :class="$style.moreLink"
-        >
+      <div v-if="moreLink !== undefined" :class="$style.moreLinkContainer">
+        <router-link :to="moreLink" :class="$style.moreLink">
           もっと見る
         </router-link>
       </div>

@@ -6,10 +6,7 @@ import PageFooter from '/@/components/Layout/PageFooter.vue'
 
 <template>
   <page-header />
-  <router-view
-    v-slot="{ Component }"
-    :class="$style.main"
-  >
+  <router-view v-slot="{ Component }" :class="$style.main">
     <template v-if="Component">
       <suspense>
         <template #default>

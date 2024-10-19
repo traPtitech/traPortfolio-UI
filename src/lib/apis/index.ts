@@ -1,4 +1,3 @@
- 
 import { Apis, Configuration } from '/@/lib/apis/generated'
 
 const apis = new Apis(new Configuration({ basePath: '/api/v1' }))

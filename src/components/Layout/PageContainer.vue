@@ -9,10 +9,7 @@ defineProps<{
 
 <template>
   <main :class="$style.container">
-    <bread-crumb-trail
-      v-if="paths !== undefined"
-      :paths="paths"
-    />
+    <bread-crumb-trail v-if="paths !== undefined" :paths="paths" />
     <slot />
   </main>
 </template>
