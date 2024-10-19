@@ -30,7 +30,9 @@ onMounted(() => {
 <template>
   <div :class="$style.container">
     <div :class="$style.heading">
-      <h1 :class="$style.h1">traPortfolio</h1>
+      <h1 :class="$style.h1">
+        traPortfolio
+      </h1>
       <p :class="$style.description">
         traPortfolioは東京科学大学デジタル創作同好会traPの部員のポートフォリオです。
       </p>
@@ -41,11 +43,13 @@ onMounted(() => {
         alt="traPのロゴ"
         :height="logoSize"
         :width="logoSize"
-      />
+      >
       <section :class="$style.traPDescriptionContainer">
-        <h2 :class="$style.h2">traPとは</h2>
+        <h2 :class="$style.h2">
+          traPとは
+        </h2>
         <p :class="$style.traPDescription">
-          東京科学大学・大岡山キャンパスを拠点に活動する創作・プログラミングの総合サークルです。<br />
+          東京科学大学・大岡山キャンパスを拠点に活動する創作・プログラミングの総合サークルです。<br>
           アプリ・ゲームの制作を中心に、音楽（DTM）、グラフィック（イラスト、3DCG、ドット絵、動画）などの創作活動に加え、Webインフラや競技プログラミング・サイバーセキュリティ（CTF）、機械学習（kaggle）などに関する活動も行っています。
         </p>
       </section>
@@ -55,14 +59,22 @@ onMounted(() => {
       description="traPの部員が活躍した外部のコンテストや大会の紹介です。"
       more-link="/contests"
     >
-      <recent-list :items="contests" title="実績" path="contests" />
+      <recent-list
+        :items="contests"
+        title="実績"
+        path="contests"
+      />
     </top-section>
     <top-section
       title="プロジェクト一覧"
       description="traP内でチームとなって長期開発された制作された制作物です。"
       more-link="/projects"
     >
-      <recent-list :items="projects" title="プロジェクト" path="projects" />
+      <recent-list
+        :items="projects"
+        title="プロジェクト"
+        path="projects"
+      />
     </top-section>
     <top-section
       title="班一覧"

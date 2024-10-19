@@ -11,7 +11,9 @@ defineProps<Props>()
 
 <template>
   <section :class="$style.section">
-    <h2 :class="$style.title">班</h2>
+    <h2 :class="$style.title">
+      班
+    </h2>
     <p>今後実装予定です</p>
     <!-- <group-list v-if="groups.length > 0" :groups="groups" />
     <p v-else>現在所属している班はありません</p> -->

@@ -10,9 +10,18 @@ defineProps<Props>()
 
 <template>
   <section :class="$style.section">
-    <h2 :class="$style.title">実績</h2>
-    <ul v-if="contests.length > 0" :class="$style.contests">
-      <li v-for="contest in contests" :key="contest.id" :class="$style.contest">
+    <h2 :class="$style.title">
+      実績
+    </h2>
+    <ul
+      v-if="contests.length > 0"
+      :class="$style.contests"
+    >
+      <li
+        v-for="contest in contests"
+        :key="contest.id"
+        :class="$style.contest"
+      >
         <router-link
           :to="{ name: 'Contest', params: { contestId: contest.id } }"
           :class="$style.link"
@@ -24,13 +33,15 @@ defineProps<Props>()
             :class="$style.detail"
           >
             チーム {{ team.name }}
-            <br />
+            <br>
             {{ team.result }}
           </div>
         </router-link>
       </li>
     </ul>
-    <p v-else>まだ実績は登録されていません</p>
+    <p v-else>
+      まだ実績は登録されていません
+    </p>
   </section>
 </template>
 
