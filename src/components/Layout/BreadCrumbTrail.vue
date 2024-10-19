@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+import { RouteLocationNamedRaw } from 'vue-router'
 import AIcon from '/@/components/UI/AIcon.vue'
 
 export interface Path {
   name: string
-  link: string
+  link: RouteLocationNamedRaw
 }
 
 defineProps<{
