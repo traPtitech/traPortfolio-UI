@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import GroupList from '/@/components/Index/GroupList.vue'
+// import GroupList from '/@/components/Index/GroupList.vue'
 import RecentList from '/@/components/Index/RecentList.vue'
-import { useGroupStore } from '/@/store/group'
+// import { useGroupStore } from '/@/store/group'
 import { useContestStore } from '/@/store/contest'
 import { useProjectStore } from '/@/store/project'
 import TopSection from '/@/components/Index/TopSection.vue'
@@ -9,12 +9,12 @@ import { useResponsiveStore } from '/@/store/responsive'
 import { storeToRefs } from 'pinia'
 import { computed, onMounted } from 'vue'
 
-const groupStore = useGroupStore()
+// const groupStore = useGroupStore()
 const contestStore = useContestStore()
 const projectStore = useProjectStore()
 const responsiveStore = useResponsiveStore()
 
-const groups = await groupStore.fetchGroups()
+// const groups = await groupStore.fetchGroups()
 const contests = await contestStore.fetchContests()
 const projects = await projectStore.fetchProjects()
 
@@ -32,7 +32,7 @@ onMounted(() => {
     <div :class="$style.heading">
       <h1 :class="$style.h1">traPortfolio</h1>
       <p :class="$style.description">
-        traPortfolioは東京工業大学デジタル創作同好会traPの部員のポートフォリオです。
+        traPortfolioは東京科学大学デジタル創作同好会traPの部員のポートフォリオです。
       </p>
     </div>
     <div :class="$style.traP">
@@ -45,7 +45,7 @@ onMounted(() => {
       <section :class="$style.traPDescriptionContainer">
         <h2 :class="$style.h2">traPとは</h2>
         <p :class="$style.traPDescription">
-          東京工業大学・大岡山キャンパスを拠点に活動する創作・プログラミングの総合サークルです。<br />
+          東京科学大学・大岡山キャンパスを拠点に活動する創作・プログラミングの総合サークルです。<br />
           アプリ・ゲームの制作を中心に、音楽（DTM）、グラフィック（イラスト、3DCG、ドット絵、動画）などの創作活動に加え、Webインフラや競技プログラミング・サイバーセキュリティ（CTF）、機械学習（kaggle）などに関する活動も行っています。
         </p>
       </section>
@@ -66,9 +66,9 @@ onMounted(() => {
     </top-section>
     <top-section
       title="班一覧"
-      description="7つの班に分かれてそれぞれの活動を行っています。"
+      description="7つの班に分かれてそれぞれの活動を行っています。班一覽は今後実装予定です。"
     >
-      <group-list :groups="groups" :class="$style.groupName" />
+      <!-- <group-list :groups="groups" :class="$style.groupName" /> -->
     </top-section>
   </div>
 </template>
