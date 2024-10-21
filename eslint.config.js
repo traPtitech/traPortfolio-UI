@@ -1,5 +1,4 @@
 import globals from 'globals'
-import vueParser from 'vue-eslint-parser'
 import eslint from '@eslint/js'
 import tsESLint from 'typescript-eslint'
 import eslintPluginVue from 'eslint-plugin-vue'
@@ -15,9 +14,8 @@ const commonLint = {
 const vueLint = {
   files: ['*.vue', '**/*.vue'],
   languageOptions: {
-    parser: vueParser,
     parserOptions: {
-      parser: tsESLint.parser
+      parser: "@typescript-eslint/parser"
     }
   },
   rules: {
