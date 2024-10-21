@@ -17,13 +17,19 @@ onMounted(() => {
 
 <template>
   <page-container>
-    <page-title :class="$style.title">{{ eventDetail.name }}</page-title>
+    <page-title :class="$style.title">
+      {{ eventDetail.name }}
+    </page-title>
     <div :class="$style.infoContainer">
       <p :class="$style.detail">
         {{ getDisplayDuration(eventDetail.duration) }}
       </p>
-      <p :class="$style.detail">{{ eventDetail.place }}</p>
-      <p :class="$style.description">{{ eventDetail.description }}</p>
+      <p :class="$style.detail">
+        {{ eventDetail.place }}
+      </p>
+      <p :class="$style.description">
+        {{ eventDetail.description }}
+      </p>
     </div>
     <hostname-list :hostnames="eventDetail.hostname" />
   </page-container>

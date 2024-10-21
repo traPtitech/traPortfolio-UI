@@ -29,7 +29,7 @@ onMounted(() => {
     <div :class="$style.container">
       <div :class="$style.titleContainer">
         <page-title>{{ contestDetail.name }}</page-title>
-        <external-link :href="contestDetail.link">説明ページ</external-link>
+        <external-link :href="contestDetail.link"> 説明ページ </external-link>
       </div>
       <p :class="$style.duration">
         {{ getFullDayWithTimeString(new Date(contestDetail.duration.since)) }}

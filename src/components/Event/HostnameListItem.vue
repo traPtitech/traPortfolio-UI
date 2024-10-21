@@ -15,7 +15,9 @@ defineProps<{
     >
       <user-icon :class="$style.icon" :user-name="hostname.name" :size="128" />
       <div :class="$style.desc">
-        <div :class="$style.name">{{ hostname.name }}</div>
+        <div :class="$style.name">
+          {{ hostname.name }}
+        </div>
         <!-- <div v-if="hostname.realName" :class="$style.realName">
           {{ hostname.realName }}
         </div> -->
