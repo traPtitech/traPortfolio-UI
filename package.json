@@ -30,7 +30,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-vue": "^9.29.0",
+    "eslint-plugin-vue": "^9.29.1",
     "node-fetch": "^3.3.2",
     "prettier": "^3.0.3",
     "rimraf": "^6.0.1",
