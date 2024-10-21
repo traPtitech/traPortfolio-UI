@@ -34,14 +34,18 @@ const iconSize = computed(() => {
 
 <template>
   <div :class="[$style.inputWrapper, size === 'large' ? $style.large : '']">
-    <a-icon name="mdi:magnify" :size="iconSize" :class="$style.icon" />
+    <a-icon
+      name="mdi:magnify"
+      :size="iconSize"
+      :class="$style.icon"
+    />
     <input
       v-model="input"
       type="search"
       :placeholder="placeholder"
       :class="$style.input"
       @keypress.prevent.enter.exact="submit"
-    />
+    >
   </div>
 </template>
 

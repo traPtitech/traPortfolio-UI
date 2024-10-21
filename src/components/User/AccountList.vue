@@ -16,7 +16,11 @@ const props = defineProps<{
         target="_blank"
         rel="noreferrer noopener"
       >
-        <img src="/@/assets/traP_logo_icon.svg" width="24" height="24" />
+        <img
+          src="/@/assets/traP_logo_icon.svg"
+          width="24"
+          height="24"
+        >
       </a>
     </li>
     <account-list-item

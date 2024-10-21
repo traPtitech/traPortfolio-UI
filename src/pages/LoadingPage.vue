@@ -1,5 +1,7 @@
 <template>
-  <main :class="$style.container">loading...</main>
+  <main :class="$style.container">
+    loading...
+  </main>
 </template>
 
 <style lang="scss" module>

@@ -52,7 +52,7 @@ const groups = computed(() =>
         :alt="`${group.name}班のロゴ`"
         :height="logoSize"
         :width="logoSize"
-      />
+      >
       <span :class="$style.name">{{ group.name }}</span>
     </router-link>
   </div>
