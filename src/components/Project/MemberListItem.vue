@@ -14,11 +14,7 @@ defineProps<{
       :class="$style.link"
       :to="{ name: 'User', params: { userId: member.name } }"
     >
-      <user-icon
-        :class="$style.icon"
-        :user-name="member.name"
-        :size="32"
-      />
+      <user-icon :class="$style.icon" :user-name="member.name" :size="32" />
       <span :class="$style.name">{{ member.name }}</span>
       <span :class="$style.duration">
         {{ getGroupOrProjectDuration(member.duration) }}

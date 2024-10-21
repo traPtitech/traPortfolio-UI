@@ -18,9 +18,7 @@ onMounted(() => {
       <page-title>検索結果: {{ query }}</page-title>
       <suspense :key="query">
         <user-list :query="query ?? ''" />
-        <template #fallback>
-          loading...
-        </template>
+        <template #fallback> loading... </template>
       </suspense>
     </div>
   </page-container>

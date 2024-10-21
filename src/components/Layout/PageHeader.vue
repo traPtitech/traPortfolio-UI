@@ -17,7 +17,7 @@ const { isMobile } = storeToRefs(responsiveStore)
         alt="traP"
         :width="isMobile ? '48' : '224'"
         height="48"
-      >
+      />
     </router-link>
     <search-input />
   </header>

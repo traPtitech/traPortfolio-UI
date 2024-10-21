@@ -1,13 +1,8 @@
 <template>
   <footer :class="$style.container">
     <div :class="$style.copy">
-      <img
-        src="/@/assets/traP_logo_full_white.svg"
-        :class="$style.logo"
-      >
-      <div :class="$style.copyright">
-        © 2015- traP
-      </div>
+      <img src="/@/assets/traP_logo_full_white.svg" :class="$style.logo" />
+      <div :class="$style.copyright">© 2015- traP</div>
     </div>
   </footer>
 </template>

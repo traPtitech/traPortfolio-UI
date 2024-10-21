@@ -11,11 +11,7 @@ defineProps<Props>()
 
 <template>
   <section :class="$style.container">
-    <event-list-item
-      v-for="event in events"
-      :key="event.id"
-      :event="event"
-    />
+    <event-list-item v-for="event in events" :key="event.id" :event="event" />
   </section>
 </template>
 

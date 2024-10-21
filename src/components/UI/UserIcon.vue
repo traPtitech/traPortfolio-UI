@@ -24,7 +24,7 @@ const styles = computed(() => ({
     :width="size"
     :height="size"
     :alt="userName"
-  >
+  />
 </template>
 
 <style lang="scss" module>
