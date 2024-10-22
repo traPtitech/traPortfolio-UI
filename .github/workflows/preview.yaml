@@ -15,9 +15,6 @@ jobs:
     name: Build Preview Image
     runs-on: ubuntu-latest
     steps:
-      - name: Set PR_NUMBER env
-        run: echo "PR_NUMBER=${{ github.event.number }}" >> $GITHUB_ENV
-
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -47,5 +44,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/traptitech/${{ env.IMAGE_NAME }}:preview-${{ env.PR_NUMBER }}-${{ github.event.pull_request.head.sha }}
+          tags: ghcr.io/traptitech/${{ env.IMAGE_NAME }}:preview-${{ github.event.number }}-${{ github.event.pull_request.head.sha }}
           cache-from: type=registry,ref=ghcr.io/traptitech/${{ env.IMAGE_NAME }}:buildcache
