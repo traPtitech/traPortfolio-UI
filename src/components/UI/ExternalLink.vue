@@ -3,8 +3,15 @@ import AIcon from './AIcon.vue'
 </script>
 
 <template>
-  <a :class="$style.container" target="_blank" rel="noreferrer noopener">
-    <a-icon name="mdi:open-in-new" :class="$style.icon" />
+  <a
+    :class="$style.container"
+    target="_blank"
+    rel="noreferrer noopener"
+  >
+    <a-icon
+      name="mdi:open-in-new"
+      :class="$style.icon"
+    />
     <slot />
   </a>
 </template>

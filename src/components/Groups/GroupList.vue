@@ -11,7 +11,11 @@ defineProps<Props>()
 
 <template>
   <ul :class="$style.container">
-    <group-list-item v-for="group in groups" :key="group.id" :group="group" />
+    <group-list-item
+      v-for="group in groups"
+      :key="group.id"
+      :group="group"
+    />
   </ul>
 </template>
 

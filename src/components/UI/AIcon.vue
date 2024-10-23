@@ -12,7 +12,12 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <Icon :icon="name" :class="$style.icon" :width="size" :height="size" />
+  <Icon
+    :icon="name"
+    :class="$style.icon"
+    :width="size"
+    :height="size"
+  />
 </template>
 
 <style lang="scss" module>

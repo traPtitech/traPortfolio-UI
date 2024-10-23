@@ -14,7 +14,11 @@ defineProps<Props>()
   <section :class="$style.section">
     <section-title>リーダー</section-title>
     <ul :class="$style.container">
-      <admin-list-item v-for="admin in admins" :key="admin.id" :admin="admin" />
+      <admin-list-item
+        v-for="admin in admins"
+        :key="admin.id"
+        :admin="admin"
+      />
     </ul>
   </section>
 </template>

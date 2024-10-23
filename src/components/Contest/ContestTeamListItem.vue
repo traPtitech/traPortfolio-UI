@@ -18,7 +18,10 @@ defineProps<{
       }"
     >
       <span :class="$style.name">{{ contestTeam.name }}</span>
-      <span v-if="contestTeam.result" :class="$style.result">
+      <span
+        v-if="contestTeam.result"
+        :class="$style.result"
+      >
         ({{ contestTeam.result }})
       </span>
     </router-link>
