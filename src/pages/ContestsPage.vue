@@ -15,7 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <page-container :paths="[{ name: 'Contests', link: '/contests' }]">
+  <page-container :paths="[{ name: 'Contests', link: { name: 'Contests' } }]">
     <div :class="$style.container">
       <page-title>コンテスト一覧</page-title>
       <contest-list :contests="contests" />

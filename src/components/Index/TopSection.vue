@@ -9,7 +9,9 @@ defineProps<{
 <template>
   <section :class="$style.section">
     <div :class="$style.headingContainer">
-      <h2 :class="$style.h2">{{ title }}</h2>
+      <h2 :class="$style.h2">
+        {{ title }}
+      </h2>
       <p :class="$style.description">
         {{ description }}
       </p>
