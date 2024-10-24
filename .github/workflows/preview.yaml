@@ -11,8 +11,27 @@ env:
   IMAGE_NAME: traportfolio-ui
 
 jobs:
+  # API生成部分をDockerのビルド部分から分離
+  genApi:
+    name: Generate APIs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm run gen-api
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apis
+          path: ./src/lib/apis/generated
+
   build-preview-image:
     name: Build Preview Image
+    needs:
+      - genApi
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,6 +55,11 @@ jobs:
           registry: ghcr.io
           username: traptitech
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: apis
+          path: ./src/lib/apis/generated
 
       # Docker 内でビルドを行うことで、write perm つきでの任意コード実行を避ける
       # workflow 自体の改竄はないが、悪意のあるソースコードが入った場合に secret が抽出される可能性があるためである
