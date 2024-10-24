@@ -32,17 +32,21 @@ const vueLint = {
 
     'vue/custom-event-name-casing': ['error', 'camelCase'],
 
-    'vue/max-attributes-per-line': [
-      'warn',
+    'vue/html-self-closing': [
+      'error',
       {
-        singleline: {
-          max: 1
+        html: {
+          void: 'always',
+          normal: 'always',
+          component: 'always'
         },
-        multiline: {
-          max: 1
-        }
+        svg: 'always',
+        math: 'always'
       }
-    ]
+    ],
+
+    'vue/singleline-html-element-content-newline': ['off'],
+    'vue/html-indent': ['off']
   }
 }
 

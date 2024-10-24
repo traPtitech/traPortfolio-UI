@@ -55,14 +55,22 @@ onMounted(() => {
       description="traPの部員が活躍した外部のコンテストや大会の紹介です。"
       more-link="/contests"
     >
-      <recent-list :items="contests" title="実績" path="contests" />
+      <recent-list
+        :items="contests"
+        title="実績"
+        path="contests"
+      />
     </top-section>
     <top-section
       title="プロジェクト一覧"
       description="traP内でチームとなって長期開発された制作された制作物です。"
       more-link="/projects"
     >
-      <recent-list :items="projects" title="プロジェクト" path="projects" />
+      <recent-list
+        :items="projects"
+        title="プロジェクト"
+        path="projects"
+      />
     </top-section>
     <top-section
       title="班一覧"

@@ -14,7 +14,10 @@ defineProps<{
 
 <template>
   <nav :class="$style.container">
-    <template v-for="(path, index) in paths" :key="path">
+    <template
+      v-for="(path, index) in paths"
+      :key="path"
+    >
       <a-icon
         v-if="index !== 0"
         :class="$style.icon"
@@ -27,7 +30,11 @@ defineProps<{
       >
         {{ path.name }}
       </router-link>
-      <span v-else :class="$style.currentPath">{{ path.name }}</span>
+      <span
+        v-else
+        :class="$style.currentPath"
+        >{{ path.name }}
+      </span>
     </template>
   </nav>
 </template>

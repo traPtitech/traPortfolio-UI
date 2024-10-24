@@ -11,7 +11,10 @@ defineProps<Props>()
 <template>
   <div>
     <div :class="$style.title">イベント一覧</div>
-    <p v-for="event in events" :key="event.id">
+    <p
+      v-for="event in events"
+      :key="event.id"
+    >
       {{ event.name }}
     </p>
   </div>
