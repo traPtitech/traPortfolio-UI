@@ -29,7 +29,10 @@ onMounted(() => {
     <div :class="$style.container">
       <div :class="$style.titleContainer">
         <page-title>{{ projectDetail.name }}</page-title>
-        <external-link :href="projectDetail.link" :class="$style.link">
+        <external-link
+          :href="projectDetail.link"
+          :class="$style.link"
+        >
           紹介ページ
         </external-link>
       </div>

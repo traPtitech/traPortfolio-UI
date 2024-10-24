@@ -15,7 +15,7 @@ const vueLint = {
   files: ['*.vue', '**/*.vue'],
   languageOptions: {
     parserOptions: {
-      parser: "@typescript-eslint/parser"
+      parser: '@typescript-eslint/parser'
     }
   },
   rules: {
@@ -30,7 +30,23 @@ const vueLint = {
       }
     ],
 
-    'vue/custom-event-name-casing': ['error', 'camelCase']
+    'vue/custom-event-name-casing': ['error', 'camelCase'],
+
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'always',
+          component: 'always'
+        },
+        svg: 'always',
+        math: 'always'
+      }
+    ],
+
+    'vue/singleline-html-element-content-newline': ['off'],
+    'vue/html-indent': ['off']
   }
 }
 
