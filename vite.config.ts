@@ -23,7 +23,8 @@ const config: UserConfig = {
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "${srcPath}/styles/common.scss";`
+        api: 'modern-compiler',
+        additionalData: `@use "${srcPath}/styles/common" as *;`
       }
     }
   },
