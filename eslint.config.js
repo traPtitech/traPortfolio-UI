@@ -15,7 +15,7 @@ const vueLint = {
   files: ['*.vue', '**/*.vue'],
   languageOptions: {
     parserOptions: {
-      parser: "@typescript-eslint/parser"
+      parser: '@typescript-eslint/parser'
     }
   },
   rules: {
@@ -30,7 +30,19 @@ const vueLint = {
       }
     ],
 
-    'vue/custom-event-name-casing': ['error', 'camelCase']
+    'vue/custom-event-name-casing': ['error', 'camelCase'],
+
+    'vue/max-attributes-per-line': [
+      'warn',
+      {
+        singleline: {
+          max: 1
+        },
+        multiline: {
+          max: 1
+        }
+      }
+    ]
   }
 }
 
