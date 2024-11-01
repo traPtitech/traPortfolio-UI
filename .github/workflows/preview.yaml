@@ -64,7 +64,7 @@ jobs:
       # Docker 内でビルドを行うことで、write perm つきでの任意コード実行を避ける
       # workflow 自体の改竄はないが、悪意のあるソースコードが入った場合に secret が抽出される可能性があるためである
       - name: Build
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
