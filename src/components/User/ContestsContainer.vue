@@ -37,7 +37,7 @@ defineProps<Props>()
         </router-link>
       </li>
     </ul>
-    <p v-else>まだ実績は登録されていません</p>
+    <p v-else>実績はまだ登録されていません</p>
   </section>
 </template>
 
