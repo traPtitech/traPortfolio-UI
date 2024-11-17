@@ -16,7 +16,7 @@ defineProps<Props>()
       v-if="projects.length > 0"
       :projects="projects"
     />
-    <p v-else>これまでに参加したプロジェクトはありません</p>
+    <p v-else>これまでに参加したプロジェクトはまだ登録されていません</p>
   </section>
 </template>
 
