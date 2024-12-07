@@ -50,7 +50,6 @@ const iconSize = computed(() => {
   border: 2px solid $color-secondary;
   border-radius: 4px;
   font-size: 14px;
-  line-height: 1em;
   align-items: center;
 }
 .input {
