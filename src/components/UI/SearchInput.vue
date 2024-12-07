@@ -3,16 +3,10 @@ import AIcon from './AIcon.vue'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const props = withDefaults(
-  defineProps<{
-    size?: 'large' | 'normal'
-    placeholder?: string
-  }>(),
-  {
-    size: 'normal',
-    placeholder: '検索'
-  }
-)
+const { size = 'normal', placeholder = '検索' } = defineProps<{
+  size?: 'large' | 'normal'
+  placeholder?: string
+}>()
 
 const router = useRouter()
 const input = ref('')
@@ -23,10 +17,10 @@ const submit = () => {
   }
 }
 const iconSize = computed(() => {
-  if (props.size === 'large') return 36
-  else if (props.size === 'normal') return 20
+  if (size === 'large') return 36
+  else if (size === 'normal') return 20
   else {
-    const _exhaustiveCheck: never = props.size
+    const _exhaustiveCheck: never = size
     return _exhaustiveCheck
   }
 })
