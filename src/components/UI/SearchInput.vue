@@ -62,7 +62,7 @@ const iconSize = computed(() => {
 .input {
   outline: none;
   width: 100%;
-  height: 1em;
+  height: 100%;
   color: $color-secondary-text;
 }
 .icon {
