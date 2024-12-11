@@ -12,8 +12,7 @@ const props = defineProps<Props>()
 
 const sortedMembers = computed(() => {
   if (!props.members) return []
-  const li = props.members
-  li.sort((a, b) => {
+  const li = props.members.toSorted((a, b) => {
     if (a.duration.since.year !== b.duration.since.year) {
       return a.duration.since.year - b.duration.since.year
     } else {
