@@ -5,7 +5,7 @@ import UserList from '/@/components/Search/UserList.vue'
 import useQuery from '/@/lib/query'
 import { onMounted } from 'vue'
 
-const query = useQuery('q')
+const query = useQuery('q') ?? "";
 
 onMounted(() => {
   document.title = 'ユーザー検索 | traPortfolio'
@@ -15,7 +15,7 @@ onMounted(() => {
 <template>
   <page-container>
     <div :class="$style.container">
-      <page-title>検索結果: {{ query }}</page-title>
+      <page-title>{{ query ? `検索結果: ${query}` : "部員一覧" }}</page-title>
       <suspense :key="query">
         <user-list :query="query ?? ''" />
         <template #fallback> loading... </template>

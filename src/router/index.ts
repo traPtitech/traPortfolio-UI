@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const IndexPage = () => import('/@/pages/IndexPage.vue')
 const SearchPage = () => import('/@/pages/SearchPage.vue')
-const UsersPage = () => import('/@/pages/UserPage.vue')
+const UsersPage = () => import('/@/pages/SearchPage.vue')
 const UserPage = () => import('/@/pages/UserPage.vue')
 const GroupsPage = () => import('/@/pages/GroupsPage.vue')
 const GroupPage = () => import('/@/pages/GroupPage.vue')
