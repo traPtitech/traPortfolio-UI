@@ -42,5 +42,10 @@
     "vue-tsc": "^2.1.10"
   },
   "private": true,
-  "type": "module"
+  "type": "module",
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
 }
