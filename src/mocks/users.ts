@@ -12,84 +12,72 @@ const sampleAccounts: Account[] = [
     id: '',
     displayName: '',
     type: AccountType.atcoder,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.blog,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.ctftime,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.facebook,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.github,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.hackthebox,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.homepage,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.pixiv,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.qiita,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.soundcloud,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.twitter,
-    prPermitted: true,
     url: 'https://sample.com'
   },
   {
     id: '',
     displayName: '',
     type: AccountType.zenn,
-    prPermitted: true,
     url: 'https://sample.com'
   }
 ]
