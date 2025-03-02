@@ -35,7 +35,7 @@ onMounted(() => {
 <template>
   <page-container
     :paths="[
-      { name: 'Users', link: { name: 'UserSearch' } },
+      { name: 'Users', link: { name: 'Users' } },
       {
         name: userDetail.name,
         link: { name: 'User', params: { userId: userId } }
