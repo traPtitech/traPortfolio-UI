@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import UserListItem from './UserListItem.vue'
+import { toRef } from 'vue'
 import apis from '/@/lib/apis'
 
 interface Props {
@@ -7,7 +8,9 @@ interface Props {
 }
 const props = defineProps<Props>()
 
-const users = (await apis.getUsers(undefined, props.query)).data
+const queryRef = toRef(props, 'query')
+
+const { users, isLoading, error } = userSearch(queryRef)
 </script>
 
 <template>
