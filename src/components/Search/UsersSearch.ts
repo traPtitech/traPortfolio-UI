@@ -16,7 +16,7 @@ export const useUserSearch = (submittedQuery: Ref<string>) => {
       allUsers.value = await useUserStore().fetchUsers()
       isLoading.value = true
       error.value = null
-      filteredUsers.value = await searchListCaseInsensitive(
+      filteredUsers.value = searchListCaseInsensitive(
         allUsers.value,
         search.value,
         v => v.name
