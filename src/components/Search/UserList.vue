@@ -10,7 +10,7 @@ const props = defineProps<Props>()
 
 const queryRef = toRef(props, 'query')
 
-const { users: filteredUsers, isLoading, error } = useUserSearch(queryRef)
+const { User: filteredUsers, isLoading, error } = useUserSearch(queryRef)
 </script>
 
 <template>
