@@ -11,26 +11,25 @@
  * @param f キーから検索対象の文字列を取得する関数
  */
 export const searchListCaseInsensitive = <T>(
-    arr: readonly T[],
-    _query: string,
-    f: (v: T) => string
-  ): T[] => {
-    const query = _query.toLowerCase()
-    const result: Array<{ value: T; priority: number }> = []
-  
-    for (const val of arr) {
-      const valLower = f(val).toLowerCase()
-      if (valLower === query) {
-        result.push({ value: val, priority: 0 })
-      } else if (valLower.startsWith(query)) {
-        result.push({ value: val, priority: 1 })
-      } else if (valLower.includes(query)) {
-        result.push({ value: val, priority: 2 })
-      }
+  arr: readonly T[],
+  _query: string,
+  f: (v: T) => string
+): T[] => {
+  const query = _query.toLowerCase()
+  const result: Array<{ value: T; priority: number }> = []
+
+  for (const val of arr) {
+    const valLower = f(val).toLowerCase()
+    if (valLower === query) {
+      result.push({ value: val, priority: 0 })
+    } else if (valLower.startsWith(query)) {
+      result.push({ value: val, priority: 1 })
+    } else if (valLower.includes(query)) {
+      result.push({ value: val, priority: 2 })
     }
-  
-    return result
-      .toSorted((a, b) => a.priority - b.priority)
-      .map(({ value }) => value)
   }
-  
+
+  return result
+    .toSorted((a, b) => a.priority - b.priority)
+    .map(({ value }) => value)
+}

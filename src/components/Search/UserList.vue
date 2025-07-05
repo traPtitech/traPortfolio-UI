@@ -17,15 +17,15 @@ const { User: filteredUsers, isLoading, error } = useUserSearch(queryRef)
   <div :class="$style.container">
     <div v-if="isLoading">ローディング中...</div>
     <div v-else-if="error">データの取得に失敗しました</div>
-    <ul 
+    <ul
       v-else-if="filteredUsers.length > 0"
       :class="$style.list"
-      >
-        <user-list-item
-          v-for="member in filteredUsers"
-          :key="member.id"
-          :member="member"
-        />
+    >
+      <user-list-item
+        v-for="member in filteredUsers"
+        :key="member.id"
+        :member="member"
+      />
     </ul>
     <div v-else>該当するユーザーは見つかりませんでした</div>
   </div>
