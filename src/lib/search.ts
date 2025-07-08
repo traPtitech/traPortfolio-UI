@@ -12,24 +12,22 @@
  */
 export const searchListCaseInsensitive = <T>(
   arr: readonly T[],
-  _query: string,
+  _queries: string[],
   f: (v: T) => string
 ): T[] => {
-  const query = _query.toLowerCase()
-  const result: Array<{ value: T; priority: number }> = []
-
-  for (const val of arr) {
-    const valLower = f(val).toLowerCase()
-    if (valLower === query) {
-      result.push({ value: val, priority: 0 })
-    } else if (valLower.startsWith(query)) {
-      result.push({ value: val, priority: 1 })
-    } else if (valLower.includes(query)) {
-      result.push({ value: val, priority: 2 })
-    }
-  }
-
-  return result
-    .toSorted((a, b) => a.priority - b.priority)
+  const queries = _queries.map(query => query.toLowerCase())
+  return arr
+    .map(value => {
+      const valLower = f(value).toLowerCase()
+      const priority = queries.reduce((acc, query) => {
+        if (valLower === query) return acc + 3
+        if (valLower.startsWith(query)) return acc + 2
+        if (valLower.includes(query)) return acc + 1
+        return acc
+      }, 0)
+      return { value, priority }
+    })
+    .filter(({ priority }) => priority > 0)
+    .toSorted((a, b) => b.priority - a.priority)
     .map(({ value }) => value)
 }
