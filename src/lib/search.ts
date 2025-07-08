@@ -1,14 +1,20 @@
 // https://github.com/traPtitech/traQ_S-UI/blob/983c6f89f3246509011f8ca4d76e2ba24e0beb2b/src/lib/basic/array.ts
 
 /**
- * 一致するキーの一覧を返す
- * priorityが0のとき完全一致
- * 1のとき前方一致
- * 2のとき部分一致
+ * 配列をクエリで検索し、優先順位付けしてマッチするキーの一覧を返す
+ * 
+ * 大文字小文字を区別せずに検索を行う
+ * 
+ * 優先度の計算:
+ *  - 完全一致: +3 ポイント
+ *  - 前方一致: +2 ポイント
+ *  - 部分一致: +1 ポイント
+ * 
  *
  * @param arr 検索対象のキーの配列
- * @param query lowercaseになっているクエリ
+ * @param _queries 検索クエリの配列
  * @param f キーから検索対象の文字列を取得する関数
+ * @returns マッチしたキーのうち、優先度が正のものを優先度の降順で返す 
  */
 export const searchListCaseInsensitive = <T>(
   arr: readonly T[],
