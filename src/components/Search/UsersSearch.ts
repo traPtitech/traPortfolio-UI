@@ -7,7 +7,7 @@ import { searchListCaseInsensitive } from '/@/lib/search'
 export const useUserSearch = (submittedQuery: Ref<string>) => {
   const allUsers = ref<User[]>([])
   const filteredUsers = ref<User[]>([])
-  const search = computed(() => submittedQuery.value)
+  const searchQueries = computed(() => submittedQuery.value.split(/\s+/))
   const isLoading = ref(true)
   const error = ref<Error | null>(null)
 
@@ -18,7 +18,7 @@ export const useUserSearch = (submittedQuery: Ref<string>) => {
       error.value = null
       filteredUsers.value = searchListCaseInsensitive(
         allUsers.value,
-        search.value,
+        searchQueries.value,
         v => v.name
       )
     } catch (err) {
