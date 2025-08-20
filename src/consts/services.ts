@@ -2,7 +2,6 @@ import { AccountType } from '/@/lib/apis'
 import AtCoder from '/@/assets/AtCoder.png'
 import Mixi2 from '/@/assets/Mixi2.png'
 
-
 export interface Service {
   name: string
   icon: string
