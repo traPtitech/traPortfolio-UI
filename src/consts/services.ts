@@ -97,6 +97,13 @@ export const services: ServiceRecord = new Map([
       name: 'CTFtime',
       icon: 'ctftime' //アイコンは保留
     }
+  ],
+  [
+    AccountType.bluesky,
+    {
+      name: 'Bluesky',
+      icon: 'simple-icons:bluesky'
+    }
   ]
 ])
 
