@@ -79,6 +79,12 @@ const sampleAccounts: Account[] = [
     displayName: '',
     type: AccountType.zenn,
     url: 'https://sample.com'
+  },
+  {
+    id: '',
+    displayName: '',
+    type: AccountType.mixi2,
+    url: 'https://sample.com'
   }
 ]
 
