@@ -1,5 +1,6 @@
 import { AccountType } from '/@/lib/apis'
 import AtCoder from '/@/assets/AtCoder.png'
+import Mixi2 from '/@/assets/Mixi2.png'
 
 export interface Service {
   name: string
@@ -103,6 +104,14 @@ export const services: ServiceRecord = new Map([
     {
       name: 'Bluesky',
       icon: 'simple-icons:bluesky'
+    }
+  ],
+  [
+    AccountType.mixi2,
+    {
+      name: 'Mixi2',
+      icon: Mixi2,
+      notIcon: true
     }
   ]
 ])
