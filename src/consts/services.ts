@@ -100,6 +100,13 @@ export const services: ServiceRecord = new Map([
     }
   ],
   [
+    AccountType.bluesky,
+    {
+      name: 'Bluesky',
+      icon: 'simple-icons:bluesky'
+    }
+  ],
+  [
     AccountType.mixi2,
     {
       name: 'Mixi2',

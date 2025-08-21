@@ -83,6 +83,12 @@ const sampleAccounts: Account[] = [
   {
     id: '',
     displayName: '',
+    type: AccountType.bluesky,
+    url: 'https://sample.com'
+  },
+  {
+    id: '',
+    displayName: '',
     type: AccountType.mixi2,
     url: 'https://sample.com'
   }
