@@ -79,6 +79,12 @@ const sampleAccounts: Account[] = [
     displayName: '',
     type: AccountType.zenn,
     url: 'https://sample.com'
+  },
+  {
+    id: '',
+    displayName: '',
+    type: AccountType.bluesky,
+    url: 'https://sample.com'
   }
 ]
 
