@@ -10,19 +10,19 @@ import {
 const sampleAccounts: Account[] = [
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.atcoder,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.blog,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.ctftime,
     url: 'https://sample.com'
   },
