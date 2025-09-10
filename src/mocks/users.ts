@@ -10,73 +10,73 @@ import {
 const sampleAccounts: Account[] = [
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.atcoder,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.blog,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.ctftime,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.facebook,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.github,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.hackthebox,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.homepage,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.pixiv,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.qiita,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.soundcloud,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.twitter,
     url: 'https://sample.com'
   },
   {
     id: '',
-    displayName: '',
+    displayName: 'sampleAccount',
     type: AccountType.zenn,
     url: 'https://sample.com'
   },
