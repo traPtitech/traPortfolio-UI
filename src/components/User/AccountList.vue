@@ -15,6 +15,7 @@ const props = defineProps<{
         :href="`https://trap.jp/author/${props.userName}`"
         target="_blank"
         rel="noreferrer noopener"
+        :title="props.userName ? `traP : ${props.userName}` : undefined"
       >
         <img
           src="/@/assets/traP_logo_icon.svg"

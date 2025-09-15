@@ -3,6 +3,7 @@ import AIcon from '/@/components/UI/AIcon.vue'
 import { Account } from '/@/lib/apis'
 import { Service, services } from '/@/consts/services'
 import { computed } from 'vue'
+//import {AccountType} from '/@/lib/apis'
 
 interface Props {
   account: Account
@@ -22,6 +23,11 @@ const service = computed<Service | undefined>(() =>
       :href="account.url"
       target="_blank"
       rel="noreferrer noopener"
+      :title="
+        account.type && account.displayName
+          ? `${services.get(account.type)?.name} : ${account.displayName}`
+          : undefined //account.display isn't defined.
+      "
     >
       <img
         v-if="service.notIcon"
