@@ -20,9 +20,8 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.28.0",
+    "@eslint/js": "^9.39.1",
     "@iconify/vue": "^5.0.0",
-    "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.15.29",
     "@vitejs/plugin-vue": "^6.0.2",
     "autoprefixer": "^10.4.22",
