@@ -138,17 +138,13 @@ export const handlers = [
   http.get<
     { includeSuspended?: string; name?: string; limit?: string },
     never,
-    User[],
-    '/api/v1/users'
+    User[]
   >('/api/v1/users', () => {
     return HttpResponse.json(sampleUsers)
   }),
 
   // apis.getUser
-  http.get<never, never, UserDetail, '/api/v1/users/:userId'>(
-    '/api/v1/users/:userId',
-    () => {
-      return HttpResponse.json(sampleActiveUser)
-    }
-  )
+  http.get<never, never, UserDetail>('/api/v1/users/:userId', () => {
+    return HttpResponse.json(sampleActiveUser)
+  })
 ]
