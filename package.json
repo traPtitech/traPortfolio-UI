@@ -31,7 +31,7 @@
     "msw": "^2.12.7",
     "node-fetch": "^3.3.2",
     "prettier": "^3.7.4",
-    "sass": "^1.95.0",
+    "sass": "^1.97.1",
     "ts-morph": "^27.0.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.51.0",
