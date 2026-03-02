@@ -22,6 +22,7 @@ jobs:
             const msg = `
             Preview (prod) → ${prod}
             Preview (dev) → ${dev}
+            :warning: このページは悪意のある改ざんを受けている可能性があります。 (特に fork 先からの PR の場合は必ず) 変更内容を確認してからアクセスするようにしてください
             `
 
             await github.rest.issues.createComment({
