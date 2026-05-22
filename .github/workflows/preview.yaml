@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-          cache: npm
+
       - run: npm ci
       - run: npm run gen-api
       - uses: actions/upload-artifact@v7
