@@ -17,7 +17,7 @@ jobs:
     name: Generate APIs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -35,7 +35,7 @@ jobs:
     needs:
       - genApi
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version-file: ./.node-version
@@ -53,7 +53,7 @@ jobs:
       - name: Archive dist/
         run: tar -zcvf ./dist.tar.gz ./dist
       - name: Create Release and upload dist.tar.gz
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -71,7 +71,7 @@ jobs:
       - name: Set IMAGE_TAG env
         run: echo IMAGE_TAG=$(echo ${GITHUB_REF:11}) >> $GITHUB_ENV
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
