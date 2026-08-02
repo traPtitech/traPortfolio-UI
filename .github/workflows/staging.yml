@@ -1,0 +1,53 @@
+name: Build image (main)
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_NAME: traportfolio-ui
+  IMAGE_TAG: main
+
+jobs:
+  genApi:
+    name: Generate APIs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm run gen-api
+      - uses: actions/upload-artifact@v7
+        with:
+          name: apis
+          path: ./src/lib/apis/generated
+  image:
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    needs:
+      - genApi
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: traptitech
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          name: apis
+          path: ./src/lib/apis/generated
+      - name: Build and push
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64
+          tags: ghcr.io/traptitech/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
